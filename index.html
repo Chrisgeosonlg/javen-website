@@ -749,6 +749,79 @@
   .nav-cta-group .btn-outline,
   .nav-cta-group .btn-solid { display: none; }
 }
+
+ /* TABLET RESPONSIVE */
+@media (max-width: 1024px) {
+
+  nav ul {
+    gap: 20px;
+  }
+
+  nav ul li a {
+    font-size: 13px;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 5vw, 48px);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid .plan-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .dashboard-section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .service-section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .footer-top {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .shield-section {
+    padding: 80px 6vw;
+  }
+
+  .hero-left {
+    padding: 80px 5vw 80px 6vw;
+  }
+
+}
+
+/* HAMBURGER ON TABLET TOO */
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+  nav ul { display: none; }
+  .nav-cta-group .btn-outline,
+  .nav-cta-group .btn-solid { display: none; }
+}
+ 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
