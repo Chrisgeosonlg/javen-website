@@ -658,6 +658,97 @@
     display: flex; justify-content: space-between; align-items: center;
     padding-top: 32px; font-size: 13px; color: rgba(255,255,255,0.35);
   }
+ /* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 99;
+  padding: 20px 6vw 32px;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu a:hover { color: var(--teal); }
+
+.mobile-menu .mobile-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.mobile-menu .btn-outline,
+.mobile-menu .btn-solid {
+  width: 100%;
+  justify-content: center;
+  padding: 14px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  nav ul { display: none; }
+  .nav-cta-group .btn-outline,
+  .nav-cta-group .btn-solid { display: none; }
+}
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
@@ -814,6 +905,11 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-cta-group">
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <a href="#" class="btn-outline">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
       Owner Login
@@ -824,7 +920,34 @@
     </a>
   </div>
 </nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#why" onclick="closeMenu()">For Owners</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#" onclick="closeMenu()">Available Rentals</a>
+  <a href="#" onclick="closeMenu()">Renter Resources</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <div class="mobile-btns">
+    <a href="#" class="btn-outline" onclick="closeMenu()">Owner Login</a>
+    <a href="#" class="btn-solid" onclick="closeMenu()">Tenant Login</a>
+  </div>
+</div>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
