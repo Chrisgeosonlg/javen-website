@@ -1346,11 +1346,12 @@
 </section>
 
 <!-- CONTACT -->
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="contact-text">
-    <p class="section-eyebrow">Get a Free Analysis</p>
-    <h2 class="section-title">Contact JAVEN to maximize your asset.</h2>
-    <p>Tell us about your property. We'll run a free rental analysis and show you exactly what JAVEN can do for your ROI — no obligation, no pressure.</p>
+    <p class="section-eyebrow">Get a Custom Quote</p>
+    <h2 class="section-title">Tell us about your portfolio.</h2>
+    <p>Our operations team will generate a transparent, fixed-rate proposal tailored to your exact asset type and desired service tier.</p>
     <div class="contact-info">
       <div class="contact-row">
         <div class="contact-icon">
@@ -1381,34 +1382,138 @@
       </div>
     </div>
   </div>
+
   <div class="contact-form">
-    <h3 class="form-title">Request a Free Rental Analysis</h3>
+    <h3 class="form-title">Generate My Custom Quote</h3>
+
+    <p style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Your Contact Details</p>
     <div class="form-row">
       <div class="form-group">
         <label>Full Name</label>
-        <input type="text" placeholder="Your name">
+        <input type="text" placeholder="Your full name">
       </div>
       <div class="form-group">
-        <label>Phone</label>
-        <input type="tel" placeholder="+255 ...">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
       </div>
     </div>
     <div class="form-group">
-      <label>Email</label>
-      <input type="email" placeholder="you@example.com">
+      <label>Phone Number (WhatsApp preferred)</label>
+      <input type="tel" placeholder="+255 ...">
     </div>
+
+    <p style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;margin-bottom:16px;">Portfolio Details</p>
     <div class="form-group">
-      <label>Property Address</label>
-      <input type="text" placeholder="Full property address">
+      <label>Primary Asset Location</label>
+      <select>
+        <option value="">Select location...</option>
+        <option>Dar es Salaam</option>
+        <option>Arusha</option>
+        <option>Zanzibar</option>
+        <option>Other</option>
+      </select>
     </div>
+
     <div class="form-group">
-      <label>Tell Us About Your Property</label>
-      <textarea rows="4" placeholder="Number of units, property type, current situation..."></textarea>
+      <label>Asset Type (select all that apply)</label>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Premium Residential Apartments (Long-Term)
+        </label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Short-Term / Serviced Apartments
+        </label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Commercial Office Spaces / Corporate Blocks
+        </label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Retail / Commercial Showrooms
+        </label>
+      </div>
     </div>
-    <button class="form-submit">Send Request — It's Free</button>
+
+    <div class="form-group">
+      <label>Total Number of Units</label>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 1–5 Units</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 6–20 Units</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 21–50 Units</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 51+ Units</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Desired Service Level</label>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="service" style="accent-color:var(--teal);"> Full-Service Property Management (Software, Tenants &amp; Field Ops)</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="service" style="accent-color:var(--teal);"> Javen OS Standalone Platform License (Software Only)</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Current Management Status</label>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="status" style="accent-color:var(--teal);"> I am managing it myself</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="status" style="accent-color:var(--teal);"> Currently managed by a traditional agency / dalali</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="status" style="accent-color:var(--teal);"> This is a new development nearing completion</label>
+      </div>
+    </div>
+
+    <button class="form-submit">Generate My Custom Quote</button>
   </div>
 </section>
 
+ <!-- FAQ -->
+<section style="padding:100px 8vw;background:var(--white);">
+  <div class="section-header">
+    <p class="section-eyebrow">Common Questions</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:2px;margin-top:48px;border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+
+    <details style="background:white;padding:28px 32px;cursor:pointer;">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+        What is the main difference between Full Management and Javen OS?
+        <span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span>
+      </summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;"><strong style="color:var(--dark);">Full-Service Management</strong> is a comprehensive physical and digital solution. Javen deploys the software, collects rent, manages tenant relations, runs estate logistics, and dispatches maintenance teams.<br><br><strong style="color:var(--dark);">Javen OS</strong> is a software license only. You remain physically responsible for your units — Javen provides the premium digital platform for rent tracking, invoicing, and contract storage.</p>
+    </details>
+
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+        Why don't you publish flat percentages on your website?
+        <span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span>
+      </summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">A flat percentage often penalizes landlords unfairly. A 50-unit commercial complex operates on entirely different economics than a 4-unit luxury apartment block. By customizing your fixed fee based on unit volume, asset type, and service tier, we ensure you only pay for the exact level of oversight your property requires.</p>
+    </details>
+
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+        How does Javen manage the estate service charges for managed buildings?
+        <span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span>
+      </summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">Javen collects service charges directly from tenants and handles the timely payout and scheduling for building water, common area LUKU, trash collection, landscaping, fumigation, and security teams. Landlords never have to chase tenants for utility contributions or deal with sudden service cut-offs.</p>
+    </details>
+
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+        How does Javen handle deep cleaning when a tenant moves out?
+        <span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span>
+      </summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">For Full-Service clients, when a space is vacated Javen automatically conducts a thorough digital visual inspection. Through your Owner Portal you can review the turnaround report and instantly authorize our professional deep-cleaning crew. The pre-vetted cost is tracked through your dashboard with zero logistical stress. Javen OS clients can access our vetted vendor list but must coordinate cleaning independently.</p>
+    </details>
+
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+        Are there any hidden setup fees or onboarding costs?
+        <span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span>
+      </summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">Absolutely not. Onboarding your portfolio, migrating existing tenant data, and setting up your Owner Login dashboard is completely free for both plans. Your transparent fixed fee only activates once your account is fully built out and your active management or software access begins.</p>
+    </details>
+
+  </div>
+</section>
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
