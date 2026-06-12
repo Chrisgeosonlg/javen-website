@@ -220,7 +220,9 @@
     .hero-stats { gap: 24px; flex-wrap: wrap; }
     .why-section, .pricing-section, .dashboard-section, .service-section, .contact-section { padding: 70px 6vw; }
     .features-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; gap: 32px; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+    #pricing > div:nth-child(2) { grid-template-columns: 1fr !important; }
+    #pricing > div:last-child { grid-template-columns: 1fr 1fr !important; }
     .dashboard-section, .service-section, .contact-section { grid-template-columns: 1fr; gap: 40px; }
     .form-row { grid-template-columns: 1fr; }
     .shield-section { flex-direction: column; text-align: center; padding: 60px 6vw; }
@@ -397,50 +399,190 @@
   </div>
 </section>
 
-<!-- PRICING — Tier A & B -->
-<section class="pricing-section" id="pricing">
-  <div class="section-header">
-    <p class="section-eyebrow">Transparent, Scalable Property Solutions</p>
-    <h2 class="section-title">Choose your operational tier.</h2>
-    <p style="color:rgba(255,255,255,0.6);font-size:16px;margin-top:16px;max-width:680px;line-height:1.75;">Choose between our full-service systemized management or license our powerful rental platform to run your own portfolio.</p>
-  </div>
-  <div class="pricing-grid">
+<!-- PRICING — Premium card design -->
+<section id="pricing" style="padding:100px 6vw;background:#0d0f1e;">
 
-    <div class="plan-card featured" style="border-color:var(--teal-light);">
-      <div class="plan-badge">Most Popular</div>
-      <p class="plan-name">Tier A</p>
-      <h3 style="font-size:22px;font-weight:800;color:white;margin-bottom:12px;letter-spacing:-0.5px;line-height:1.2;">Full-Service Management Ecosystem</h3>
-      <p class="plan-desc" style="margin-bottom:24px;">Complete operational peace of mind while Javen handles the entire physical and digital lifecycle of your asset.</p>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>End-to-end rent collection &amp; TRA-compliant invoicing</li>
-        <li>Full portfolio analytics &amp; real-time Owner Portal</li>
-        <li>The Javen Eviction Shield — included at no extra charge</li>
-        <li>Proactive digital inspection cadences &amp; maintenance</li>
-        <li>Automated water billing, LUKU, garbage &amp; security</li>
-        <li>Landscaping, fumigation &amp; vacancy deep cleaning</li>
-        <li>24/7 on-demand visibility from any device</li>
-      </ul>
-      <button class="plan-cta" style="margin-top:36px;background:var(--teal-light);border-color:var(--teal-light);">Select Full-Service Management</button>
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:60px;">
+    <p style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;">Transparent, Scalable Property Solutions</p>
+    <h2 style="font-size:clamp(32px,4.5vw,58px);font-weight:800;color:white;letter-spacing:-2px;line-height:1.1;margin-bottom:20px;">Choose your operational tier.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.55);max-width:600px;margin:0 auto;line-height:1.75;">Choose between our full-service systemized management or license our powerful rental platform to run your own portfolio.</p>
+  </div>
+
+  <!-- Two cards -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1200px;margin:0 auto;">
+
+    <!-- TIER A -->
+    <div style="background:#131729;border:1px solid rgba(104,114,182,0.5);border-radius:24px;padding:40px;position:relative;overflow:hidden;">
+      <!-- Glow effect -->
+      <div style="position:absolute;top:-60px;left:-60px;width:200px;height:200px;background:rgba(76,93,170,0.2);border-radius:50%;filter:blur(60px);pointer-events:none;"></div>
+
+      <!-- Badge -->
+      <div style="display:inline-block;background:var(--teal-light);color:white;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:24px;">Most Popular</div>
+
+      <!-- Top row: building image + title -->
+      <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;">
+        <!-- Building illustration placeholder -->
+        <div style="flex-shrink:0;width:100px;height:110px;background:linear-gradient(135deg,rgba(76,93,170,0.4) 0%,rgba(104,114,182,0.2) 100%);border-radius:14px;border:1px solid rgba(104,114,182,0.3);display:flex;align-items:center;justify-content:center;font-size:40px;">🏢</div>
+        <div>
+          <p style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-light);margin-bottom:8px;">Tier A</p>
+          <h3 style="font-size:26px;font-weight:800;color:white;line-height:1.15;letter-spacing:-0.5px;margin-bottom:8px;">Full-Service Property Management</h3>
+          <p style="font-size:14px;font-weight:600;color:var(--teal-light);">(Powered by Javen OS)</p>
+        </div>
+      </div>
+
+      <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:28px;">We manage everything from tenants to cash flow while you track performance in real time.</p>
+
+      <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:28px;"></div>
+
+      <!-- Feature list with icons -->
+      <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:36px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">End-to-end rent collection &amp; TRA-compliant invoicing</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We handle collections, invoicing, and follow-ups.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Tenant management &amp; screening</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We find, screen, and manage quality tenants.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Maintenance coordination &amp; inspections</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Proactive upkeep to protect your asset value.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Financial reporting &amp; portfolio analytics</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Clear insights on income, expenses &amp; performance.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Real-time Owner Portal (24/7 access)</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Complete visibility from any device, anywhere.</div></div>
+        </div>
+      </div>
+
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="width:100%;padding:16px 24px;border-radius:12px;background:var(--teal-light);border:none;color:white;font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background 0.2s;" onmouseover="this.style.background='#4c5daa'" onmouseout="this.style.background='#6872b6'">
+        Choose Full-Service Management
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
     </div>
 
-    <div class="plan-card">
-      <p class="plan-name">Tier B</p>
-      <h3 style="font-size:22px;font-weight:800;color:white;margin-bottom:12px;letter-spacing:-0.5px;line-height:1.2;">Javen OS — Operating System License</h3>
-      <p class="plan-desc" style="margin-bottom:24px;">For self-managed landlords who want elite digital infrastructure without full physical management.</p>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>Automated rent tracking via M-Pesa, Airtel &amp; Tigo Pesa</li>
-        <li>TRA-compliant digital invoicing sent 5 days before due date</li>
-        <li>Digital document vault — leases, IDs &amp; filings</li>
-        <li>Tenant portal — utility history, receipts &amp; balances</li>
-        <li>Bank transfer logging &amp; instant clearing</li>
-      </ul>
-      <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:20px;line-height:1.6;font-style:italic;">Note: Javen field staff do not handle physical operations, maintenance dispatch, or security coordination under this plan.</p>
-      <button class="plan-cta" style="margin-top:36px;">Select Javen OS License</button>
+    <!-- TIER B -->
+    <div style="background:#131729;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px;position:relative;overflow:hidden;">
+
+      <!-- Top: title + dashboard mockup -->
+      <div style="margin-bottom:28px;">
+        <p style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Tier B</p>
+        <h3 style="font-size:26px;font-weight:800;color:white;line-height:1.15;letter-spacing:-0.5px;margin-bottom:6px;">Javen OS Platform</h3>
+        <p style="font-size:14px;font-weight:600;color:var(--amber);margin-bottom:16px;">(Self-Management License)</p>
+
+        <!-- Dashboard mockup -->
+        <div style="background:rgba(76,93,170,0.15);border:1px solid rgba(76,93,170,0.3);border-radius:14px;padding:16px;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e;"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#28ca42;"></div>
+            <span style="font-size:10px;color:rgba(255,255,255,0.4);margin-left:auto;">Javen OS Dashboard</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;">
+            <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;"><div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">PROPERTIES</div><div style="font-size:16px;font-weight:800;color:white;">14</div></div>
+            <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;"><div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">OCCUPIED</div><div style="font-size:16px;font-weight:800;color:#28ca42;">8</div></div>
+            <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;"><div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">INCOME</div><div style="font-size:16px;font-weight:800;color:var(--teal-light);">4.2M</div></div>
+          </div>
+          <!-- Mini bar chart -->
+          <div style="display:flex;align-items:flex-end;gap:4px;height:36px;">
+            <div style="flex:1;background:rgba(76,93,170,0.4);border-radius:3px 3px 0 0;height:50%;"></div>
+            <div style="flex:1;background:rgba(76,93,170,0.4);border-radius:3px 3px 0 0;height:70%;"></div>
+            <div style="flex:1;background:rgba(76,93,170,0.4);border-radius:3px 3px 0 0;height:55%;"></div>
+            <div style="flex:1;background:rgba(76,93,170,0.4);border-radius:3px 3px 0 0;height:85%;"></div>
+            <div style="flex:1;background:rgba(76,93,170,0.4);border-radius:3px 3px 0 0;height:75%;"></div>
+            <div style="flex:1;background:var(--teal-light);border-radius:3px 3px 0 0;height:100%;"></div>
+          </div>
+        </div>
+
+        <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;">Powerful software and tools to manage your properties yourself with complete control and visibility.</p>
+      </div>
+
+      <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:24px;"></div>
+
+      <!-- Feature list -->
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:36px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Automated invoicing &amp; rent tracking</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Generate invoices, track payments, and send reminders.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Multi-payment tracking (M-Pesa, Airtel, Tigo Pesa &amp; more)</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Track all payments in one place automatically.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Maintenance requests &amp; task management</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Log, assign, and track maintenance in real time.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Portfolio analytics &amp; performance dashboard</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Visualize occupancy, income, expenses &amp; more.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Document storage &amp; secure cloud access</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Store leases, invoices, and important documents securely.</div></div>
+        </div>
+      </div>
+
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="width:100%;padding:16px 24px;border-radius:12px;background:transparent;border:1.5px solid rgba(255,255,255,0.3);color:white;font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background 0.2s,border-color 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.6)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.3)'">
+        Choose Javen OS Platform
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
     </div>
 
   </div>
+
+  <!-- Trust bar -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:20px;max-width:1200px;margin-left:auto;margin-right:auto;background:rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
+    <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <div><div style="font-size:13px;font-weight:700;color:white;">100% Transparent</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">No hidden fees. No surprises.</div></div>
+    </div>
+    <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div><div style="font-size:13px;font-weight:700;color:white;">Bank-Level Security</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">Your data is safe and encrypted.</div></div>
+    </div>
+    <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div><div style="font-size:13px;font-weight:700;color:white;">Access Anywhere</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">Web, mobile, anytime.</div></div>
+    </div>
+    <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div><div style="font-size:13px;font-weight:700;color:white;">Local Support</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">Real people. Real fast.</div></div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ESTATE SERVICE CHARGES — Option 3 split layout -->
