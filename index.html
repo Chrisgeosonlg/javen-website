@@ -366,6 +366,76 @@
     document.body.style.overflow = '';
   }
   function sendContactForm() {
+    var name = document.getElementById('cf-name').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var phone = document.getElementById('cf-phone').value.trim();
+    var subject = document.getElementById('cf-subject').value;
+    var message = document.getElementById('cf-message').value.trim();
+
+    var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
+
+    clearErrors();
+
+    if (!email) {
+      showError('cf-email', 'Email address is required.');
+      return;
+    }
+    if (!emailValid) {
+      showError('cf-email', 'Please enter a valid email address.');
+      return;
+    }
+    if (!phone) {
+      showError('cf-phone', 'Phone number is required.');
+      return;
+    }
+    if (!phoneValid) {
+      showError('cf-phone', 'Please enter a valid phone number.');
+      return;
+    }
+
+    var body = 'Name: ' + (name||'Not provided')
+      + '%0AEmail: ' + email
+      + '%0APhone: ' + phone
+      + '%0ASubject: ' + (subject||'Not selected')
+      + '%0A%0AMessage:%0A' + (message||'No message');
+
+    window.location.href = 'mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
+
+    document.getElementById('cf-name').value = '';
+    document.getElementById('cf-email').value = '';
+    document.getElementById('cf-phone').value = '';
+    document.getElementById('cf-subject').value = '';
+    document.getElementById('cf-message').value = '';
+
+    closeContact();
+
+    setTimeout(function() {
+      var toast = document.getElementById('toast-success');
+      toast.style.display = 'flex';
+      toast.style.opacity = '1';
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        setTimeout(function() { toast.style.display = 'none'; }, 400);
+      }, 3500);
+    }, 500);
+  }
+
+  function showError(fieldId, msg) {
+    var field = document.getElementById(fieldId);
+    field.style.borderColor = '#f07863';
+    var err = document.createElement('div');
+    err.className = 'field-error';
+    err.style.cssText = 'color:#f07863;font-size:11px;margin-top:5px;font-weight:500;';
+    err.innerText = msg;
+    field.parentNode.appendChild(err);
+  }
+
+  function clearErrors() {
+    document.querySelectorAll('.field-error').forEach(function(el) { el.remove(); });
+    document.getElementById('cf-email').style.borderColor = '';
+    document.getElementById('cf-phone').style.borderColor = '';
+  }
     var name = document.getElementById('cf-name').value;
     var email = document.getElementById('cf-email').value;
     var phone = document.getElementById('cf-phone').value;
