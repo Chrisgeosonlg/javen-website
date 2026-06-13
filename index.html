@@ -438,7 +438,7 @@
     var body = 'Name: ' + (name||'Not provided') + '%0AEmail: ' + email + '%0APhone: ' + phone + '%0ALocation: ' + (location||'Not selected') + '%0AUnits: ' + (units ? units.parentElement.innerText.trim() : 'Not selected') + '%0AService Level: ' + (service ? service.parentElement.innerText.trim() : 'Not selected') + '%0AManagement Status: ' + (status ? status.parentElement.innerText.trim() : 'Not selected');
     window.location.href = 'mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
     var waMessage = 'Hello JAVEN,%0A%0ANew Quote Request:%0AName: ' + (name||'Not provided') + '%0AEmail: ' + email + '%0APhone: ' + phone + '%0ALocation: ' + (location||'Not selected') + '%0AUnits: ' + (units ? units.parentElement.innerText.trim() : 'Not selected') + '%0AService: ' + (service ? service.parentElement.innerText.trim() : 'Not selected') + '%0AStatus: ' + (status ? status.parentElement.innerText.trim() : 'Not selected');
-    setTimeout(function() { window.open('https://wa.me/255764939392?text=' + waMessage, '_blank'); }, 1000);
+    setTimeout(function() { window.open('https://wa.me/255655007492?text=' + waMessage, '_blank'); }, 1000);
     document.getElementById('quoteBtn').style.display = 'none';
     document.getElementById('quote-success').style.display = 'block';
     document.getElementById('quote-success').scrollIntoView({behavior:'smooth', block:'center'});
