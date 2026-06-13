@@ -377,17 +377,24 @@
       + '%0ASubject: ' + (subject||'Not selected')
       + '%0A%0AMessage:%0A' + (message||'No message');
     window.location.href = 'mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
-    document.getElementById('cf-success').style.display = 'block';
-    document.getElementById('cf-success').scrollIntoView({behavior:'smooth', block:'center'});
+
+    document.getElementById('cf-name').value = '';
+    document.getElementById('cf-email').value = '';
+    document.getElementById('cf-phone').value = '';
+    document.getElementById('cf-subject').value = '';
+    document.getElementById('cf-message').value = '';
+
+    closeContact();
+
     setTimeout(function() {
-      document.getElementById('cf-success').style.display = 'none';
-      document.getElementById('cf-name').value = '';
-      document.getElementById('cf-email').value = '';
-      document.getElementById('cf-phone').value = '';
-      document.getElementById('cf-subject').value = '';
-      document.getElementById('cf-message').value = '';
-      closeContact();
-    }, 3000);
+      var toast = document.getElementById('toast-success');
+      toast.style.display = 'flex';
+      toast.style.opacity = '1';
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        setTimeout(function() { toast.style.display = 'none'; }, 400);
+      }, 3500);
+    }, 500);
   }
 </script>
  
@@ -965,6 +972,14 @@
 </section>
 
 <!-- BACK TO TOP -->
+ <!-- TOAST NOTIFICATION -->
+<div id="toast-success" style="display:none;opacity:0;position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#1e2140;color:white;padding:16px 28px;border-radius:14px;border-left:4px solid #6872b6;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:9999;align-items:center;gap:14px;min-width:300px;transition:opacity 0.4s ease;">
+  <div style="width:36px;height:36px;background:rgba(76,93,170,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">✅</div>
+  <div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:2px;">Message Sent!</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.6);">We'll get back to you within 24 hours.</div>
+  </div>
+</div>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <!-- FOOTER -->
