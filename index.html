@@ -443,13 +443,15 @@
     document.getElementById('quote-success').style.display = 'block';
     document.getElementById('quote-success').scrollIntoView({behavior:'smooth', block:'center'});
   }
-  function showQuoteError(field, msg) {
+ function showQuoteError(field, msg) {
     field.style.borderColor = '#f07863';
     var err = document.createElement('div');
     err.className = 'quote-error';
     err.style.cssText = 'color:#f07863;font-size:11px;margin-top:5px;font-weight:500;';
     err.innerText = msg;
     field.parentNode.appendChild(err);
+    field.scrollIntoView({behavior:'smooth', block:'center'});
+    field.focus();
   }
 </script>
 
