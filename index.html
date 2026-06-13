@@ -35,6 +35,7 @@
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: white; z-index: 99; padding: 20px 6vw 32px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.08); flex-direction: column; gap: 4px; }
   .mobile-menu.open { display: flex; }
   .mobile-menu a { font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--dark); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
@@ -88,6 +89,27 @@
   .feature-icon svg { width: 24px; height: 24px; stroke: var(--teal); fill: none; stroke-width: 1.5; }
   .feature-title { font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--dark); margin-bottom: 14px; letter-spacing: -0.3px; }
   .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+  /* PRICING */
+  .pricing-section { padding: 120px 8vw; background: var(--dark); color: white; }
+  .pricing-section .section-eyebrow { color: var(--teal-light); }
+  .pricing-section .section-eyebrow::before { background: var(--teal-light); }
+  .pricing-section .section-title { color: white; max-width: none; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; }
+  .plan-card { border-radius: 16px; padding: 40px 36px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); transition: border-color 0.3s, background 0.3s; display: flex; flex-direction: column; }
+  .plan-card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); }
+  .plan-card.featured { border-color: var(--teal-light); background: rgba(76,93,170,0.18); position: relative; }
+  .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--teal-light); color: white; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; white-space: nowrap; }
+  .plan-name { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 12px; }
+  .plan-desc { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+  .plan-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .plan-features { list-style: none; flex: 1; }
+  .plan-features li { font-size: 14px; color: rgba(255,255,255,0.75); padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; }
+  .plan-features li::before { content: '✓'; color: var(--teal-light); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+  .plan-cta { margin-top: 36px; width: 100%; padding: 14px; border-radius: 8px; font-family: var(--sans); font-size: 14px; font-weight: 500; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; transition: background 0.2s, border-color 0.2s; }
+  .plan-cta:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+  .plan-card.featured .plan-cta { background: var(--teal-light); border-color: var(--teal-light); }
+  .plan-card.featured .plan-cta:hover { background: #3a4a8a; }
 
   /* DASHBOARD */
   .dashboard-section { padding: 120px 8vw; background: var(--off); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -170,6 +192,7 @@
     nav ul li a { font-size: 12px; }
     .hero-title { font-size: clamp(32px, 5vw, 48px); }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
     .dashboard-section, .service-section, .contact-section { grid-template-columns: 1fr; gap: 48px; }
     .footer-top { grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
     .footer-brand { grid-column: 1 / -1; }
@@ -178,11 +201,13 @@
     .estate-split { grid-template-columns: 1fr !important; }
     .estate-sticky { position: static !important; }
   }
+
   @media (max-width: 900px) {
     .hamburger { display: flex; }
     nav ul { display: none; }
     .nav-cta-group .btn-outline, .nav-cta-group .btn-solid { display: none; }
   }
+
   @media (max-width: 768px) {
     nav { padding: 0 5vw; }
     .hamburger { display: flex; }
@@ -193,8 +218,9 @@
     .hero-right { min-height: 400px; }
     .hero-img-placeholder { min-height: 400px; padding: 30px 24px; }
     .hero-stats { gap: 24px; flex-wrap: wrap; }
-    .why-section, .dashboard-section, .service-section, .contact-section { padding: 70px 6vw; }
+    .why-section, .pricing-section, .dashboard-section, .service-section, .contact-section { padding: 70px 6vw; }
     .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
     #pricing > div:nth-child(2) { grid-template-columns: 1fr !important; }
     #pricing > div:last-child { grid-template-columns: 1fr 1fr !important; }
     .dashboard-section, .service-section, .contact-section { grid-template-columns: 1fr; gap: 40px; }
@@ -225,6 +251,7 @@
   <ul>
     <li><a href="#why">Why Javen</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    
     <li><a href="#dashboard">Owner Portal</a></li>
     <li><a href="#contact">Get a Quote</a></li>
     <li><a href="#faq">FAQs</a></li>
@@ -245,9 +272,12 @@
   </div>
 </nav>
 
-<!-- SLIDE-IN CONTACT PANEL -->
+ <!-- SLIDE-IN CONTACT PANEL -->
 <div id="contactOverlay" onclick="closeContact()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:998;"></div>
+
 <div id="contactPanel" style="position:fixed;top:0;right:-480px;width:480px;max-width:100vw;height:100%;background:white;z-index:999;overflow-y:auto;transition:right 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 40px rgba(0,0,0,0.15);">
+
+  <!-- Panel Header -->
   <div style="display:flex;align-items:center;justify-content:space-between;padding:28px 36px;border-bottom:1px solid var(--border);position:sticky;top:0;background:white;z-index:1;">
     <div>
       <p style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;">Get in Touch</p>
@@ -255,6 +285,8 @@
     </div>
     <button onclick="closeContact()" style="width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted);">✕</button>
   </div>
+
+  <!-- Contact Info -->
   <div style="padding:28px 36px;background:var(--teal-faint);border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:14px;">
     <div style="display:flex;align-items:center;gap:12px;">
       <div style="width:36px;height:36px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -275,19 +307,22 @@
       <div><div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;">Location</div><div style="font-size:14px;font-weight:600;color:var(--dark);">Dar es Salaam, Tanzania</div></div>
     </div>
   </div>
+
+  <!-- Contact Form -->
   <div style="padding:32px 36px;">
     <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.7;">Send us a message and our team will get back to you within 24 hours.</p>
+
     <div style="display:flex;flex-direction:column;gap:16px;">
       <div style="display:flex;flex-direction:column;gap:6px;">
         <label style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Full Name</label>
         <input id="cf-name" type="text" placeholder="Your full name" style="font-family:var(--sans);font-size:14px;border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--dark);background:white;outline:none;width:100%;">
       </div>
       <div style="display:flex;flex-direction:column;gap:6px;">
-        <label style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Email Address *</label>
+        <label style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Email Address</label>
         <input id="cf-email" type="email" placeholder="you@example.com" style="font-family:var(--sans);font-size:14px;border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--dark);background:white;outline:none;width:100%;">
       </div>
       <div style="display:flex;flex-direction:column;gap:6px;">
-        <label style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Phone Number *</label>
+        <label style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Phone Number</label>
         <input id="cf-phone" type="tel" placeholder="+255 ..." style="font-family:var(--sans);font-size:14px;border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--dark);background:white;outline:none;width:100%;">
       </div>
       <div style="display:flex;flex-direction:column;gap:6px;">
@@ -305,36 +340,149 @@
         <label style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Message</label>
         <textarea id="cf-message" rows="4" placeholder="Tell us how we can help you..." style="font-family:var(--sans);font-size:14px;border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--dark);background:white;outline:none;width:100%;resize:none;"></textarea>
       </div>
-      <button onclick="sendContactForm()" style="width:100%;padding:15px;border-radius:8px;background:var(--teal);color:white;font-family:var(--sans);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s;margin-top:4px;" onmouseover="this.style.background='#3a4a8a'" onmouseout="this.style.background='var(--teal)'">Send Message</button>
+
+      <button onclick="sendContactForm()" style="width:100%;padding:15px;border-radius:8px;background:var(--teal);color:white;font-family:var(--sans);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s;margin-top:4px;" onmouseover="this.style.background='#3a4a8a'" onmouseout="this.style.background='var(--teal)'">
+        Send Message
+      </button>
+
+      <div id="cf-success" style="display:none;text-align:center;padding:16px;background:var(--teal-faint);border-radius:10px;border:1px solid rgba(76,93,170,0.2);">
+        <div style="font-size:24px;margin-bottom:8px;">✅</div>
+        <div style="font-size:14px;font-weight:700;color:var(--teal);">Message Sent!</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">We'll get back to you within 24 hours.</div>
+      </div>
     </div>
   </div>
 </div>
 
+<script>
+  function openContact() {
+    document.getElementById('contactPanel').style.right = '0';
+    document.getElementById('contactOverlay').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContact() {
+    document.getElementById('contactPanel').style.right = '-480px';
+    document.getElementById('contactOverlay').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  function sendContactForm() {
+    var name = document.getElementById('cf-name').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var phone = document.getElementById('cf-phone').value.trim();
+    var subject = document.getElementById('cf-subject').value;
+    var message = document.getElementById('cf-message').value.trim();
+
+    var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
+
+    clearErrors();
+
+    if (!email) {
+      showError('cf-email', 'Email address is required.');
+      return;
+    }
+    if (!emailValid) {
+      showError('cf-email', 'Please enter a valid email address.');
+      return;
+    }
+    if (!phone) {
+      showError('cf-phone', 'Phone number is required.');
+      return;
+    }
+    if (!phoneValid) {
+      showError('cf-phone', 'Please enter a valid phone number.');
+      return;
+    }
+
+    var body = 'Name: ' + (name||'Not provided')
+      + '%0AEmail: ' + email
+      + '%0APhone: ' + phone
+      + '%0ASubject: ' + (subject||'Not selected')
+      + '%0A%0AMessage:%0A' + (message||'No message');
+
+    window.location.href = 'mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
+
+    document.getElementById('cf-name').value = '';
+    document.getElementById('cf-email').value = '';
+    document.getElementById('cf-phone').value = '';
+    document.getElementById('cf-subject').value = '';
+    document.getElementById('cf-message').value = '';
+
+    closeContact();
+
+    setTimeout(function() {
+      var toast = document.getElementById('toast-success');
+      toast.style.display = 'flex';
+      toast.style.opacity = '1';
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        setTimeout(function() { toast.style.display = 'none'; }, 400);
+      }, 3500);
+    }, 500);
+  }
+
+  function showError(fieldId, msg) {
+    var field = document.getElementById(fieldId);
+    field.style.borderColor = '#f07863';
+    var err = document.createElement('div');
+    err.className = 'field-error';
+    err.style.cssText = 'color:#f07863;font-size:11px;margin-top:5px;font-weight:500;';
+    err.innerText = msg;
+    field.parentNode.appendChild(err);
+  }
+
+  function clearErrors() {
+    document.querySelectorAll('.field-error').forEach(function(el) { el.remove(); });
+    document.getElementById('cf-email').style.borderColor = '';
+    document.getElementById('cf-phone').style.borderColor = '';
+  }
+    var name = document.getElementById('cf-name').value;
+    var email = document.getElementById('cf-email').value;
+    var phone = document.getElementById('cf-phone').value;
+    var subject = document.getElementById('cf-subject').value;
+    var message = document.getElementById('cf-message').value;
+    var body = 'Name: ' + (name||'Not provided')
+      + '%0AEmail: ' + (email||'Not provided')
+      + '%0APhone: ' + (phone||'Not provided')
+      + '%0ASubject: ' + (subject||'Not selected')
+      + '%0A%0AMessage:%0A' + (message||'No message');
+    window.location.href = 'mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
+
+    document.getElementById('cf-name').value = '';
+    document.getElementById('cf-email').value = '';
+    document.getElementById('cf-phone').value = '';
+    document.getElementById('cf-subject').value = '';
+    document.getElementById('cf-message').value = '';
+
+    closeContact();
+
+    setTimeout(function() {
+      var toast = document.getElementById('toast-success');
+      toast.style.display = 'flex';
+      toast.style.opacity = '1';
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        setTimeout(function() { toast.style.display = 'none'; }, 400);
+      }, 3500);
+    }, 500);
+  }
+</script>
+ 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#why" onclick="closeMenu()">Why Javen</a>
   <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  
   <a href="#dashboard" onclick="closeMenu()">Owner Portal</a>
   <a href="#contact" onclick="closeMenu()">Get a Quote</a>
   <a href="#faq" onclick="closeMenu()">FAQs</a>
-  <a href="#" onclick="closeMenu();openContact();">Contact Us</a>
   <div class="mobile-btns">
     <a href="#" class="btn-outline" onclick="closeMenu()">Owner Login</a>
     <a href="#" class="btn-solid" onclick="closeMenu()">Tenant Login</a>
   </div>
 </div>
 
-<!-- TOAST NOTIFICATION -->
-<div id="toast-success" style="display:none;opacity:0;position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#1e2140;color:white;padding:16px 28px;border-radius:14px;border-left:4px solid #6872b6;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:9999;align-items:center;gap:14px;min-width:300px;transition:opacity 0.4s ease;">
-  <div style="width:36px;height:36px;background:rgba(76,93,170,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">✅</div>
-  <div>
-    <div style="font-size:14px;font-weight:700;margin-bottom:2px;">Message Sent!</div>
-    <div style="font-size:12px;color:rgba(255,255,255,0.6);">We'll get back to you within 24 hours.</div>
-  </div>
-</div>
-
 <script>
-  // NAV & MENU
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', function() {
@@ -357,100 +505,6 @@
     const btn = document.getElementById('backToTop');
     btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
   });
-
-  // CONTACT PANEL
-  function openContact() {
-    document.getElementById('contactPanel').style.right = '0';
-    document.getElementById('contactOverlay').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  }
-  function closeContact() {
-    document.getElementById('contactPanel').style.right = '-480px';
-    document.getElementById('contactOverlay').style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  // CONTACT FORM
-  function sendContactForm() {
-    var name = document.getElementById('cf-name').value.trim();
-    var email = document.getElementById('cf-email').value.trim();
-    var phone = document.getElementById('cf-phone').value.trim();
-    var subject = document.getElementById('cf-subject').value;
-    var message = document.getElementById('cf-message').value.trim();
-    var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
-    clearErrors();
-    if (!email) { showError('cf-email', 'Email address is required.'); return; }
-    if (!emailValid) { showError('cf-email', 'Please enter a valid email address.'); return; }
-    if (!phone) { showError('cf-phone', 'Phone number is required.'); return; }
-    if (!phoneValid) { showError('cf-phone', 'Please enter a valid phone number.'); return; }
-    var body = 'Name: ' + (name||'Not provided') + '%0AEmail: ' + email + '%0APhone: ' + phone + '%0ASubject: ' + (subject||'Not selected') + '%0A%0AMessage:%0A' + (message||'No message');
-    window.location.href = 'mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
-    document.getElementById('cf-name').value = '';
-    document.getElementById('cf-email').value = '';
-    document.getElementById('cf-phone').value = '';
-    document.getElementById('cf-subject').value = '';
-    document.getElementById('cf-message').value = '';
-    closeContact();
-    setTimeout(function() {
-      var toast = document.getElementById('toast-success');
-      toast.style.display = 'flex';
-      toast.style.opacity = '1';
-      setTimeout(function() {
-        toast.style.opacity = '0';
-        setTimeout(function() { toast.style.display = 'none'; }, 400);
-      }, 3500);
-    }, 500);
-  }
-  function showError(fieldId, msg) {
-    var field = document.getElementById(fieldId);
-    field.style.borderColor = '#f07863';
-    var err = document.createElement('div');
-    err.className = 'field-error';
-    err.style.cssText = 'color:#f07863;font-size:11px;margin-top:5px;font-weight:500;';
-    err.innerText = msg;
-    field.parentNode.appendChild(err);
-  }
-  function clearErrors() {
-    document.querySelectorAll('.field-error').forEach(function(el) { el.remove(); });
-    document.getElementById('cf-email').style.borderColor = '';
-    document.getElementById('cf-phone').style.borderColor = '';
-  }
-
-  // QUOTE FORM
-  function submitQuote() {
-    var inputs = document.querySelectorAll('.contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]');
-    var name = inputs[0] ? inputs[0].value.trim() : '';
-    var email = inputs[1] ? inputs[1].value.trim() : '';
-    var phone = inputs[2] ? inputs[2].value.trim() : '';
-    var location = document.querySelector('.contact-form select') ? document.querySelector('.contact-form select').value : '';
-    var units = document.querySelector('input[name=units]:checked');
-    var service = document.querySelector('input[name=service]:checked');
-    var status = document.querySelector('input[name=status]:checked');
-    var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
-    document.querySelectorAll('.quote-error').forEach(function(el){ el.remove(); });
-    document.querySelectorAll('.contact-form input[type=email], .contact-form input[type=tel]').forEach(function(el){ el.style.borderColor = ''; });
-    if (!email) { showQuoteError(inputs[1], 'Email address is required.'); return; }
-    if (!emailValid) { showQuoteError(inputs[1], 'Please enter a valid email address.'); return; }
-    if (!phone) { showQuoteError(inputs[2], 'Phone number is required.'); return; }
-    if (!phoneValid) { showQuoteError(inputs[2], 'Please enter a valid phone number.'); return; }
-    var body = 'Name: ' + (name||'Not provided') + '%0AEmail: ' + email + '%0APhone: ' + phone + '%0ALocation: ' + (location||'Not selected') + '%0AUnits: ' + (units ? units.parentElement.innerText.trim() : 'Not selected') + '%0AService Level: ' + (service ? service.parentElement.innerText.trim() : 'Not selected') + '%0AManagement Status: ' + (status ? status.parentElement.innerText.trim() : 'Not selected');
-    window.location.href = 'mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
-    var waMessage = 'Hello JAVEN,%0A%0ANew Quote Request:%0AName: ' + (name||'Not provided') + '%0AEmail: ' + email + '%0APhone: ' + phone + '%0ALocation: ' + (location||'Not selected') + '%0AUnits: ' + (units ? units.parentElement.innerText.trim() : 'Not selected') + '%0AService: ' + (service ? service.parentElement.innerText.trim() : 'Not selected') + '%0AStatus: ' + (status ? status.parentElement.innerText.trim() : 'Not selected');
-    setTimeout(function() { window.open('https://wa.me/255764939392?text=' + waMessage, '_blank'); }, 1000);
-    document.getElementById('quoteBtn').style.display = 'none';
-    document.getElementById('quote-success').style.display = 'block';
-    document.getElementById('quote-success').scrollIntoView({behavior:'smooth', block:'center'});
-  }
-  function showQuoteError(field, msg) {
-    field.style.borderColor = '#f07863';
-    var err = document.createElement('div');
-    err.className = 'quote-error';
-    err.style.cssText = 'color:#f07863;font-size:11px;margin-top:5px;font-weight:500;';
-    err.innerText = msg;
-    field.parentNode.appendChild(err);
-  }
 </script>
 
 <!-- HERO -->
@@ -478,7 +532,9 @@
   </div>
   <div class="hero-right">
     <div class="hero-img-placeholder">
-      <video class="hero-video" autoplay muted loop playsinline><source src="hero-video.mp4" type="video/mp4"></video>
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="hero-video.mp4" type="video/mp4">
+      </video>
       <div class="hero-video-overlay"></div>
       <div class="hero-card-float">
         <p class="hero-card-title">Owner Dashboard Preview</p>
@@ -493,108 +549,148 @@
   </div>
 </section>
 
-<!-- WHY JAVEN -->
+<!-- WHY JAVEN — updated copy from content document -->
 <section class="why-section" id="why">
   <div class="section-header">
     <p class="section-eyebrow">Why JAVEN?</p>
     <h2 class="section-title">Built for property owners who expect more.</h2>
   </div>
   <div class="features-grid">
+
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <h3 class="feature-title">Specialized Property Management</h3>
       <p class="feature-desc">Whether you own residential apartments, commercial buildings, or a mixed portfolio, Javen provides professional management tailored to your property's unique needs. We focus on maximizing occupancy, protecting asset value, and delivering consistent returns.</p>
     </div>
+
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <h3 class="feature-title">Transparent Pricing &amp; Financial Reporting</h3>
+      <h3 class="feature-title">Transparent Pricing & Financial Reporting</h3>
       <p class="feature-desc">No hidden fees. No unexpected charges. Our straightforward pricing structure is designed around your portfolio, while detailed financial reporting gives you complete visibility into income, expenses, and property performance.</p>
     </div>
+
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <h3 class="feature-title">Rigorous Tenant Screening</h3>
       <p class="feature-desc">Finding the right tenant is the foundation of successful property management. Our thorough screening process helps reduce vacancy periods, improve rent collection, and protect your investment from unnecessary risk.</p>
     </div>
+
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
       <h3 class="feature-title">Proactive Maintenance Management</h3>
       <p class="feature-desc">We don't just react to problems—we work to prevent them. Through regular inspections, preventive maintenance, and trusted service providers, we help preserve your property's condition and avoid costly repairs.</p>
     </div>
+
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <h3 class="feature-title">Real-Time Owner Portal</h3>
       <p class="feature-desc">Access your property information anytime, anywhere. Track rental income, maintenance requests, occupancy status, and financial reports through a secure online dashboard designed for complete transparency.</p>
     </div>
+
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
       <h3 class="feature-title">Local Expertise. Professional Service.</h3>
       <p class="feature-desc">With deep knowledge of the Dar es Salaam property market, Javen combines local insight with modern management systems to deliver exceptional service for property owners and tenants alike.</p>
     </div>
+
   </div>
 </section>
 
-<!-- PRICING -->
+<!-- PRICING — Premium card design -->
 <section id="pricing" style="padding:100px 6vw;background:#0d0f1e;">
+
+  <!-- Header -->
   <div style="text-align:center;margin-bottom:60px;">
     <p style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;">FLEXIBLE SOLUTIONS FOR EVERY PROPERTY OWNER</p>
     <h2 style="font-size:clamp(32px,4.5vw,58px);font-weight:800;color:white;letter-spacing:-2px;line-height:1.1;margin-bottom:20px;">Choose your operational tier.</h2>
     <p style="font-size:16px;color:rgba(255,255,255,0.55);max-width:600px;margin:0 auto;line-height:1.75;">Whether you want a professional team to manage your property or simply need a smarter way to manage it yourself, Javen has a solution designed for you.</p>
   </div>
+
+  <!-- Two cards -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1200px;margin:0 auto;">
 
     <!-- TIER A -->
     <div style="background:#131729;border:1px solid rgba(104,114,182,0.5);border-radius:24px;padding:40px;position:relative;overflow:hidden;">
+      <!-- Glow effect -->
       <div style="position:absolute;top:-60px;left:-60px;width:200px;height:200px;background:rgba(76,93,170,0.2);border-radius:50%;filter:blur(60px);pointer-events:none;"></div>
+
+      <!-- Badge -->
       <div style="display:inline-block;background:var(--teal-light);color:white;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:24px;">Most Popular</div>
+
+      <!-- Top row: building image + title -->
       <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;">
-        <div style="flex-shrink:0;width:100px;height:110px;background:#1a2040;border-radius:14px;border:1px solid rgba(104,114,182,0.3);display:flex;align-items:center;justify-content:center;">
-          <svg width="56" height="60" viewBox="0 0 56 60" fill="none">
-            <polygon points="28,8 50,20 50,44 28,56 6,44 6,20" fill="#1e2548"/>
-            <polygon points="28,8 50,20 28,32 6,20" fill="#3a4580"/>
-            <polygon points="28,32 50,20 50,44 28,56" fill="#2a3060"/>
-            <polygon points="28,32 6,20 6,44 28,56" fill="#222850"/>
-            <rect x="34" y="22" width="7" height="5" rx="0.5" fill="#6872b6" opacity="0.8" transform="skewY(-10)"/>
-            <rect x="34" y="31" width="7" height="5" rx="0.5" fill="#4c5daa" opacity="0.6" transform="skewY(-10)"/>
-            <rect x="13" y="28" width="7" height="5" rx="0.5" fill="#4c5daa" opacity="0.5" transform="skewY(10)"/>
-            <rect x="13" y="37" width="7" height="5" rx="0.5" fill="#3a4578" opacity="0.5" transform="skewY(10)"/>
-            <line x1="28" y1="8" x2="28" y2="4" stroke="#8ab4f8" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="28" cy="3" r="2" fill="#8ab4f8"/>
-          </svg>
-        </div>
+        <!-- Building illustration placeholder -->
+        <div style="flex-shrink:0;width:100px;height:110px;background:linear-gradient(135deg,rgba(76,93,170,0.4) 0%,rgba(104,114,182,0.2) 100%);border-radius:14px;border:1px solid rgba(104,114,182,0.3);display:flex;align-items:center;justify-content:center;font-size:40px;"><div style="flex-shrink:0;width:100px;height:110px;background:#1a2040;border-radius:14px;border:1px solid rgba(104,114,182,0.3);display:flex;align-items:center;justify-content:center;">
+  <svg width="56" height="60" viewBox="0 0 56 60" fill="none">
+    <polygon points="28,8 50,20 50,44 28,56 6,44 6,20" fill="#1e2548"/>
+    <polygon points="28,8 50,20 28,32 6,20" fill="#3a4580"/>
+    <polygon points="28,32 50,20 50,44 28,56" fill="#2a3060"/>
+    <polygon points="28,32 6,20 6,44 28,56" fill="#222850"/>
+    <rect x="34" y="22" width="7" height="5" rx="0.5" fill="#6872b6" opacity="0.8" transform="skewY(-10)"/>
+    <rect x="34" y="31" width="7" height="5" rx="0.5" fill="#4c5daa" opacity="0.6" transform="skewY(-10)"/>
+    <rect x="13" y="28" width="7" height="5" rx="0.5" fill="#4c5daa" opacity="0.5" transform="skewY(10)"/>
+    <rect x="13" y="37" width="7" height="5" rx="0.5" fill="#3a4578" opacity="0.5" transform="skewY(10)"/>
+    <line x1="28" y1="8" x2="28" y2="4" stroke="#8ab4f8" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="28" cy="3" r="2" fill="#8ab4f8"/>
+  </svg>
+</div></div>
         <div>
           <p style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-light);margin-bottom:8px;">Tier A</p>
           <h3 style="font-size:26px;font-weight:800;color:white;line-height:1.15;letter-spacing:-0.5px;margin-bottom:8px;">Full-Service Property Management</h3>
           <p style="font-size:14px;font-weight:600;color:var(--teal-light);">(Powered by Javen OS)</p>
         </div>
       </div>
-      <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:28px;">Our team manages the day-to-day operations of your property while the Javen Operating System (JOS) provides complete transparency and real-time visibility.</p>
+
+      <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:28px;">Our team manages the day-to-day operations of your property while the Javen Operating System (JOS) provides complete transparency and real-time visibility..</p>
+
       <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:28px;"></div>
-      <div style="display:flex;flex-direction:column;gap:0;margin-bottom:36px;">
-        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-          <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">End-to-end rent collection &amp; TRA-compliant invoicing</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We handle collections, invoicing, and follow-ups.</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-          <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Tenant management &amp; screening</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We find, screen, and manage quality tenants.</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-          <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Maintenance coordination &amp; inspections</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Proactive upkeep to protect your asset value.</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-          <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Financial reporting &amp; portfolio analytics</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Clear insights on income, expenses &amp; performance.</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-          <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Real-time Owner Portal (24/7 access)</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Complete visibility from any device, anywhere.</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;">
-          <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><line x1="12" y1="11" x2="21" y2="11"/><line x1="16" y1="7" x2="21" y2="7"/><line x1="16" y1="15" x2="21" y2="15"/></svg></div>
-          <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Vendor management &amp; contractor coordination</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We source, manage, and oversee trusted service providers.</div></div>
-        </div>
-      </div>
+
+      <!-- Feature list with icons -->
+<div style="display:flex;flex-direction:column;gap:0;margin-bottom:36px;">
+
+  <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">End-to-end rent collection &amp; TRA-compliant invoicing</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We handle collections, invoicing, and follow-ups.</div></div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Tenant management &amp; screening</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We find, screen, and manage quality tenants.</div></div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+    </div>
+    <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Maintenance coordination &amp; inspections</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Proactive upkeep to protect your asset value.</div></div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    </div>
+    <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Financial reporting &amp; portfolio analytics</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Clear insights on income, expenses &amp; performance.</div></div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:14px;padding:14px 0;">
+    <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Real-time Owner Portal (24/7 access)</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">Complete visibility from any device, anywhere.</div></div>
+  </div>
+
+<div style="display:flex;align-items:center;gap:14px;padding:14px 0;">
+    <div style="flex-shrink:0;width:40px;height:40px;background:rgba(76,93,170,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6872b6" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><line x1="12" y1="11" x2="21" y2="11"/><line x1="16" y1="7" x2="21" y2="7"/><line x1="16" y1="15" x2="21" y2="15"/></svg>
+    </div>
+    <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Vendor management &amp; contractor coordination</div><div style="font-size:12px;color:rgba(255,255,255,0.45);">We source, manage, and oversee trusted service providers.</div></div>
+  </div>
+
+</div>
       <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="width:100%;padding:16px 24px;border-radius:12px;background:var(--teal-light);border:none;color:white;font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background 0.2s;" onmouseover="this.style.background='#4c5daa'" onmouseout="this.style.background='#6872b6'">
         Choose Full-Service Management
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -603,10 +699,14 @@
 
     <!-- TIER B -->
     <div style="background:#131729;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px;position:relative;overflow:hidden;">
+
+      <!-- Top: title + dashboard mockup -->
       <div style="margin-bottom:28px;">
         <p style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Tier B</p>
         <h3 style="font-size:26px;font-weight:800;color:white;line-height:1.15;letter-spacing:-0.5px;margin-bottom:6px;">Javen OS Platform</h3>
         <p style="font-size:14px;font-weight:600;color:var(--amber);margin-bottom:16px;">(Self-Management License)</p>
+
+        <!-- Dashboard mockup -->
         <div style="background:rgba(76,93,170,0.15);border:1px solid rgba(76,93,170,0.3);border-radius:14px;padding:16px;margin-bottom:16px;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
             <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
@@ -619,6 +719,7 @@
             <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;"><div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">OCCUPIED</div><div style="font-size:16px;font-weight:800;color:#28ca42;">8</div></div>
             <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;"><div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">INCOME</div><div style="font-size:16px;font-weight:800;color:var(--teal-light);">4.2M</div></div>
           </div>
+          <!-- Mini bar chart -->
           <div style="display:flex;align-items:flex-end;gap:4px;height:36px;">
             <div style="flex:1;background:rgba(76,93,170,0.4);border-radius:3px 3px 0 0;height:50%;"></div>
             <div style="flex:1;background:rgba(76,93,170,0.4);border-radius:3px 3px 0 0;height:70%;"></div>
@@ -628,62 +729,88 @@
             <div style="flex:1;background:var(--teal-light);border-radius:3px 3px 0 0;height:100%;"></div>
           </div>
         </div>
+
         <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;">Powerful software and tools to manage your properties yourself with complete control and visibility.</p>
       </div>
+
       <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:24px;"></div>
+
+      <!-- Feature list -->
       <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:36px;">
         <div style="display:flex;align-items:flex-start;gap:14px;">
-          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
           <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Automated invoicing &amp; rent tracking</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Generate invoices, track payments, and send reminders.</div></div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:14px;">
-          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
           <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Multi-payment tracking (M-Pesa, Airtel, Tigo Pesa &amp; more)</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Track all payments in one place automatically.</div></div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:14px;">
-          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
           <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Maintenance requests &amp; task management</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Log, assign, and track maintenance in real time.</div></div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:14px;">
-          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
           <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Portfolio analytics &amp; performance dashboard</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Visualize occupancy, income, expenses &amp; more.</div></div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:14px;">
-          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+          <div style="flex-shrink:0;width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
           <div><div style="font-size:14px;font-weight:600;color:white;margin-bottom:3px;">Document storage &amp; secure cloud access</div><div style="font-size:12px;color:rgba(255,255,255,0.4);">Store leases, invoices, and important documents securely.</div></div>
         </div>
       </div>
+
       <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="width:100%;padding:16px 24px;border-radius:12px;background:transparent;border:1.5px solid rgba(255,255,255,0.3);color:white;font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background 0.2s,border-color 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.6)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.3)'">
         Choose Javen OS Platform
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
     </div>
+
   </div>
 
   <!-- Trust bar -->
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:20px;max-width:1200px;margin-left:auto;margin-right:auto;background:rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
     <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
-      <div style="flex-shrink:0;color:var(--teal-light);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
       <div><div style="font-size:13px;font-weight:700;color:white;">100% Transparent</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">No hidden fees. No surprises.</div></div>
     </div>
     <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
-      <div style="flex-shrink:0;color:var(--teal-light);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
       <div><div style="font-size:13px;font-weight:700;color:white;">Bank-Level Security</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">Your data is safe and encrypted.</div></div>
     </div>
     <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
-      <div style="flex-shrink:0;color:var(--teal-light);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
       <div><div style="font-size:13px;font-weight:700;color:white;">Access Anywhere</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">Web, mobile, anytime.</div></div>
     </div>
     <div style="background:#131729;padding:24px 20px;display:flex;align-items:center;gap:14px;">
-      <div style="flex-shrink:0;color:var(--teal-light);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div style="flex-shrink:0;color:var(--teal-light);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
       <div><div style="font-size:13px;font-weight:700;color:white;">Local Support</div><div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">Real people. Real fast.</div></div>
     </div>
   </div>
+
 </section>
 
-<!-- ESTATE SERVICES -->
+<!-- ESTATE SERVICE CHARGES — Option 3 split layout -->
 <section id="estate" style="padding:100px 8vw;background:var(--off);">
   <div class="estate-split" style="display:grid;grid-template-columns:1fr 1.6fr;gap:40px;align-items:start;">
+
     <div class="estate-sticky" style="background:var(--teal);border-radius:20px;padding:48px 36px;position:sticky;top:90px;">
       <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px;">Full-Service Management Only</p>
       <h2 style="font-size:clamp(22px,2.5vw,32px);font-weight:800;color:white;line-height:1.25;letter-spacing:-1px;margin-bottom:20px;">What's included in your estate service charges</h2>
@@ -692,10 +819,275 @@
         <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.75;font-style:italic;">Need post-vacancy deep cleaning? Full-Service landlords can deploy vetted cleaning crews with a single click inside the Owner Portal.</p>
       </div>
     </div>
+
     <div style="display:flex;flex-direction:column;gap:2px;border-radius:16px;overflow:hidden;border:1px solid var(--border);">
-      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'"><div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">💧</div><div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Water Management</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Continuous tracking and settlement of building-wide water allocations to prevent unexpected utility disruptions.</div></div><div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div></div>
-      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'"><div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">💡</div><div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Common Area LUKU</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Automated token purchasing and monitoring for building corridors, exterior lighting, and shared facility spaces.</div></div><div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div></div>
-      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'"><div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">🗑️</div><div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Garbage Collection</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Coordination with trusted local waste management authorities to maintain premium sanitary standards.</div></div><div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div></div>
-      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'"><div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">🛡️</div><div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">24/7 Property Security</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Ongoing oversight of on-site security guards, gate access control frameworks, and facility safety.</div></div><div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div></div>
-      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'"><div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">🌿</div><div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Shared Landscaping</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Scheduled upkeep of gardens, lawns, and green spaces to ensure your property maintains an elite first impression.</div></div><div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div></div>
-      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'"><div style="font-size:28px;flex-shrink:0;
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'">
+        <div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">💧</div>
+        <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Water Management</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Continuous tracking and settlement of building-wide water allocations to prevent unexpected utility disruptions.</div></div>
+        <div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'">
+        <div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">💡</div>
+        <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Common Area LUKU</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Automated token purchasing and monitoring for building corridors, exterior lighting, and shared facility spaces.</div></div>
+        <div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'">
+        <div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">🗑️</div>
+        <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Garbage Collection</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Coordination with trusted local waste management authorities to maintain premium sanitary standards.</div></div>
+        <div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'">
+        <div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">🛡️</div>
+        <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">24/7 Property Security</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Ongoing oversight of on-site security guards, gate access control frameworks, and facility safety.</div></div>
+        <div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'">
+        <div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">🌿</div>
+        <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Shared Landscaping</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Scheduled upkeep of gardens, lawns, and green spaces to ensure your property maintains an elite first impression.</div></div>
+        <div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;" onmouseover="this.style.background='#f3f2e0'" onmouseout="this.style.background='white'">
+        <div style="font-size:28px;flex-shrink:0;width:44px;text-align:center;">🏠</div>
+        <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Core Pest Control</div><div style="font-size:13px;color:var(--muted);line-height:1.6;">Routine structural fumigation of common areas and building perimeters to keep your asset completely pest-free.</div></div>
+        <div style="font-size:20px;color:var(--teal-light);flex-shrink:0;">›</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DASHBOARD PREVIEW -->
+<section class="dashboard-section" id="dashboard">
+  <div class="dashboard-text">
+    <p class="section-eyebrow">Owner Portal</p>
+    <h2 class="section-title">Your investment, in real-time.</h2>
+    <p>A powerful data dashboard gives every owner full visibility into revenue, occupancy, maintenance requests, and tenant status — without needing to pick up the phone.</p>
+    <a href="#contact" class="btn-hero-owner" style="margin-top:40px;">Request a Demo</a>
+  </div>
+  <div class="dashboard-ui">
+    <div class="dash-header">
+      <div class="dash-dot" style="background:#ff5f57"></div>
+      <div class="dash-dot" style="background:#ffbd2e;margin-left:6px"></div>
+      <div class="dash-dot" style="background:#28ca42;margin-left:6px"></div>
+      <span class="dash-title">JAVEN Owner Portal — Portfolio Overview</span>
+    </div>
+    <div class="dash-body">
+      <div class="dash-metric-row">
+        <div class="dash-metric"><div class="dash-metric-label">Monthly Revenue</div><div class="dash-metric-val green">TZS 4.2M</div></div>
+        <div class="dash-metric"><div class="dash-metric-label">Occupancy</div><div class="dash-metric-val">97.4%</div></div>
+        <div class="dash-metric"><div class="dash-metric-label">Open Tickets</div><div class="dash-metric-val amber">2</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em">Revenue — Last 6 Months</div>
+      <div class="dash-chart-area">
+        <div class="dash-bar" style="height:55%"></div>
+        <div class="dash-bar" style="height:70%"></div>
+        <div class="dash-bar" style="height:60%"></div>
+        <div class="dash-bar" style="height:85%"></div>
+        <div class="dash-bar" style="height:78%"></div>
+        <div class="dash-bar" style="height:95%;opacity:1"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVICTION SHIELD -->
+<section class="shield-section">
+  <div class="shield-content">
+    <p class="shield-eyebrow">The JAVEN Guarantee</p>
+    <h2 class="shield-title">The Eviction Shield — protecting your income when it matters most.</h2>
+    <p class="shield-desc">If JAVEN places a tenant who must be legally evicted, we manage the entire process at zero cost to you. That's our promise — and it's written into every agreement we sign.</p>
+  </div>
+  <div class="shield-icon">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="service-section">
+  <div style="aspect-ratio:4/3;border-radius:20px;overflow:hidden;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.34446203824!2d39.20160895!3d-6.7923599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4bae169bd6f1%3A0x940f6b26a086a1dd!2sDar%20es%20Salaam%2C%20Tanzania!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+      width="100%" height="100%" style="border:0;min-height:400px;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="service-text">
+    <p class="section-eyebrow">Service Area</p>
+    <h2 class="section-title">Hyper-local expertise across Dar es Salaam.</h2>
+    <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-top:24px">From Oyster Bay to Kariakoo, Kinondoni to Ilala — JAVEN's on-the-ground team knows the micro-markets, the regulations, and the tenant pool of every neighborhood we serve.</p>
+    <div style="display:flex;gap:12px;margin-top:40px;flex-wrap:wrap">
+      <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal)">Oyster Bay</div>
+      <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal)">Masaki</div>
+      <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal)">Kariakoo</div>
+      <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal)">Kinondoni</div>
+      <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal)">Ilala</div>
+      <div style="background:var(--amber-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--amber)">+ More</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CUSTOM QUOTE -->
+<section class="contact-section" id="contact">
+  <div class="contact-text">
+    <p class="section-eyebrow">Get a Custom Quote</p>
+    <h2 class="section-title">Tell us about your portfolio.</h2>
+    <p>Our operations team will generate a transparent, fixed-rate proposal tailored to your exact asset type and desired service tier.</p>
+    <div class="contact-info">
+      <div class="contact-row">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><div class="contact-info-label">Phone</div><div class="contact-info-val">+255 764 939 392</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="contact-info-label">Email</div><div class="contact-info-val">javenlocations@javen.co.tz</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="contact-info-label">Location</div><div class="contact-info-val">Dar es Salaam, Tanzania</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h3 class="form-title">Generate My Custom Quote</h3>
+    <p style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Your Contact Details</p>
+    <div class="form-row">
+      <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"></div>
+    </div>
+    <div class="form-group"><label>Phone Number (WhatsApp preferred)</label><input type="tel" placeholder="+255 ..."></div>
+    <p style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;margin-bottom:16px;">Portfolio Details</p>
+    <div class="form-group">
+      <label>Primary Asset Location</label>
+      <select><option value="">Select location...</option><option>Dar es Salaam</option><option>Arusha</option><option>Zanzibar</option><option>Other</option></select>
+    </div>
+    <div class="form-group">
+      <label>Asset Type (select all that apply)</label>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Premium Residential Apartments (Long-Term)</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Short-Term / Serviced Apartments</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Commercial Office Spaces / Corporate Blocks</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="checkbox" style="width:16px;height:16px;accent-color:var(--teal);"> Retail / Commercial Showrooms</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Total Number of Units</label>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 1–5</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 6–20</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 21–50</label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="units" style="accent-color:var(--teal);"> 51+</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Desired Service Level</label>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="service" style="accent-color:var(--teal);"> Full-Service Property Management (Software, Tenants &amp; Field Ops)</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="service" style="accent-color:var(--teal);"> Javen OS Standalone Platform License (Software Only)</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Current Management Status</label>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="status" style="accent-color:var(--teal);"> I am managing it myself</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="status" style="accent-color:var(--teal);"> Currently managed by a traditional agency / dalali</label>
+        <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="status" style="accent-color:var(--teal);"> This is a new development nearing completion</label>
+      </div>
+    </div>
+   <button class="form-submit" onclick="
+  var name = document.querySelectorAll('.contact-form input')[0].value;
+  var email = document.querySelectorAll('.contact-form input')[1].value;
+  var phone = document.querySelectorAll('.contact-form input')[2].value;
+  var location = document.querySelector('.contact-form select').value;
+  var units = document.querySelector('input[name=units]:checked');
+  var service = document.querySelector('input[name=service]:checked');
+  var status = document.querySelector('input[name=status]:checked');
+  var body = 'Name: ' + (name||'Not provided')
+    + '%0AEmail: ' + (email||'Not provided')
+    + '%0APhone: ' + (phone||'Not provided')
+    + '%0ALocation: ' + (location||'Not selected')
+    + '%0AUnits: ' + (units ? units.parentElement.innerText.trim() : 'Not selected')
+    + '%0AService Level: ' + (service ? service.parentElement.innerText.trim() : 'Not selected')
+    + '%0AManagement Status: ' + (status ? status.parentElement.innerText.trim() : 'Not selected');
+  window.location.href = 'mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
+">Generate My Custom Quote</button>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding:100px 8vw;background:var(--white);">
+  <div class="section-header">
+    <p class="section-eyebrow">Common Questions</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:2px;margin-top:48px;border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+    <details style="background:white;padding:28px 32px;cursor:pointer;">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">What is the main difference between Full Management and Javen OS?<span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span></summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;"><strong style="color:var(--dark);">Full-Service Management</strong> is a comprehensive physical and digital solution. Javen deploys the software, collects rent, manages tenant relations, runs estate logistics, and dispatches maintenance teams.<br><br><strong style="color:var(--dark);">Javen OS</strong> is a software license only. You remain physically responsible for your units — Javen provides the premium digital platform for rent tracking, invoicing, and contract storage.</p>
+    </details>
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">Why don't you publish flat percentages on your website?<span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span></summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">A flat percentage often penalizes landlords unfairly. A 50-unit commercial complex operates on entirely different economics than a 4-unit luxury apartment block. By customizing your fixed fee based on unit volume, asset type, and service tier, we ensure you only pay for the exact level of oversight your property requires.</p>
+    </details>
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">How does Javen manage estate service charges?<span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span></summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">Javen collects service charges directly from tenants and handles timely payouts for building water, common area LUKU, trash collection, landscaping, fumigation, and security teams. Landlords never have to chase tenants for utility contributions or deal with sudden service cut-offs.</p>
+    </details>
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">How does Javen handle deep cleaning when a tenant moves out?<span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span></summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">For Full-Service clients, when a space is vacated Javen automatically conducts a thorough digital visual inspection. Through your Owner Portal you can review the turnaround report and instantly authorize our professional deep-cleaning crew. Javen OS clients can access our vetted vendor list but must coordinate cleaning independently.</p>
+    </details>
+    <details style="background:white;padding:28px 32px;cursor:pointer;border-top:1px solid var(--border);">
+      <summary style="font-size:16px;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">Are there any hidden setup fees or onboarding costs?<span style="font-size:20px;color:var(--teal);flex-shrink:0;margin-left:16px;">+</span></summary>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">Absolutely not. Onboarding your portfolio, migrating existing tenant data, and setting up your Owner Login dashboard is completely free for both plans. Your transparent fixed fee only activates once your account is fully built out and your active management or software access begins.</p>
+    </details>
+  </div>
+</section>
+
+<!-- BACK TO TOP -->
+ <!-- TOAST NOTIFICATION -->
+<div id="toast-success" style="display:none;opacity:0;position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:#1e2140;color:white;padding:16px 28px;border-radius:14px;border-left:4px solid #6872b6;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:9999;align-items:center;gap:14px;min-width:300px;transition:opacity 0.4s ease;">
+  <div style="width:36px;height:36px;background:rgba(76,93,170,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">✅</div>
+  <div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:2px;">Message Sent!</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.6);">We'll get back to you within 24 hours.</div>
+  </div>
+</div>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="javenLogo_offwhite.png" alt="Javen" style="height:32px;width:auto;display:block;margin-bottom:4px;">
+      <p>Modernizing property asset management in Dar es Salaam through predictive systems and transparent service.</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Company</p>
+      <ul><li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Owners</p>
+      <ul>
+  <li><a href="#why">Why Javen</a></li>
+  <li><a href="#pricing">Pricing</a></li>
+  <li><a href="#dashboard">Owner Portal</a></li>
+  <li><a href="#contact">Get a Quote</a></li>
+  <li><a href="#faq">FAQs</a></li>
+  <li><a href="#" onclick="event.preventDefault();openContact();" style="color:var(--teal);font-weight:600;">Contact Us</a></li>
+</ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Renters</p>
+      <ul><li><a href="#">Available Rentals</a></li><li><a href="#">Tenant Portal</a></li><li><a href="#">Renter Resources</a></li><li><a href="#">Maintenance</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Help</p>
+      <ul><li><a href="#faq">FAQs</a></li><li><a href="#contact">Contact Us</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 JAVEN Property Management. All rights reserved.</span>
+    <span>Dar es Salaam, Tanzania</span>
+  </div>
+</footer>
+
+</body>
+</html>
