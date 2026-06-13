@@ -355,6 +355,63 @@
 </div>
 
 <script>
+function submitQuote() {
+    var inputs = document.querySelectorAll('.contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]');
+    var name = inputs[0] ? inputs[0].value.trim() : '';
+    var email = inputs[1] ? inputs[1].value.trim() : '';
+    var phone = inputs[2] ? inputs[2].value.trim() : '';
+    var location = document.querySelector('.contact-form select') ? document.querySelector('.contact-form select').value : '';
+    var units = document.querySelector('input[name=units]:checked');
+    var service = document.querySelector('input[name=service]:checked');
+    var status = document.querySelector('input[name=status]:checked');
+
+    var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
+
+    document.querySelectorAll('.quote-error').forEach(function(el){ el.remove(); });
+    document.querySelectorAll('.contact-form input[type=email], .contact-form input[type=tel]').forEach(function(el){ el.style.borderColor = ''; });
+
+    if (!email) { showQuoteError(inputs[1], 'Email address is required.'); return; }
+    if (!emailValid) { showQuoteError(inputs[1], 'Please enter a valid email address.'); return; }
+    if (!phone) { showQuoteError(inputs[2], 'Phone number is required.'); return; }
+    if (!phoneValid) { showQuoteError(inputs[2], 'Please enter a valid phone number.'); return; }
+
+    var body = 'Name: ' + (name||'Not provided')
+      + '%0AEmail: ' + email
+      + '%0APhone: ' + phone
+      + '%0ALocation: ' + (location||'Not selected')
+      + '%0AUnits: ' + (units ? units.parentElement.innerText.trim() : 'Not selected')
+      + '%0AService Level: ' + (service ? service.parentElement.innerText.trim() : 'Not selected')
+      + '%0AManagement Status: ' + (status ? status.parentElement.innerText.trim() : 'Not selected');
+
+    window.location.href = 'mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20' + encodeURIComponent(name||'Website') + '&body=' + body;
+
+    var waMessage = 'Hello JAVEN,%0A%0ANew Quote Request:%0AName: ' + (name||'Not provided')
+      + '%0AEmail: ' + email
+      + '%0APhone: ' + phone
+      + '%0ALocation: ' + (location||'Not selected')
+      + '%0AUnits: ' + (units ? units.parentElement.innerText.trim() : 'Not selected')
+      + '%0AService: ' + (service ? service.parentElement.innerText.trim() : 'Not selected')
+      + '%0AStatus: ' + (status ? status.parentElement.innerText.trim() : 'Not selected');
+
+    setTimeout(function() {
+      window.open('https://wa.me/255764939392?text=' + waMessage, '_blank');
+    }, 1000);
+
+    document.getElementById('quoteBtn').style.display = 'none';
+    document.getElementById('quote-success').style.display = 'block';
+    document.getElementById('quote-success').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  function showQuoteError(field, msg) {
+    field.style.borderColor = '#f07863';
+    var err = document.createElement('div');
+    err.className = 'quote-error';
+    err.style.cssText = 'color:#f07863;font-size:11px;margin-top:5px;font-weight:500;';
+    err.innerText = msg;
+    field.parentNode.appendChild(err);
+  }
+ 
   function openContact() {
     document.getElementById('contactPanel').style.right = '0';
     document.getElementById('contactOverlay').style.display = 'block';
@@ -991,8 +1048,13 @@
         <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dark);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;"><input type="radio" name="status" style="accent-color:var(--teal);"> This is a new development nearing completion</label>
       </div>
     </div>
-   <button class="form-submit" onclick="
-  var name = document.querySelectorAll('.contact-form input')[0].value;
+   <button class="form-submit" id="quoteBtn" onclick="submitQuote()">Generate My Custom Quote</button>
+
+<div id="quote-success" style="display:none;text-align:center;padding:20px;background:var(--teal-faint);border-radius:12px;border:1px solid rgba(76,93,170,0.2);margin-top:16px;">
+  <div style="font-size:28px;margin-bottom:8px;">✅</div>
+  <div style="font-size:15px;font-weight:700;color:var(--teal);margin-bottom:4px;">Quote Request Sent!</div>
+  <div style="font-size:13px;color:var(--muted);">We've received your details via email and WhatsApp. Our team will be in touch within 24 hours.</div>
+</div>
   var email = document.querySelectorAll('.contact-form input')[1].value;
   var phone = document.querySelectorAll('.contact-form input')[2].value;
   var location = document.querySelector('.contact-form select').value;
