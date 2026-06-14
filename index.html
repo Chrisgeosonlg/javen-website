@@ -29,6 +29,11 @@
   .btn-solid { font-family: var(--sans); font-size: 13px; font-weight: 500; padding: 9px 20px; border-radius: 6px; border: 1px solid var(--amber); color: white; background: var(--amber); cursor: pointer; text-decoration: none; transition: background 0.2s; display: inline-flex; align-items: center; gap: 7px; }
   .btn-solid:hover { background: #d4604e; }
 
+ /* MEGA DROPDOWN */
+.nav-mega-dropdown { display:none; position:absolute; top:calc(100% + 1px); left:-20px; width:720px; background:white; border:1px solid var(--border); border-top:3px solid var(--teal); border-radius:0 0 16px 16px; box-shadow:0 20px 60px rgba(0,0,0,0.1); z-index:200; }
+.nav-dropdown-parent:hover .nav-mega-dropdown { display:block; }
+.nav-dropdown-trigger { display:flex; align-items:center; gap:5px; }
+
   /* HAMBURGER */
   .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 200; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: all 0.3s ease; }
@@ -223,7 +228,7 @@
     <img src="javen_Logo.png" alt="Javen" style="height:32px;width:auto;display:block;">
   </a>
   <ul>
-    <li><a href="#why">Why Javen</a></li>
+    <li class="nav-dropdown-parent" style="position:relative;">   <a href="#why" class="nav-dropdown-trigger" style="display:flex;align-items:center;gap:5px;">     About Us     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>   </a>   <div class="nav-mega-dropdown">     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">        <!-- Col 1: Why Javen -->       <div style="padding:36px 32px;border-right:1px solid var(--border);">         <p style="font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;">Our Services</p>         <a href="#why" onclick="document.querySelector('.nav-mega-dropdown').style.display='none'" style="display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);group:true;">           <div style="width:40px;height:40px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>           </div>           <div>             <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;">Why Javen</div>             <div style="font-size:12px;color:var(--muted);line-height:1.6;">What makes us different from traditional property management.</div>           </div>         </a>         <a href="#contact" onclick="document.querySelector('.nav-mega-dropdown').style.display='none'" style="display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:14px 0;">           <div style="width:40px;height:40px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>           </div>           <div>             <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;">Get a Quote</div>             <div style="font-size:12px;color:var(--muted);line-height:1.6;">Tell us about your portfolio and get a custom proposal.</div>           </div>         </a>       </div>        <!-- Col 2: Our Story -->       <div style="padding:36px 32px;border-right:1px solid var(--border);">         <p style="font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;">Our Story</p>         <a href="#our-story" onclick="document.querySelector('.nav-mega-dropdown').style.display='none'" style="display:block;text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);">           <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;">Born from Experience</div>           <div style="font-size:12px;color:var(--muted);line-height:1.6;">Founded in 2026 after years of observing operational challenges in East African real estate.</div>         </a>         <a href="#our-story" onclick="document.querySelector('.nav-mega-dropdown').style.display='none'" style="display:block;text-decoration:none;padding:14px 0;">           <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;">Mission &amp; Vision</div>           <div style="font-size:12px;color:var(--muted);line-height:1.6;">Becoming East Africa's leading property operations platform.</div>         </a>       </div>        <!-- Col 3: Values highlight -->       <div style="padding:36px 32px;background:var(--off);">         <p style="font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;">Our Core Values</p>         <div style="display:flex;flex-direction:column;gap:12px;">           <div style="display:flex;align-items:center;gap:10px;">             <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></div>             <span style="font-size:13px;font-weight:600;color:var(--dark);">Innovation</span>           </div>           <div style="display:flex;align-items:center;gap:10px;">             <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></div>             <span style="font-size:13px;font-weight:600;color:var(--dark);">Transparency</span>           </div>           <div style="display:flex;align-items:center;gap:10px;">             <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></div>             <span style="font-size:13px;font-weight:600;color:var(--dark);">Excellence</span>           </div>           <div style="display:flex;align-items:center;gap:10px;">             <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></div>             <span style="font-size:13px;font-weight:600;color:var(--dark);">Accountability</span>           </div>           <div style="display:flex;align-items:center;gap:10px;">             <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></div>             <span style="font-size:13px;font-weight:600;color:var(--dark);">Customer Focus</span>           </div>           <div style="display:flex;align-items:center;gap:10px;">             <div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></div>             <span style="font-size:13px;font-weight:600;color:var(--dark);">Continuous Improvement</span>           </div>         </div>       </div>      </div>   </div> </li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#dashboard">Owner Portal</a></li>
     <li><a href="#contact">Get a Quote</a></li>
@@ -321,7 +326,7 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#why" onclick="closeMenu()">Why Javen</a>
+  <a href="#our-story" onclick="closeMenu()">About Us</a> <a href="#why" onclick="closeMenu()">Why Javen</a>
   <a href="#pricing" onclick="closeMenu()">Pricing</a>
   <a href="#dashboard" onclick="closeMenu()">Owner Portal</a>
   <a href="#contact" onclick="closeMenu()">Get a Quote</a>
@@ -493,6 +498,78 @@
       </div>
     </div>
   </div>
+</section>
+
+ <!-- OUR STORY -->
+<section id="our-story" style="padding:120px 8vw;background:var(--white);">
+
+  <!-- Header -->
+  <div style="max-width:800px;margin-bottom:80px;">
+    <p class="section-eyebrow">About JAVEN</p>
+    <h2 class="section-title" style="max-width:none;">Born from Experience.<br>Built for the Modern Property Owner.</h2>
+    <p style="font-size:16px;color:var(--muted);line-height:1.9;margin-top:28px;">In 2016, while managing a portfolio of over 220 units, our founder experienced firsthand the operational chaos of tracking rent payments, leases, and vacancies through Microsoft Excel. Every insight required hours of manual work — error-prone, time-consuming, and lacking visibility.</p>
+    <p style="font-size:16px;color:var(--muted);line-height:1.9;margin-top:16px;">The turning point came in 2020 during a master's program in Sweden — immersed in a fully digitized real estate ecosystem where rent, invoices, maintenance, and tenant communications were handled seamlessly through a single platform. No paperwork. No friction.</p>
+    <p style="font-size:16px;color:var(--muted);line-height:1.9;margin-top:16px;">Upon returning in 2023, the same operational challenges remained across even large portfolios. After years of studying global PropTech best practices, Javen was founded in 2026 to replace fragmented processes with a centralized, technology-driven platform that gives owners, managers, and tenants a smarter way to interact with real estate.</p>
+  </div>
+
+  <!-- Mission & Vision -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:80px;">
+    <div style="background:var(--teal);border-radius:20px;padding:48px 40px;">
+      <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:14px;">Our Vision</p>
+      <h3 style="font-size:20px;font-weight:800;color:white;line-height:1.3;letter-spacing:-0.5px;margin-bottom:16px;">East Africa's Leading Property Operations Platform</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.8;">Transforming how residential and commercial properties are managed through technology, transparency, and operational excellence.</p>
+    </div>
+    <div style="background:var(--dark);border-radius:20px;padding:48px 40px;">
+      <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;">Our Mission</p>
+      <h3 style="font-size:20px;font-weight:800;color:white;line-height:1.3;letter-spacing:-0.5px;margin-bottom:16px;">Empowering Owners, Managers &amp; Tenants</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;">Through innovative property management services and digital solutions that simplify operations, improve visibility, and create exceptional property experiences.</p>
+    </div>
+  </div>
+
+  <!-- Core Values -->
+  <div>
+    <p class="section-eyebrow">What We Stand For</p>
+    <h3 style="font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--dark);letter-spacing:-1px;margin-bottom:48px;">Our Core Values</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+      <div style="background:white;padding:36px 32px;">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:10px;">Innovation</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.75;">We embrace technology and continuous improvement to create smarter, more efficient property management solutions.</p>
+      </div>
+      <div style="background:white;padding:36px 32px;">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:10px;">Transparency</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.75;">Trust is built through open communication, accurate reporting, and complete visibility into property operations.</p>
+      </div>
+      <div style="background:white;padding:36px 32px;">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:10px;">Excellence</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.75;">Committed to exceptional service, operational efficiency, and measurable results in everything we do.</p>
+      </div>
+      <div style="background:white;padding:36px 32px;">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:10px;">Accountability</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.75;">We take ownership of our responsibilities and uphold the highest standards of professionalism and integrity.</p>
+      </div>
+      <div style="background:white;padding:36px 32px;">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:10px;">Customer Focus</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.75;">Property owners and tenants are at the center of every decision we make.</p>
+      </div>
+      <div style="background:white;padding:36px 32px;">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:10px;">Continuous Improvement</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.75;">We continuously learn, adapt, and evolve to meet the changing demands of the real estate industry.</p>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- WHY JAVEN -->
