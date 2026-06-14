@@ -364,7 +364,7 @@
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      if (link.getAttribute('href') === '#' + current && link.getAttribute('href') !== '#') link.classList.add('active');
     });
     const btn = document.getElementById('backToTop');
     btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
