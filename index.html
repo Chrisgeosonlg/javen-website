@@ -2335,12 +2335,16 @@
       ];
 
       function buildSpaceOptions(spaces) {
-        var st = "border:1.5px solid rgba(76,93,170,0.15);background:white;"
-               + "border-radius:8px;padding:12px;text-align:center;"
-               + "cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;";
-        return spaces.map(function(s) {
-          return "<div onclick=\"selectSpace(this)\" style=\"" + st + "\">" + s + "</div>";
-        }).join("");
+        var html = "";
+        for (var i = 0; i < spaces.length; i++) {
+          html += "<div";
+          html += " onclick='selectSpace(this)'";
+          html += " style='border:1.5px solid rgba(76,93,170,0.15);background:white;";
+          html += "border-radius:8px;padding:12px;text-align:center;cursor:pointer;";
+          html += "font-size:13px;font-weight:600;color:#1e2140;'";
+          html += ">" + spaces[i] + "</div>";
+        }
+        return html;
       }
 
       function selectPropType(type) {
