@@ -1548,8 +1548,8 @@
 </div>
 
     <!-- RENTER INTAKE MODAL -->
-<div id="renterOverlay" onclick="closeRenter()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(30,33,64,0.75);z-index:998;"></div>
-<div id="renterModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:520px;z-index:999;border-radius:20px;overflow:hidden;font-family:'Montserrat',sans-serif;">
+<div id="renterOverlay" onclick="closeRenter()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(30,33,64,0.75);z-index:10000;"></div>
+<div id="renterModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:520px;z-index:10001;border-radius:20px;overflow:hidden;font-family:'Montserrat',sans-serif;">
   <div style="background:#1e2140;padding:32px 36px 28px;">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;">
       <div>
@@ -2099,15 +2099,11 @@
         const navLinks = document.querySelectorAll("nav ul li a");
         let current = "";
         sections.forEach((s) => {
-          if (window.scrollY >= s.offsetTop - 100)
-            current = s.getAttribute("id");
+          if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute("id");
         });
         navLinks.forEach((link) => {
           link.classList.remove("active");
-          if (
-            link.getAttribute("href") === "#" + current &&
-            link.getAttribute("href") !== "#"
-          )
+          if (link.getAttribute("href") === "#" + current && link.getAttribute("href") !== "#")
             link.classList.add("active");
         });
         const btn = document.getElementById("backToTop");
@@ -2136,38 +2132,17 @@
         var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
         clearErrors();
-        if (!email) {
-          showError("cf-email", "Email address is required.");
-          return;
-        }
-        if (!emailValid) {
-          showError("cf-email", "Please enter a valid email address.");
-          return;
-        }
-        if (!phone) {
-          showError("cf-phone", "Phone number is required.");
-          return;
-        }
-        if (!phoneValid) {
-          showError("cf-phone", "Please enter a valid phone number.");
-          return;
-        }
-        var body =
-          "Name: " +
-          (name || "Not provided") +
-          "%0AEmail: " +
-          email +
-          "%0APhone: " +
-          phone +
-          "%0ASubject: " +
-          (subject || "Not selected") +
-          "%0A%0AMessage:%0A" +
-          (message || "No message");
-        window.location.href =
-          "mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20" +
-          encodeURIComponent(name || "Website") +
-          "&body=" +
-          body;
+        if (!email) { showError("cf-email", "Email address is required."); return; }
+        if (!emailValid) { showError("cf-email", "Please enter a valid email address."); return; }
+        if (!phone) { showError("cf-phone", "Phone number is required."); return; }
+        if (!phoneValid) { showError("cf-phone", "Please enter a valid phone number."); return; }
+        var body = "Name: " + (name || "Not provided")
+          + "%0AEmail: " + email
+          + "%0APhone: " + phone
+          + "%0ASubject: " + (subject || "Not selected")
+          + "%0A%0AMessage:%0A" + (message || "No message");
+        window.location.href = "mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20"
+          + encodeURIComponent(name || "Website") + "&body=" + body;
         document.getElementById("cf-name").value = "";
         document.getElementById("cf-email").value = "";
         document.getElementById("cf-phone").value = "";
@@ -2180,9 +2155,7 @@
           toast.style.opacity = "1";
           setTimeout(function () {
             toast.style.opacity = "0";
-            setTimeout(function () {
-              toast.style.display = "none";
-            }, 400);
+            setTimeout(function () { toast.style.display = "none"; }, 400);
           }, 3500);
         }, 500);
       }
@@ -2191,15 +2164,12 @@
         field.style.borderColor = "#f07863";
         var err = document.createElement("div");
         err.className = "field-error";
-        err.style.cssText =
-          "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
+        err.style.cssText = "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
         err.innerText = msg;
         field.parentNode.appendChild(err);
       }
       function clearErrors() {
-        document.querySelectorAll(".field-error").forEach(function (el) {
-          el.remove();
-        });
+        document.querySelectorAll(".field-error").forEach(function (el) { el.remove(); });
         document.getElementById("cf-email").style.borderColor = "";
         document.getElementById("cf-phone").style.borderColor = "";
       }
@@ -2207,108 +2177,64 @@
       // QUOTE FORM
       function submitQuote() {
         var inputs = document.querySelectorAll(
-          ".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]",
+          ".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]"
         );
         var name = inputs[0] ? inputs[0].value.trim() : "";
         var email = inputs[1] ? inputs[1].value.trim() : "";
         var phone = inputs[2] ? inputs[2].value.trim() : "";
         var location = document.querySelector(".contact-form select")
-          ? document.querySelector(".contact-form select").value
-          : "";
+          ? document.querySelector(".contact-form select").value : "";
         var units = document.querySelector("input[name=units]:checked");
         var service = document.querySelector("input[name=service]:checked");
         var status = document.querySelector("input[name=status]:checked");
         var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
-        document.querySelectorAll(".quote-error").forEach(function (el) {
-          el.remove();
-        });
-        document
-          .querySelectorAll(
-            ".contact-form input[type=email], .contact-form input[type=tel]",
-          )
-          .forEach(function (el) {
-            el.style.borderColor = "";
-          });
-        if (!email) {
-          showQuoteError(inputs[1], "Email address is required.");
-          return;
-        }
-        if (!emailValid) {
-          showQuoteError(inputs[1], "Please enter a valid email address.");
-          return;
-        }
-        if (!phone) {
-          showQuoteError(inputs[2], "Phone number is required.");
-          return;
-        }
-        if (!phoneValid) {
-          showQuoteError(inputs[2], "Please enter a valid phone number.");
-          return;
-        }
-        var body =
-          "Name: " +
-          (name || "Not provided") +
-          "%0AEmail: " +
-          email +
-          "%0APhone: " +
-          phone +
-          "%0ALocation: " +
-          (location || "Not selected") +
-          "%0AUnits: " +
-          (units ? units.parentElement.innerText.trim() : "Not selected") +
-          "%0AService Level: " +
-          (service ? service.parentElement.innerText.trim() : "Not selected") +
-          "%0AManagement Status: " +
-          (status ? status.parentElement.innerText.trim() : "Not selected");
-        window.location.href =
-          "mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20" +
-          encodeURIComponent(name || "Website") +
-          "&body=" +
-          body;
-        var waMessage =
-          "Hello JAVEN,%0A%0ANew Quote Request:%0AName: " +
-          (name || "Not provided") +
-          "%0AEmail: " +
-          email +
-          "%0APhone: " +
-          phone +
-          "%0ALocation: " +
-          (location || "Not selected") +
-          "%0AUnits: " +
-          (units ? units.parentElement.innerText.trim() : "Not selected") +
-          "%0AService: " +
-          (service ? service.parentElement.innerText.trim() : "Not selected") +
-          "%0AStatus: " +
-          (status ? status.parentElement.innerText.trim() : "Not selected");
+        document.querySelectorAll(".quote-error").forEach(function (el) { el.remove(); });
+        document.querySelectorAll(".contact-form input[type=email], .contact-form input[type=tel]")
+          .forEach(function (el) { el.style.borderColor = ""; });
+        if (!email) { showQuoteError(inputs[1], "Email address is required."); return; }
+        if (!emailValid) { showQuoteError(inputs[1], "Please enter a valid email address."); return; }
+        if (!phone) { showQuoteError(inputs[2], "Phone number is required."); return; }
+        if (!phoneValid) { showQuoteError(inputs[2], "Please enter a valid phone number."); return; }
+        var body = "Name: " + (name || "Not provided")
+          + "%0AEmail: " + email + "%0APhone: " + phone
+          + "%0ALocation: " + (location || "Not selected")
+          + "%0AUnits: " + (units ? units.parentElement.innerText.trim() : "Not selected")
+          + "%0AService Level: " + (service ? service.parentElement.innerText.trim() : "Not selected")
+          + "%0AManagement Status: " + (status ? status.parentElement.innerText.trim() : "Not selected");
+        window.location.href = "mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20"
+          + encodeURIComponent(name || "Website") + "&body=" + body;
+        var waMessage = "Hello JAVEN,%0A%0ANew Quote Request:%0AName: " + (name || "Not provided")
+          + "%0AEmail: " + email + "%0APhone: " + phone
+          + "%0ALocation: " + (location || "Not selected")
+          + "%0AUnits: " + (units ? units.parentElement.innerText.trim() : "Not selected")
+          + "%0AService: " + (service ? service.parentElement.innerText.trim() : "Not selected")
+          + "%0AStatus: " + (status ? status.parentElement.innerText.trim() : "Not selected");
         setTimeout(function () {
           window.open("https://wa.me/255655007492?text=" + waMessage, "_blank");
         }, 1000);
         document.getElementById("quoteBtn").style.display = "none";
-        document
-          .querySelectorAll(
-            ".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]",
-          )
-          .forEach(function (el) {
-            el.value = "";
-          });
+        document.querySelectorAll(".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]")
+          .forEach(function (el) { el.value = ""; });
         document.querySelector(".contact-form select").value = "";
-        document
-          .querySelectorAll(".contact-form input[type=checkbox]")
-          .forEach(function (el) {
-            el.checked = false;
-          });
-        document
-          .querySelectorAll(".contact-form input[type=radio]")
-          .forEach(function (el) {
-            el.checked = false;
-          });
+        document.querySelectorAll(".contact-form input[type=checkbox]").forEach(function (el) { el.checked = false; });
+        document.querySelectorAll(".contact-form input[type=radio]").forEach(function (el) { el.checked = false; });
         document.getElementById("quote-success").style.display = "block";
-        document
-          .getElementById("quote-success")
-          .scrollIntoView({ behavior: "smooth", block: "center" });
+        document.getElementById("quote-success").scrollIntoView({ behavior: "smooth", block: "center" });
       }
-     var selectedRenter = 1;
+      function showQuoteError(field, msg) {
+        field.style.borderColor = "#f07863";
+        var err = document.createElement("div");
+        err.className = "quote-error";
+        err.style.cssText = "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
+        err.innerText = msg;
+        field.parentNode.appendChild(err);
+        field.scrollIntoView({ behavior: "smooth", block: "center" });
+        field.focus();
+      }
+
+      // RENTER INTAKE MODAL
+      var selectedRenter = 1;
       function openRenter() {
         document.getElementById("renterModal").style.display = "block";
         document.getElementById("renterOverlay").style.display = "block";
@@ -2320,49 +2246,131 @@
         document.body.style.overflow = "";
       }
       function selectRenter(n) {
-        [1,2,3].forEach(function(i) {
-          var opt = document.getElementById("rip-"+i);
-          var dot = document.getElementById("dot-"+i);
-          var icon = document.getElementById("icon-"+i);
+        [1, 2, 3].forEach(function (i) {
+          var opt = document.getElementById("rip-" + i);
+          var dot = document.getElementById("dot-" + i);
+          var icon = document.getElementById("icon-" + i);
           opt.style.border = "1.5px solid rgba(76,93,170,0.15)";
           opt.style.background = "white";
           dot.style.display = "none";
-          if (icon) { icon.style.background = "#eceef8"; icon.querySelector("svg").style.stroke = "#4c5daa"; }
+          if (icon) {
+            icon.style.background = "#eceef8";
+            icon.querySelector("svg").style.stroke = "#4c5daa";
+          }
         });
-        var sel = document.getElementById("rip-"+n);
+        var sel = document.getElementById("rip-" + n);
         sel.style.border = "1.5px solid #4c5daa";
         sel.style.background = "#eceef8";
-        document.getElementById("dot-"+n).style.display = "block";
-        var selIcon = document.getElementById("icon-"+n);
-        if (selIcon) { selIcon.style.background = "#4c5daa"; selIcon.querySelector("svg").style.stroke = "white"; }
+        document.getElementById("dot-" + n).style.display = "block";
+        var selIcon = document.getElementById("icon-" + n);
+        if (selIcon) {
+          selIcon.style.background = "#4c5daa";
+          selIcon.querySelector("svg").style.stroke = "white";
+        }
         selectedRenter = n;
       }
-      function continueRenter() {         closeRenter();         if (selectedRenter === 1) { openRenterSearch(); }    
-      else { window.location.href = "https://pms-tenant.javen.co.tz"; }       }       var selectedPropType = "residential";       function openRenterSearch() 
-      {         document.getElementById("renterSearchPanel").style.right = "0";         document.getElementById("renterSearchOverlay").style.display = "block";         document.body.style.overflow = "hidden";       }  
-      function closeRenterSearch() {         document.getElementById("renterSearchPanel").style.right = "-560px";         document.getElementById("renterSearchOverlay").style.display = "none";         document.body.style.overflow = "";       }    
-      function selectPropType(type) {         selectedPropType = type;         var res = document.getElementById("pt-residential");         var com = document.getElementById("pt-commercial");         if (type === "residential") 
-      {           res.style.border = "1.5px solid #4c5daa"; res.style.background = "#eceef8"; res.querySelector("svg").style.stroke = "#4c5daa";           com.style.border = "1.5px solid rgba(76,93,170,0.15)"; com.style.background = "white"; com.querySelector("svg").style.stroke = "#7b80a8";   
-       document.getElementById("rs-space-options").innerHTML = '<div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Studio</div>
-         <div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">1 Bedroom</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">2 Bedrooms</div>
-         <div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">3 Bedrooms</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">4+ Bedrooms</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Villa / Townhouse</div>';         } else {           com.style.border = "1.5px solid #4c5daa"; com.style.background = "#eceef8"; com.querySelector("svg").style.stroke = "#4c5daa";           res.style.border = "1.5px solid rgba(76,93,170,0.15)"; res.style.background = "white"; res.querySelector("svg").style.stroke = "#7b80a8";           document.getElementById("rs-space-options").innerHTML = '<div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Small Office</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Large Office</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Retail Space</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Warehouse</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Showroom</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Corporate Block</div>';         }       }       function selectSpace(el) {         document.querySelectorAll("#rs-space-options div").forEach(function(d) { d.style.border = "1.5px solid rgba(76,93,170,0.15)"; d.style.background = "white"; d.style.color = "#1e2140"; });         el.style.border = "1.5px solid #4c5daa"; el.style.background = "#eceef8"; el.style.color = "#4c5daa";       }       function submitRenterSearch() {         var fname = document.getElementById("rs-fname").value.trim();         var lname = document.getElementById("rs-lname").value.trim();         var phone = document.getElementById("rs-phone").value.trim();         var email = document.getElementById("rs-email").value.trim();         var location = document.getElementById("rs-location").value;         var budget = document.getElementById("rs-budget").value;         var date = document.getElementById("rs-date").value;         var space = "";         document.querySelectorAll("#rs-space-options div").forEach(function(d) { if (d.style.background === "rgb(236, 238, 248)") space = d.innerText; });         if (!email || !phone) { alert("Please fill in your email and phone number."); return; }         var body = "Name: " + fname + " " + lname + "%0APhone: " + phone + "%0AEmail: " + email + "%0AProperty Type: " + selectedPropType + "%0ASpace: " + (space||"Not selected") + "%0ALocation: " + (location||"Not selected") + "%0ABudget: " + (budget||"Not selected") + "%0AMove-in Date: " + (date||"Not selected");         window.location.href = "mailto:info@javen.co.tz?subject=Unit%20Search%20Inquiry%20from%20" + encodeURIComponent(fname + " " + lname) + "&body=" + body;         var waMsg = "Hello JAVEN,%0A%0AUnit Search Inquiry:%0AName: " + fname + " " + lname + "%0APhone: " + phone + "%0AType: " + selectedPropType + "%0ASpace: " + (space||"Not selected") + "%0ALocation: " + (location||"Not selected") + "%0ABudget: " + (budget||"Not selected") + "%0AMove-in: " + (date||"Not selected");         setTimeout(function() { window.open("https://wa.me/255655007492?text=" + waMsg, "_blank"); }, 1000);         document.getElementById("rs-success").style.display = "block";       } {         closeRenter();         if (selectedRenter === 1) { window.location.href = "#contact"; } 
-      else { window.location.href = "https://pms-tenant.javen.co.tz"; }       } {
+      function continueRenter() {
         closeRenter();
-        if (selectedRenter === 1) { window.location.href = "#contact"; }
-        else if (selectedRenter === 2) { window.location.href = "#faq"; }
-        else if (selectedRenter === 3) { window.location.href = "https://pms-tenant.javen.co.tz"; }
+        if (selectedRenter === 1) {
+          openRenterSearch();
+        } else {
+          window.location.href = "https://pms-tenant.javen.co.tz";
+        }
       }
-      
-      function showQuoteError(field, msg) {
-        field.style.borderColor = "#f07863";
-        var err = document.createElement("div");
-        err.className = "quote-error";
-        err.style.cssText =
-          "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
-        err.innerText = msg;
-        field.parentNode.appendChild(err);
-        field.scrollIntoView({ behavior: "smooth", block: "center" });
-        field.focus();
+
+      // RENTER SEARCH PANEL
+      var selectedPropType = "residential";
+      function openRenterSearch() {
+        document.getElementById("renterSearchPanel").style.right = "0";
+        document.getElementById("renterSearchOverlay").style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+      function closeRenterSearch() {
+        document.getElementById("renterSearchPanel").style.right = "-560px";
+        document.getElementById("renterSearchOverlay").style.display = "none";
+        document.body.style.overflow = "";
+      }
+      var resSpaces = ["Studio", "1 Bedroom", "2 Bedrooms", "3 Bedrooms", "4+ Bedrooms", "Villa / Townhouse"];
+      var comSpaces = ["Small Office", "Large Office", "Retail Space", "Warehouse", "Showroom", "Corporate Block"];
+      function buildSpaceOptions(spaces) {
+        var html = "";
+        var st = "border:1.5px solid rgba(76,93,170,0.15);background:white;"
+               + "border-radius:8px;padding:12px;text-align:center;"
+               + "cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;";
+        for (var i = 0; i < spaces.length; i++) {
+          html += "<div onclick='selectSpace(this)' style='" + st + "'>" + spaces[i] + "</div>";
+        }
+        return html;
+      }
+      function selectPropType(type) {
+        selectedPropType = type;
+        var res = document.getElementById("pt-residential");
+        var com = document.getElementById("pt-commercial");
+        if (type === "residential") {
+          res.style.border = "1.5px solid #4c5daa";
+          res.style.background = "#eceef8";
+          res.querySelector("svg").style.stroke = "#4c5daa";
+          com.style.border = "1.5px solid rgba(76,93,170,0.15)";
+          com.style.background = "white";
+          com.querySelector("svg").style.stroke = "#7b80a8";
+          document.getElementById("rs-space-options").innerHTML = buildSpaceOptions(resSpaces);
+        } else {
+          com.style.border = "1.5px solid #4c5daa";
+          com.style.background = "#eceef8";
+          com.querySelector("svg").style.stroke = "#4c5daa";
+          res.style.border = "1.5px solid rgba(76,93,170,0.15)";
+          res.style.background = "white";
+          res.querySelector("svg").style.stroke = "#7b80a8";
+          document.getElementById("rs-space-options").innerHTML = buildSpaceOptions(comSpaces);
+        }
+      }
+      function selectSpace(el) {
+        document.querySelectorAll("#rs-space-options div").forEach(function (d) {
+          d.style.border = "1.5px solid rgba(76,93,170,0.15)";
+          d.style.background = "white";
+          d.style.color = "#1e2140";
+        });
+        el.style.border = "1.5px solid #4c5daa";
+        el.style.background = "#eceef8";
+        el.style.color = "#4c5daa";
+      }
+      function submitRenterSearch() {
+        var fname = document.getElementById("rs-fname").value.trim();
+        var lname = document.getElementById("rs-lname").value.trim();
+        var phone = document.getElementById("rs-phone").value.trim();
+        var email = document.getElementById("rs-email").value.trim();
+        var location = document.getElementById("rs-location").value;
+        var budget = document.getElementById("rs-budget").value;
+        var date = document.getElementById("rs-date").value;
+        var space = "";
+        document.querySelectorAll("#rs-space-options div").forEach(function (d) {
+          if (d.style.background === "rgb(236, 238, 248)") space = d.innerText;
+        });
+        if (!email || !phone) {
+          alert("Please fill in your email and phone number.");
+          return;
+        }
+        var body = "Name: " + fname + " " + lname
+          + "%0APhone: " + phone + "%0AEmail: " + email
+          + "%0AProperty Type: " + selectedPropType
+          + "%0ASpace: " + (space || "Not selected")
+          + "%0ALocation: " + (location || "Not selected")
+          + "%0ABudget: " + (budget || "Not selected")
+          + "%0AMove-in Date: " + (date || "Not selected");
+        window.location.href = "mailto:info@javen.co.tz?subject=Unit%20Search%20Inquiry%20from%20"
+          + encodeURIComponent(fname + " " + lname) + "&body=" + body;
+        var waMsg = "Hello JAVEN,%0A%0AUnit Search Inquiry:"
+          + "%0AName: " + fname + " " + lname
+          + "%0APhone: " + phone
+          + "%0AType: " + selectedPropType
+          + "%0ASpace: " + (space || "Not selected")
+          + "%0ALocation: " + (location || "Not selected")
+          + "%0ABudget: " + (budget || "Not selected")
+          + "%0AMove-in: " + (date || "Not selected");
+        setTimeout(function () {
+          window.open("https://wa.me/255655007492?text=" + waMsg, "_blank");
+        }, 1000);
+        document.getElementById("rs-success").style.display = "block";
       }
     </script>
 
