@@ -63,7 +63,6 @@
         display: flex;
         gap: 28px;
         align-items: center;
-        line-height: 1;
       }
       nav ul li a {
         font-size: 13px;
@@ -1509,7 +1508,138 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#dashboard">Owner Portal</a></li>
 
-        <li><a href="#faq">Resources</a></li>        <li>
+        <li class="nav-dropdown-parent" style="position: relative">
+          <a
+            href="#faq"
+            class="nav-dropdown-trigger"
+            style="display: flex; align-items: center; gap: 5px"
+          >
+            Resources
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <div class="nav-mega-dropdown" style="width: 280px">
+            <div style="padding: 12px 8px">
+              <a
+                href="#faq"
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 14px;
+                  text-decoration: none;
+                  padding: 12px 16px;
+                  border-radius: 8px;
+                "
+                onmouseover="this.style.background = 'var(--teal-faint)'"
+                onmouseout="this.style.background = 'transparent'"
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 8px;
+                    background: var(--teal-faint);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                  "
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--teal)"
+                    stroke-width="2"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--dark);
+                      margin-bottom: 2px;
+                    "
+                  >
+                    Tenant FAQs
+                  </div>
+                  <div style="font-size: 12px; color: var(--muted)">
+                    Payments, maintenance, leases &amp; more.
+                  </div>
+                </div>
+              </a>
+              <a
+                href="#faq"
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 14px;
+                  text-decoration: none;
+                  padding: 12px 16px;
+                  border-radius: 8px;
+                "
+                onmouseover="this.style.background = 'var(--teal-faint)'"
+                onmouseout="this.style.background = 'transparent'"
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 8px;
+                    background: var(--teal-faint);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                  "
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--teal)"
+                    stroke-width="2"
+                  >
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--dark);
+                      margin-bottom: 2px;
+                    "
+                  >
+                    Owner FAQs
+                  </div>
+                  <div style="font-size: 12px; color: var(--muted)">
+                    Pricing, management &amp; service charges.
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li>
           <a
             href="#"
             onclick="
@@ -1737,7 +1867,7 @@
               Email
             </div>
             <div style="font-size: 14px; font-weight: 600; color: var(--dark)">
-              info@javen.co.tz
+              vedgar@javen.co.tz
             </div>
           </div>
         </div>
@@ -2017,13 +2147,12 @@
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#our-story" onclick="closeMenu()">About Us</a>
-      <a href="#our-story" onclick="closeMenu()">About Us</a>
       <a href="#why" onclick="closeMenu()">Why Javen</a>
       <a href="#pricing" onclick="closeMenu()">Pricing</a>
       <a href="#dashboard" onclick="closeMenu()">Owner Portal</a>
       <a href="#contact" onclick="closeMenu()">Get a Quote</a>
-      <a href="#faq" onclick="closeMenu()">Tenant FAQs</a>
-      <!-- <a href="#faq" onclick="closeMenu()">Owner FAQs</a> -->
+      <a href="#faq" onclick="closeMenu()">Resources</a>
+      <a href="#faq" onclick="closeMenu()">Owner FAQs</a>
       <a
         href="#"
         onclick="
@@ -2120,7 +2249,7 @@
           "%0A%0AMessage:%0A" +
           (message || "No message");
         window.location.href =
-          "mailto:info@javen.co.tz?subject=Website%20Enquiry%20from%20" +
+          "mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20" +
           encodeURIComponent(name || "Website") +
           "&body=" +
           body;
@@ -2218,7 +2347,7 @@
           "%0AManagement Status: " +
           (status ? status.parentElement.innerText.trim() : "Not selected");
         window.location.href =
-          "mailto:info@javen.co.tz?subject=Custom%20Quote%20Request%20from%20" +
+          "mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20" +
           encodeURIComponent(name || "Website") +
           "&body=" +
           body;
@@ -4962,43 +5091,38 @@
     <!-- SERVICE AREA -->
     <section class="service-section">
       <div style="aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#eceef8;position:relative;">
-  <svg viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-    <!-- Tanzania mainland rough shape -->
-    <path d="M120,60 L180,45 L240,50 L300,40 L360,55 L400,80 L420,120 L430,160 L420,200 L440,240 L450,280 L440,320 L420,360 L400,390 L370,410 L340,430 L300,450 L260,460 L220,455 L190,440 L160,420 L130,400 L100,370 L80,340 L70,300 L65,260 L70,220 L80,180 L90,140 L100,100 Z"
-      fill="#d6daf0" stroke="#4c5daa" stroke-width="2"/>
-    <!-- Zanzibar island -->
-    <ellipse cx="415" cy="200" rx="22" ry="30" fill="#d6daf0" stroke="#4c5daa" stroke-width="1.5"/>
-    <text x="415" y="225" text-anchor="middle" font-size="9" fill="#4c5daa" font-family="Montserrat,sans-serif" font-weight="600">Zanzibar</text>
-
-    <!-- DAR ES SALAAM -->
-    <circle cx="360" cy="230" r="10" fill="#4c5daa" opacity="0.9"/>
-    <circle cx="360" cy="230" r="16" fill="#4c5daa" opacity="0.15"/>
-    <text x="360" y="260" text-anchor="middle" font-size="12" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Dar es Salaam</text>
-
-    <!-- ARUSHA -->
-    <circle cx="220" cy="100" r="8" fill="#4c5daa" opacity="0.85"/>
-    <circle cx="220" cy="100" r="14" fill="#4c5daa" opacity="0.15"/>
-    <text x="220" y="85" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Arusha</text>
-
-    <!-- MWANZA -->
-    <circle cx="140" cy="160" r="8" fill="#4c5daa" opacity="0.85"/>
-    <circle cx="140" cy="160" r="14" fill="#4c5daa" opacity="0.15"/>
-    <text x="105" y="158" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Mwanza</text>
-
-    <!-- TANGA -->
-    <circle cx="340" cy="140" r="8" fill="#4c5daa" opacity="0.85"/>
-    <circle cx="340" cy="140" r="14" fill="#4c5daa" opacity="0.15"/>
-    <text x="380" y="138" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Tanga</text>
-
-    <!-- MBEYA -->
-    <circle cx="175" cy="380" r="8" fill="#4c5daa" opacity="0.85"/>
-    <circle cx="175" cy="380" r="14" fill="#4c5daa" opacity="0.15"/>
-    <text x="175" y="408" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Mbeya</text>
-
-    <!-- JAVEN label -->
-    <text x="250" y="500" text-anchor="middle" font-size="10" fill="#7b80a8" font-family="Montserrat,sans-serif" font-weight="500" letter-spacing="2">JAVEN SERVICE AREA</text>
-  </svg>
-</div>      <div class="service-text">
+        <svg viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <!-- Tanzania mainland -->
+          <path d="M120,60 L180,45 L240,50 L300,40 L360,55 L400,80 L420,120 L430,160 L420,200 L440,240 L450,280 L440,320 L420,360 L400,390 L370,410 L340,430 L300,450 L260,460 L220,455 L190,440 L160,420 L130,400 L100,370 L80,340 L70,300 L65,260 L70,220 L80,180 L90,140 L100,100 Z"
+            fill="#d6daf0" stroke="#4c5daa" stroke-width="2"/>
+          <!-- Zanzibar -->
+          <ellipse cx="415" cy="200" rx="22" ry="30" fill="#d6daf0" stroke="#4c5daa" stroke-width="1.5"/>
+          <text x="415" y="225" text-anchor="middle" font-size="9" fill="#4c5daa" font-family="Montserrat,sans-serif" font-weight="600">Zanzibar</text>
+          <!-- DAR ES SALAAM -->
+          <circle cx="360" cy="230" r="10" fill="#4c5daa" opacity="0.9"/>
+          <circle cx="360" cy="230" r="18" fill="#4c5daa" opacity="0.12"/>
+          <text x="360" y="258" text-anchor="middle" font-size="12" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Dar es Salaam</text>
+          <!-- ARUSHA -->
+          <circle cx="220" cy="100" r="8" fill="#4c5daa" opacity="0.85"/>
+          <circle cx="220" cy="100" r="15" fill="#4c5daa" opacity="0.12"/>
+          <text x="220" y="84" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Arusha</text>
+          <!-- MWANZA -->
+          <circle cx="140" cy="160" r="8" fill="#4c5daa" opacity="0.85"/>
+          <circle cx="140" cy="160" r="15" fill="#4c5daa" opacity="0.12"/>
+          <text x="98" y="158" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Mwanza</text>
+          <!-- TANGA -->
+          <circle cx="345" cy="140" r="8" fill="#4c5daa" opacity="0.85"/>
+          <circle cx="345" cy="140" r="15" fill="#4c5daa" opacity="0.12"/>
+          <text x="385" y="138" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Tanga</text>
+          <!-- MBEYA -->
+          <circle cx="175" cy="380" r="8" fill="#4c5daa" opacity="0.85"/>
+          <circle cx="175" cy="380" r="15" fill="#4c5daa" opacity="0.12"/>
+          <text x="175" y="408" text-anchor="middle" font-size="11" fill="#1e2140" font-family="Montserrat,sans-serif" font-weight="700">Mbeya</text>
+          <!-- Label -->
+          <text x="250" y="500" text-anchor="middle" font-size="10" fill="#7b80a8" font-family="Montserrat,sans-serif" font-weight="500" letter-spacing="2">JAVEN SERVICE AREA</text>
+        </svg>
+      </div>
+      <div class="service-text">
         <p class="section-eyebrow">Service Area</p>
         <h2 class="section-title">Hyper-local expertise across Tanzania.</h2>
         <p
@@ -5009,85 +5133,17 @@
             margin-top: 24px;
           "
         >
-          From Oyster Bay to Kariakoo, Kinondoni to Ilala — JAVEN's
-          on-the-ground team knows the micro-markets, the regulations, and the
-          tenant pool of every neighborhood we serve.
+          From Dar es Salaam to Arusha, Mwanza to Mbeya — JAVEN's on-the-ground team knows the micro-markets, the regulations, and the tenant pool in every city we serve.
         </p>
         <div
           style="display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap"
         >
-          <div
-            style="
-              background: var(--teal-faint);
-              border-radius: 8px;
-              padding: 10px 18px;
-              font-size: 13px;
-              font-weight: 500;
-              color: var(--teal);
-            "
-          >
-            Oyster Bay
-          </div>
-          <div
-            style="
-              background: var(--teal-faint);
-              border-radius: 8px;
-              padding: 10px 18px;
-              font-size: 13px;
-              font-weight: 500;
-              color: var(--teal);
-            "
-          >
-            Masaki
-          </div>
-          <div
-            style="
-              background: var(--teal-faint);
-              border-radius: 8px;
-              padding: 10px 18px;
-              font-size: 13px;
-              font-weight: 500;
-              color: var(--teal);
-            "
-          >
-            Kariakoo
-          </div>
-          <div
-            style="
-              background: var(--teal-faint);
-              border-radius: 8px;
-              padding: 10px 18px;
-              font-size: 13px;
-              font-weight: 500;
-              color: var(--teal);
-            "
-          >
-            Kinondoni
-          </div>
-          <div
-            style="
-              background: var(--teal-faint);
-              border-radius: 8px;
-              padding: 10px 18px;
-              font-size: 13px;
-              font-weight: 500;
-              color: var(--teal);
-            "
-          >
-            Ilala
-          </div>
-          <div
-            style="
-              background: var(--amber-faint);
-              border-radius: 8px;
-              padding: 10px 18px;
-              font-size: 13px;
-              font-weight: 500;
-              color: var(--amber);
-            "
-          >
-            + More
-          </div>
+          <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal);">Dar es Salaam</div>
+          <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal);">Arusha</div>
+          <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal);">Mwanza</div>
+          <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal);">Tanga</div>
+          <div style="background:var(--teal-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--teal);">Mbeya</div>
+          <div style="background:var(--amber-faint);border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--amber);">+ More</div>
         </div>
       </div>
     </section>
