@@ -2334,7 +2334,30 @@
         el.style.background = "#eceef8";
         el.style.color = "#4c5daa";
       }
+      function clearRenterErrors() {
+        document.querySelectorAll(".rs-error").forEach(function(el) { el.remove(); });
+        ["rs-fname","rs-lname","rs-phone","rs-email"].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.style.borderColor = "rgba(76,93,170,0.12)";
+        });
+      }
+      function showRenterError(fieldId, msg) {
+        var field = document.getElementById(fieldId);
+        if (!field) return;
+        field.style.borderColor = "#f07863";
+        field.style.outline = "none";
+        var existing = field.parentNode.querySelector(".rs-error");
+        if (existing) existing.remove();
+        var err = document.createElement("div");
+        err.className = "rs-error";
+        err.style.cssText = "color:#f07863;font-size:11px;margin-top:5px;font-weight:600;display:flex;align-items:center;gap:4px;";
+        err.innerHTML = "<span style='font-size:13px;'>&#9888;</span> " + msg;
+        field.parentNode.appendChild(err);
+        field.scrollIntoView({ behavior: "smooth", block: "center" });
+        field.focus();
+      }
       function submitRenterSearch() {
+        clearRenterErrors();
         var fname = document.getElementById("rs-fname").value.trim();
         var lname = document.getElementById("rs-lname").value.trim();
         var phone = document.getElementById("rs-phone").value.trim();
@@ -2346,10 +2369,32 @@
         document.querySelectorAll("#rs-space-options div").forEach(function (d) {
           if (d.style.background === "rgb(236, 238, 248)") space = d.innerText;
         });
-        if (!email || !phone) {
-          alert("Please fill in your email and phone number.");
-          return;
+        var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
+        var hasError = false;
+        if (!fname) {
+          showRenterError("rs-fname", "First name is required.");
+          hasError = true;
         }
+        if (!lname) {
+          showRenterError("rs-lname", "Last name is required.");
+          hasError = true;
+        }
+        if (!phone) {
+          showRenterError("rs-phone", "Phone number is required.");
+          hasError = true;
+        } else if (!phoneValid) {
+          showRenterError("rs-phone", "Please enter a valid phone number.");
+          hasError = true;
+        }
+        if (!email) {
+          showRenterError("rs-email", "Email address is required.");
+          hasError = true;
+        } else if (!emailValid) {
+          showRenterError("rs-email", "Please enter a valid email address (e.g. name@example.com).");
+          hasError = true;
+        }
+        if (hasError) return;
         var body = "Name: " + fname + " " + lname
           + "%0APhone: " + phone + "%0AEmail: " + email
           + "%0AProperty Type: " + selectedPropType
