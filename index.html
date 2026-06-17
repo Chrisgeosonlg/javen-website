@@ -1401,6 +1401,108 @@
       </div>
     </nav>
 
+<!-- RENTER SEARCH PANEL -->
+<div id="renterSearchOverlay" onclick="closeRenterSearch()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:998;"></div>
+<div id="renterSearchPanel" style="position:fixed;top:0;right:-560px;width:560px;max-width:100vw;height:100%;background:white;z-index:999;overflow-y:auto;transition:right 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 40px rgba(0,0,0,0.15);font-family:'Montserrat',sans-serif;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:28px 36px;border-bottom:1px solid rgba(76,93,170,0.12);position:sticky;top:0;background:white;z-index:1;">
+    <div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#4c5daa;margin-bottom:4px;">Find a Property</p>
+      <h3 style="font-size:20px;font-weight:800;color:#1e2140;letter-spacing:-0.5px;">I am looking for a unit to rent</h3>
+      <p style="font-size:13px;color:#7b80a8;margin-top:4px;">Tell us what you need and we'll match you.</p>
+    </div>
+    <button onclick="closeRenterSearch()" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(76,93,170,0.12);background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:#7b80a8;flex-shrink:0;">✕</button>
+  </div>
+
+  <div style="padding:32px 36px;display:flex;flex-direction:column;gap:28px;">
+
+    <!-- Step 1 -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:#eceef8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4c5daa;flex-shrink:0;">1</div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#7b80a8;">Property Type</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div id="pt-residential" onclick="selectPropType('residential')" style="border:1.5px solid #4c5daa;background:#eceef8;border-radius:12px;padding:20px 16px;text-align:center;cursor:pointer;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4c5daa" stroke-width="1.5" style="margin-bottom:8px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div style="font-size:14px;font-weight:700;color:#1e2140;margin-bottom:4px;">Residential</div>
+          <div style="font-size:12px;color:#7b80a8;">Apartment, house, villa</div>
+        </div>
+        <div id="pt-commercial" onclick="selectPropType('commercial')" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:12px;padding:20px 16px;text-align:center;cursor:pointer;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7b80a8" stroke-width="1.5" style="margin-bottom:8px;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          <div style="font-size:14px;font-weight:700;color:#1e2140;margin-bottom:4px;">Commercial</div>
+          <div style="font-size:12px;color:#7b80a8;">Office, retail, warehouse</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:1px;background:rgba(76,93,170,0.1);"></div>
+
+    <!-- Step 2 -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:#eceef8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4c5daa;flex-shrink:0;">2</div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#7b80a8;">Preferred Location</span>
+      </div>
+      <label style="font-size:12px;font-weight:600;color:#7b80a8;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:8px;">Area / Neighbourhood *</label>
+      <select id="rs-location" style="font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid rgba(76,93,170,0.12);border-radius:8px;padding:12px 16px;color:#1e2140;background:white;outline:none;width:100%;">
+        <option value="">Select or type below</option>
+        <option>Dar es Salaam — Oyster Bay</option>
+        <option>Dar es Salaam — Masaki</option>
+        <option>Dar es Salaam — Kariakoo</option>
+        <option>Dar es Salaam — Kinondoni</option>
+        <option>Dar es Salaam — Ilala</option>
+        <option>Dar es Salaam — Mbezi Beach</option>
+        <option>Dar es Salaam — Mikocheni</option>
+        <option>Arusha</option>
+        <option>Mwanza</option>
+        <option>Tanga</option>
+        <option>Mbeya</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div style="height:1px;background:rgba(76,93,170,0.1);"></div>
+
+    <!-- Step 3 -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:#eceef8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4c5daa;flex-shrink:0;">3</div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#7b80a8;">Space Requirements</span>
+      </div>
+      <div id="rs-space-options" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:#f3f2e0;border-radius:8px;padding:14px;text-align:center;font-size:13px;color:#7b80a8;">Select a property type above to see space options</div>
+      </div>
+    </div>
+
+    <div style="height:1px;background:rgba(76,93,170,0.1);"></div>
+
+    <!-- Step 4 -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:#eceef8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4c5daa;flex-shrink:0;">4</div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#7b80a8;">Monthly Budget Range</span>
+      </div>
+      <label style="font-size:12px;font-weight:600;color:#7b80a8;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:8px;">Budget *</label>
+      <select id="rs-budget" style="font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid rgba(76,93,170,0.12);border-radius:8px;padding:12px 16px;color:#1e2140;background:white;outline:none;width:100%;">
+        <option value="">Select range</option>
+        <option>Below TZS 500,000</option>
+        <option>TZS 500,000 – 1,000,000</option>
+        <option>TZS 1,000,000 – 2,000,000</option>
+        <option>TZS 2,000,000 – 5,000,000</option>
+        <option>TZS 5,000,000 – 10,000,000</option>
+        <option>Above TZS 10,000,000</option>
+      </select>
+    </div>
+
+    <div style="height:1px;background:rgba(76,93,170,0.1);"></div>
+
+    <!-- Step 5 -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:#eceef8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4c5daa;flex-shrink:0;">5</div>
+        <span style="font-size:11px;font-wei              
+              
     <!-- RENTER INTAKE MODAL -->
 <div id="renterOverlay" onclick="closeRenter()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(30,33,64,0.75);z-index:998;"></div>
 <div id="renterModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:520px;z-index:999;border-radius:20px;overflow:hidden;font-family:'Montserrat',sans-serif;">
@@ -2191,7 +2293,15 @@
         if (selIcon) { selIcon.style.background = "#4c5daa"; selIcon.querySelector("svg").style.stroke = "white"; }
         selectedRenter = n;
       }
-      function continueRenter() {         closeRenter();         if (selectedRenter === 1) { window.location.href = "#contact"; } 
+      function continueRenter() {         closeRenter();         if (selectedRenter === 1) { openRenterSearch(); }    
+      else { window.location.href = "https://pms-tenant.javen.co.tz"; }       }       var selectedPropType = "residential";       function openRenterSearch() 
+      {         document.getElementById("renterSearchPanel").style.right = "0";         document.getElementById("renterSearchOverlay").style.display = "block";         document.body.style.overflow = "hidden";       }  
+      function closeRenterSearch() {         document.getElementById("renterSearchPanel").style.right = "-560px";         document.getElementById("renterSearchOverlay").style.display = "none";         document.body.style.overflow = "";       }    
+      function selectPropType(type) {         selectedPropType = type;         var res = document.getElementById("pt-residential");         var com = document.getElementById("pt-commercial");         if (type === "residential") 
+      {           res.style.border = "1.5px solid #4c5daa"; res.style.background = "#eceef8"; res.querySelector("svg").style.stroke = "#4c5daa";           com.style.border = "1.5px solid rgba(76,93,170,0.15)"; com.style.background = "white"; com.querySelector("svg").style.stroke = "#7b80a8";   
+       document.getElementById("rs-space-options").innerHTML = '<div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Studio</div>
+         <div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">1 Bedroom</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">2 Bedrooms</div>
+         <div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">3 Bedrooms</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">4+ Bedrooms</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Villa / Townhouse</div>';         } else {           com.style.border = "1.5px solid #4c5daa"; com.style.background = "#eceef8"; com.querySelector("svg").style.stroke = "#4c5daa";           res.style.border = "1.5px solid rgba(76,93,170,0.15)"; res.style.background = "white"; res.querySelector("svg").style.stroke = "#7b80a8";           document.getElementById("rs-space-options").innerHTML = '<div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Small Office</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Large Office</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Retail Space</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Warehouse</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Showroom</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Corporate Block</div>';         }       }       function selectSpace(el) {         document.querySelectorAll("#rs-space-options div").forEach(function(d) { d.style.border = "1.5px solid rgba(76,93,170,0.15)"; d.style.background = "white"; d.style.color = "#1e2140"; });         el.style.border = "1.5px solid #4c5daa"; el.style.background = "#eceef8"; el.style.color = "#4c5daa";       }       function submitRenterSearch() {         var fname = document.getElementById("rs-fname").value.trim();         var lname = document.getElementById("rs-lname").value.trim();         var phone = document.getElementById("rs-phone").value.trim();         var email = document.getElementById("rs-email").value.trim();         var location = document.getElementById("rs-location").value;         var budget = document.getElementById("rs-budget").value;         var date = document.getElementById("rs-date").value;         var space = "";         document.querySelectorAll("#rs-space-options div").forEach(function(d) { if (d.style.background === "rgb(236, 238, 248)") space = d.innerText; });         if (!email || !phone) { alert("Please fill in your email and phone number."); return; }         var body = "Name: " + fname + " " + lname + "%0APhone: " + phone + "%0AEmail: " + email + "%0AProperty Type: " + selectedPropType + "%0ASpace: " + (space||"Not selected") + "%0ALocation: " + (location||"Not selected") + "%0ABudget: " + (budget||"Not selected") + "%0AMove-in Date: " + (date||"Not selected");         window.location.href = "mailto:info@javen.co.tz?subject=Unit%20Search%20Inquiry%20from%20" + encodeURIComponent(fname + " " + lname) + "&body=" + body;         var waMsg = "Hello JAVEN,%0A%0AUnit Search Inquiry:%0AName: " + fname + " " + lname + "%0APhone: " + phone + "%0AType: " + selectedPropType + "%0ASpace: " + (space||"Not selected") + "%0ALocation: " + (location||"Not selected") + "%0ABudget: " + (budget||"Not selected") + "%0AMove-in: " + (date||"Not selected");         setTimeout(function() { window.open("https://wa.me/255655007492?text=" + waMsg, "_blank"); }, 1000);         document.getElementById("rs-success").style.display = "block";       } {         closeRenter();         if (selectedRenter === 1) { window.location.href = "#contact"; } 
       else { window.location.href = "https://pms-tenant.javen.co.tz"; }       } {
         closeRenter();
         if (selectedRenter === 1) { window.location.href = "#contact"; }
