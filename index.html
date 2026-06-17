@@ -2335,11 +2335,11 @@
       ];
 
       function buildSpaceOptions(spaces) {
+        var st = "border:1.5px solid rgba(76,93,170,0.15);background:white;"
+               + "border-radius:8px;padding:12px;text-align:center;"
+               + "cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;";
         return spaces.map(function(s) {
-          return '<div onclick="selectSpace(this)" style="'
-            + 'border:1.5px solid rgba(76,93,170,0.15);background:white;'
-            + 'border-radius:8px;padding:12px;text-align:center;cursor:pointer;'
-            + 'font-size:13px;font-weight:600;color:#1e2140;">' + s + '</div>';
+          return "<div onclick=\"selectSpace(this)\" style=\"" + st + "\">" + s + "</div>";
         }).join("");
       }
 
