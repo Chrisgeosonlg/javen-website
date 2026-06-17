@@ -2191,7 +2191,8 @@
         if (selIcon) { selIcon.style.background = "#4c5daa"; selIcon.querySelector("svg").style.stroke = "white"; }
         selectedRenter = n;
       }
-      function continueRenter() {
+      function continueRenter() {         closeRenter();         if (selectedRenter === 1) { window.location.href = "#contact"; } 
+      else { window.location.href = "https://pms-tenant.javen.co.tz"; }       } {
         closeRenter();
         if (selectedRenter === 1) { window.location.href = "#contact"; }
         else if (selectedRenter === 2) { window.location.href = "#faq"; }
