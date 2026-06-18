@@ -5159,3 +5159,27 @@
     </footer>
   </body>
 </html>
+ <!-- COOKIE CONSENT BANNER -->
+    <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;padding:20px 5vw;background:#1e2140;border-top:3px solid #4c5daa;box-shadow:0 -4px 32px rgba(0,0,0,0.25);font-family:'Montserrat',sans-serif;">
+      <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:flex-start;gap:16px;flex:1;min-width:280px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:rgba(76,93,170,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">🍪</div>
+          <div>
+            <p style="font-size:14px;font-weight:700;color:white;margin-bottom:4px;">We use cookies</p>
+            <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;">We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies. Read our <a href="privacy-policy.html" style="color:#6872b6;text-decoration:underline;">Privacy Policy</a> to learn more.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-shrink:0;flex-wrap:wrap;">
+          <button onclick="rejectCookies()" style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='white';" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.6)';">
+            Reject All
+          </button>
+          <button onclick="acceptCookies()" style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:10px 24px;border-radius:8px;border:none;background:#4c5daa;color:white;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#6872b6';" onmouseout="this.style.background='#4c5daa';">
+            Accept All
+          </button>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
+              
