@@ -1782,7 +1782,7 @@
               Email
             </div>
             <div style="font-size: 14px; font-weight: 600; color: var(--dark)">
-              info@javen.co.tz
+              vedgar@javen.co.tz
             </div>
           </div>
         </div>
@@ -2141,7 +2141,7 @@
           + "%0APhone: " + phone
           + "%0ASubject: " + (subject || "Not selected")
           + "%0A%0AMessage:%0A" + (message || "No message");
-        window.location.href = "mailto:info@javen.co.tz?subject=Website%20Enquiry%20from%20"
+        window.location.href = "mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20"
           + encodeURIComponent(name || "Website") + "&body=" + body;
         document.getElementById("cf-name").value = "";
         document.getElementById("cf-email").value = "";
@@ -2202,7 +2202,7 @@
           + "%0AUnits: " + (units ? units.parentElement.innerText.trim() : "Not selected")
           + "%0AService Level: " + (service ? service.parentElement.innerText.trim() : "Not selected")
           + "%0AManagement Status: " + (status ? status.parentElement.innerText.trim() : "Not selected");
-        window.location.href = "mailto:info@javen.co.tz?subject=Custom%20Quote%20Request%20from%20"
+        window.location.href = "mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20"
           + encodeURIComponent(name || "Website") + "&body=" + body;
         var waMessage = "Hello JAVEN,%0A%0ANew Quote Request:%0AName: " + (name || "Not provided")
           + "%0AEmail: " + email + "%0APhone: " + phone
@@ -2417,6 +2417,25 @@
         }, 1000);
         document.getElementById("rs-success").style.display = "block";
       }
+
+      // COOKIE CONSENT
+      function acceptCookies() {
+        localStorage.setItem("javen_cookie_consent", "accepted");
+        document.getElementById("cookieBanner").style.display = "none";
+      }
+      function rejectCookies() {
+        localStorage.setItem("javen_cookie_consent", "rejected");
+        document.getElementById("cookieBanner").style.display = "none";
+      }
+      (function() {
+        var consent = localStorage.getItem("javen_cookie_consent");
+        if (!consent) {
+          setTimeout(function() {
+            document.getElementById("cookieBanner").style.display = "block";
+          }, 1500);
+        }
+      })();
+
     </script>
 
     <!-- HERO -->
@@ -2473,7 +2492,7 @@
       <div class="hero-right">
         <div class="hero-img-placeholder">
           <video class="hero-video" autoplay muted loop playsinline>
-            <source src="hero-video-4.mp4" type="video/mp4" />
+            <source src="hero-video.mp4" type="video/mp4" />
           </video>
           <div class="hero-video-overlay"></div>
           <div class="hero-card-float">
@@ -4334,7 +4353,7 @@
             </div>
             <div>
               <div class="contact-info-label">Email</div>
-              <div class="contact-info-val">info@javen.co.tz</div>
+              <div class="contact-info-val">javenlocations@javen.co.tz</div>
             </div>
           </div>
           <div class="contact-row">
@@ -5147,7 +5166,7 @@
                 >Contact Us</a
               >
             </li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
             <li><a href="#">Terms</a></li>
           </ul>
         </div>
@@ -5157,9 +5176,8 @@
         <span>Dar es Salaam, Tanzania.</span>
       </div>
     </footer>
-  </body>
-</html>
- <!-- COOKIE CONSENT BANNER -->
+  
+    <!-- COOKIE CONSENT BANNER -->
     <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;padding:20px 5vw;background:#1e2140;border-top:3px solid #4c5daa;box-shadow:0 -4px 32px rgba(0,0,0,0.25);font-family:'Montserrat',sans-serif;">
       <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
         <div style="display:flex;align-items:flex-start;gap:16px;flex:1;min-width:280px;">
@@ -5182,4 +5200,3 @@
 
 </body>
 </html>
-              
