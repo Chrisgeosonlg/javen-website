@@ -242,7 +242,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 40px 5vw 40px 8vw;
+        padding: 80px 5vw 80px 8vw;
         background: var(--off);
         position: relative;
         overflow: hidden;
@@ -278,9 +278,9 @@
         height: 1px;
         background: var(--teal);
       }
-     .hero-title {
+      .hero-title {
         font-family: var(--sans);
-        font-size: clamp(28px, 3.5vw, 48px);
+        font-size: clamp(38px, 4.5vw, 62px);
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -2px;
@@ -294,11 +294,11 @@
         color: var(--teal);
       }
       .hero-sub {
-        font-size: 15px;
+        font-size: 16px;
         color: var(--muted);
         line-height: 1.75;
         max-width: 420px;
-        margin-bottom: 16px;
+        margin-bottom: 44px;
         position: relative;
         z-index: 1;
       }
@@ -356,7 +356,7 @@
       .hero-stats {
         display: flex;
         gap: 40px;
-        margin-top: 20px;
+        margin-top: 56px;
         padding-top: 40px;
         border-top: 1px solid var(--border);
         position: relative;
@@ -395,7 +395,7 @@
         padding: 60px 48px;
         overflow: hidden;
       }
-      .hero-img {
+      .hero-video {
         position: absolute;
         top: 0;
         left: 0;
@@ -536,7 +536,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 16px;
+        margin-bottom: 28px;
       }
       .feature-icon svg {
         width: 24px;
@@ -1153,200 +1153,77 @@
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </a>
-          <div class="nav-mega-dropdown">
-            <div
-              style="display: grid; grid-template-columns: 1fr 1fr; gap: 0"
-            >
-              <!-- Col 1: Why Javen -->
-              <div
-                style="
-                  padding: 36px 32px;
-                  border-right: 1px solid var(--border);
-                "
-              >
-                <p
-                  style="
-                    font-size: 10px;
-                    font-weight: 600;
-                    letter-spacing: 0.16em;
-                    text-transform: uppercase;
-                    color: var(--teal);
-                    margin-bottom: 20px;
-                  "
-                >
-                  Our Services
-                </p>
-                <a
-                  href="#why"
-                  style="
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 14px;
-                    text-decoration: none;
-                    padding: 14px 0;
-                    border-bottom: 1px solid var(--border);
-                    group: true;
-                  "
-                >
-                  <div
-                    style="
-                      width: 40px;
-                      height: 40px;
-                      border-radius: 10px;
-                      background: var(--teal-faint);
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      flex-shrink: 0;
-                    "
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="var(--teal)"
-                      stroke-width="1.8"
-                    >
-                      <path
-                        d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                      />
-                      <polyline points="9 22 9 12 15 12 15 22" />
-                    </svg>
+          <div class="nav-mega-dropdown" style="min-width:780px;">
+            <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;">
+
+              <!-- Col 1: Our Services -->
+              <div style="padding:32px 28px;border-right:1px solid var(--border);">
+                <p style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;">Our Services</p>
+
+                <a href="#why" style="display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--border);">
+                  <div style="width:38px;height:38px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
                   </div>
                   <div>
-                    <div
-                      style="
-                        font-size: 14px;
-                        font-weight: 700;
-                        color: var(--dark);
-                        margin-bottom: 3px;
-                      "
-                    >
-                      Why Javen
-                    </div>
-                    <div
-                      style="
-                        font-size: 12px;
-                        color: var(--muted);
-                        line-height: 1.6;
-                      "
-                    >
-                      What makes us different from traditional property
-                      management.
-                    </div>
+                    <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px;">Property Management</div>
+                    <div style="font-size:12px;color:var(--muted);line-height:1.6;">Rent collection and maintenance, automated end to end.</div>
                   </div>
                 </a>
-                <a
-                  href="sustainability.html"
-                  style="
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 14px;
-                    text-decoration: none;
-                    padding: 14px 0;
-                  "
-                >
-                  <div
-                    style="
-                      width: 40px;
-                      height: 40px;
-                      border-radius: 10px;
-                      background: var(--teal-faint);
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      flex-shrink: 0;
-                    "
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="var(--teal)"
-                      stroke-width="1.8"
-                    >
-                      <path
-                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                      />
-                      <polyline points="14 2 14 8 20 8" />
-                    </svg>
+
+                <a href="sustainability.html" style="display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--border);">
+                  <div style="width:38px;height:38px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                   </div>
                   <div>
-                    <div
-                      style="
-                        font-size: 14px;
-                        font-weight: 700;
-                        color: var(--dark);
-                        margin-bottom: 3px;
-                      "
-                    >
-                      Sustainability
-                    </div>
-                    <div
-                      style="
-                        font-size: 12px;
-                        color: var(--muted);
-                        line-height: 1.6;
-                      "
-                    >
-                      Our commitment to responsible and sustainable property
-                      management.
-                    </div>
+                    <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px;">Real Estate Advisory</div>
+                    <div style="font-size:12px;color:var(--muted);line-height:1.6;">Consultancy on acquisitions, valuations, and strategy.</div>
+                  </div>
+                </a>
+
+                <a href="sustainability.html" style="display:flex;align-items:flex-start;gap:14px;text-decoration:none;padding:12px 0;">
+                  <div style="width:38px;height:38px;border-radius:10px;background:var(--teal-faint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div>
+                    <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px;">Sustainability</div>
+                    <div style="font-size:12px;color:var(--muted);line-height:1.6;">Our commitment to responsible property management.</div>
                   </div>
                 </a>
               </div>
-              <!-- Col 2: Our Story -->
-              <div
-                style="
-                  padding: 36px 32px;
-                  border-right: 1px solid var(--border);
-                "
-              >
-                <p
-                  style="
-                    font-size: 10px;
-                    font-weight: 600;
-                    letter-spacing: 0.16em;
-                    text-transform: uppercase;
-                    color: var(--teal);
-                    margin-bottom: 20px;
-                  "
-                >
-                  Our Story
-                </p>
-                <a
-                  href="our-story.html"
-                  style="
-                    display: block;
-                    text-decoration: none;
-                    padding: 14px 0;
-                    border-bottom: 1px solid var(--border);
-                  "
-                >
-                  <div
-                    style="
-                      font-size: 14px;
-                      font-weight: 700;
-                      color: var(--dark);
-                      margin-bottom: 3px;
-                    "
-                  >
-                    Born from Experience
-                  </div>
-                  <div
-                    style="
-                      font-size: 12px;
-                      color: var(--muted);
-                      line-height: 1.6;
-                    "
-                  >
-                    Founded in 2026 after years of observing operational
-                    challenges in East African real estate.
-                  </div>
+
+              <!-- Col 2: Our Story + Core Values -->
+              <div style="padding:32px 28px;border-right:1px solid var(--border);">
+                <p style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;">Our Story</p>
+                <a href="our-story.html" style="display:block;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--border);margin-bottom:24px;">
+                  <div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:4px;">Born from Experience</div>
+                  <div style="font-size:12px;color:var(--muted);line-height:1.6;">Founded in 2026 after years of observing operational challenges in East African real estate.</div>
                 </a>
-                              </div>
+
+                <p style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">Core Values</p>
+                <div style="font-size:12px;color:var(--muted);line-height:1.8;">Transparency, reliability, and sustainable operations guide every decision.</div>
+              </div>
+
+              <!-- Col 3: See It Work -->
+              <div style="padding:32px 28px;background:var(--teal-faint);">
+                <p style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;">See It Work</p>
+                <a href="#dashboard" style="display:block;text-decoration:none;margin-bottom:16px;">
+                  <div style="background:white;border-radius:10px;padding:14px;border:1px solid var(--border);margin-bottom:10px;">
+                    <div style="display:flex;gap:6px;margin-bottom:8px;">
+                      <div style="width:8px;height:8px;border-radius:50%;background:#f07863;"></div>
+                      <div style="width:8px;height:8px;border-radius:50%;background:#f0c063;"></div>
+                      <div style="width:8px;height:8px;border-radius:50%;background:#63f0a3;"></div>
+                    </div>
+                    <div style="height:6px;background:var(--teal-faint);border-radius:4px;margin-bottom:6px;width:80%;"></div>
+                    <div style="height:6px;background:var(--teal-faint);border-radius:4px;margin-bottom:6px;width:60%;"></div>
+                    <div style="height:6px;background:var(--teal-faint);border-radius:4px;width:70%;"></div>
+                  </div>
+                  <div style="font-size:12px;color:var(--muted);line-height:1.5;">A live look at the owner dashboard.</div>
+                </a>
+                <a href="#contact" onclick="event.preventDefault();openContact();" style="display:block;text-align:center;padding:12px 16px;background:var(--amber);color:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-top:16px;">Book a Demo</a>
+              </div>
+
+            </div>
+          </div>
                      </li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#dashboard">Owner Portal</a></li>
@@ -1368,7 +1245,7 @@
           <span></span><span></span><span></span>
         </button>
         <a
-          href="https://pms.javen.co.tz"
+          href="https://pms-tenant.javen.co.tz"
           target="_blank"
           class="btn-outline"
         >
@@ -1385,7 +1262,7 @@
           </svg>
           Owner Login
         </a>
-        <a href="https://pms-tenant.javen.co.tz" class="btn-solid">
+        <a href="#" class="btn-solid">
           <svg
             width="14"
             height="14"
@@ -1501,55 +1378,11 @@
     <div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
         <div style="width:28px;height:28px;border-radius:50%;background:#eceef8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4c5daa;flex-shrink:0;">5</div>
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#7b80a8;">Target Move-In Date</span>
-      </div>
-      <label style="font-size:12px;font-weight:600;color:#7b80a8;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:8px;">Move-in date *</label>
-      <input id="rs-date" type="date" style="font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid rgba(76,93,170,0.12);border-radius:8px;padding:12px 16px;color:#1e2140;background:white;outline:none;width:100%;"/>
-    </div>
-
-    <div style="height:1px;background:rgba(76,93,170,0.1);"></div>
-
-    <!-- Step 6 -->
-    <div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-        <div style="width:28px;height:28px;border-radius:50%;background:#eceef8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4c5daa;flex-shrink:0;">6</div>
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#7b80a8;">Contact Details</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-        <div>
-          <label style="font-size:12px;font-weight:600;color:#7b80a8;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:8px;">First Name *</label>
-          <input id="rs-fname" type="text" placeholder="Amina" style="font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid rgba(76,93,170,0.12);border-radius:8px;padding:12px 16px;color:#1e2140;background:white;outline:none;width:100%;"/>
-        </div>
-        <div>
-          <label style="font-size:12px;font-weight:600;color:#7b80a8;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:8px;">Last Name *</label>
-          <input id="rs-lname" type="text" placeholder="Hassan" style="font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid rgba(76,93,170,0.12);border-radius:8px;padding:12px 16px;color:#1e2140;background:white;outline:none;width:100%;"/>
-        </div>
-      </div>
-      <div style="margin-bottom:14px;">
-        <label style="font-size:12px;font-weight:600;color:#7b80a8;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:8px;">Phone Number *</label>
-        <input id="rs-phone" type="tel" placeholder="+255 700 000 000" style="font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid rgba(76,93,170,0.12);border-radius:8px;padding:12px 16px;color:#1e2140;background:white;outline:none;width:100%;"/>
-      </div>
-      <div style="margin-bottom:24px;">
-        <label style="font-size:12px;font-weight:600;color:#7b80a8;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:8px;">Email Address *</label>
-        <input id="rs-email" type="email" placeholder="you@example.com" style="font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid rgba(76,93,170,0.12);border-radius:8px;padding:12px 16px;color:#1e2140;background:white;outline:none;width:100%;"/>
-      </div>
-      <button onclick="submitRenterSearch()" style="width:100%;padding:16px;border-radius:10px;background:#4c5daa;color:white;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;">
-        Submit Inquiry
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-      <div id="rs-success" style="display:none;text-align:center;padding:20px;background:#eceef8;border-radius:12px;margin-top:16px;">
-        <div style="font-size:28px;margin-bottom:8px;">✅</div>
-        <div style="font-size:15px;font-weight:700;color:#4c5daa;margin-bottom:4px;">Inquiry Sent!</div>
-        <div style="font-size:13px;color:#7b80a8;">Our team will contact you within 24 hours.</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
+        <span style="font-size:11px;font-wei              
+              
     <!-- RENTER INTAKE MODAL -->
-<div id="renterOverlay" onclick="closeRenter()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(30,33,64,0.75);z-index:10000;"></div>
-<div id="renterModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:520px;z-index:10001;border-radius:20px;overflow:hidden;font-family:'Montserrat',sans-serif;">
+<div id="renterOverlay" onclick="closeRenter()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(30,33,64,0.75);z-index:998;"></div>
+<div id="renterModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:520px;z-index:999;border-radius:20px;overflow:hidden;font-family:'Montserrat',sans-serif;">
   <div style="background:#1e2140;padding:32px 36px 28px;">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;">
       <div>
@@ -1782,7 +1615,7 @@
               Email
             </div>
             <div style="font-size: 14px; font-weight: 600; color: var(--dark)">
-              info@javen.co.tz
+              vedgar@javen.co.tz
             </div>
           </div>
         </div>
@@ -2077,8 +1910,8 @@
         >Contact Us</a
       >
       <div class="mobile-btns">
-        <a href="https://pms.javen.co.tz" class="btn-outline" onclick="closeMenu()">Owner Login</a>
-        <a href="https://pms-tenant.javen.co.tz" class="btn-solid" onclick="closeMenu()">Tenant Login</a>
+        <a href="#" class="btn-outline" onclick="closeMenu()">Owner Login</a>
+        <a href="#" class="btn-solid" onclick="closeMenu()">Tenant Login</a>
       </div>
     </div>
 
@@ -2099,11 +1932,15 @@
         const navLinks = document.querySelectorAll("nav ul li a");
         let current = "";
         sections.forEach((s) => {
-          if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute("id");
+          if (window.scrollY >= s.offsetTop - 100)
+            current = s.getAttribute("id");
         });
         navLinks.forEach((link) => {
           link.classList.remove("active");
-          if (link.getAttribute("href") === "#" + current && link.getAttribute("href") !== "#")
+          if (
+            link.getAttribute("href") === "#" + current &&
+            link.getAttribute("href") !== "#"
+          )
             link.classList.add("active");
         });
         const btn = document.getElementById("backToTop");
@@ -2132,17 +1969,38 @@
         var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
         clearErrors();
-        if (!email) { showError("cf-email", "Email address is required."); return; }
-        if (!emailValid) { showError("cf-email", "Please enter a valid email address."); return; }
-        if (!phone) { showError("cf-phone", "Phone number is required."); return; }
-        if (!phoneValid) { showError("cf-phone", "Please enter a valid phone number."); return; }
-        var body = "Name: " + (name || "Not provided")
-          + "%0AEmail: " + email
-          + "%0APhone: " + phone
-          + "%0ASubject: " + (subject || "Not selected")
-          + "%0A%0AMessage:%0A" + (message || "No message");
-        window.location.href = "mailto:info@javen.co.tz?subject=Website%20Enquiry%20from%20"
-          + encodeURIComponent(name || "Website") + "&body=" + body;
+        if (!email) {
+          showError("cf-email", "Email address is required.");
+          return;
+        }
+        if (!emailValid) {
+          showError("cf-email", "Please enter a valid email address.");
+          return;
+        }
+        if (!phone) {
+          showError("cf-phone", "Phone number is required.");
+          return;
+        }
+        if (!phoneValid) {
+          showError("cf-phone", "Please enter a valid phone number.");
+          return;
+        }
+        var body =
+          "Name: " +
+          (name || "Not provided") +
+          "%0AEmail: " +
+          email +
+          "%0APhone: " +
+          phone +
+          "%0ASubject: " +
+          (subject || "Not selected") +
+          "%0A%0AMessage:%0A" +
+          (message || "No message");
+        window.location.href =
+          "mailto:vedgar@javen.co.tz?subject=Website%20Enquiry%20from%20" +
+          encodeURIComponent(name || "Website") +
+          "&body=" +
+          body;
         document.getElementById("cf-name").value = "";
         document.getElementById("cf-email").value = "";
         document.getElementById("cf-phone").value = "";
@@ -2155,7 +2013,9 @@
           toast.style.opacity = "1";
           setTimeout(function () {
             toast.style.opacity = "0";
-            setTimeout(function () { toast.style.display = "none"; }, 400);
+            setTimeout(function () {
+              toast.style.display = "none";
+            }, 400);
           }, 3500);
         }, 500);
       }
@@ -2164,12 +2024,15 @@
         field.style.borderColor = "#f07863";
         var err = document.createElement("div");
         err.className = "field-error";
-        err.style.cssText = "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
+        err.style.cssText =
+          "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
         err.innerText = msg;
         field.parentNode.appendChild(err);
       }
       function clearErrors() {
-        document.querySelectorAll(".field-error").forEach(function (el) { el.remove(); });
+        document.querySelectorAll(".field-error").forEach(function (el) {
+          el.remove();
+        });
         document.getElementById("cf-email").style.borderColor = "";
         document.getElementById("cf-phone").style.borderColor = "";
       }
@@ -2177,64 +2040,108 @@
       // QUOTE FORM
       function submitQuote() {
         var inputs = document.querySelectorAll(
-          ".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]"
+          ".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]",
         );
         var name = inputs[0] ? inputs[0].value.trim() : "";
         var email = inputs[1] ? inputs[1].value.trim() : "";
         var phone = inputs[2] ? inputs[2].value.trim() : "";
         var location = document.querySelector(".contact-form select")
-          ? document.querySelector(".contact-form select").value : "";
+          ? document.querySelector(".contact-form select").value
+          : "";
         var units = document.querySelector("input[name=units]:checked");
         var service = document.querySelector("input[name=service]:checked");
         var status = document.querySelector("input[name=status]:checked");
         var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
-        document.querySelectorAll(".quote-error").forEach(function (el) { el.remove(); });
-        document.querySelectorAll(".contact-form input[type=email], .contact-form input[type=tel]")
-          .forEach(function (el) { el.style.borderColor = ""; });
-        if (!email) { showQuoteError(inputs[1], "Email address is required."); return; }
-        if (!emailValid) { showQuoteError(inputs[1], "Please enter a valid email address."); return; }
-        if (!phone) { showQuoteError(inputs[2], "Phone number is required."); return; }
-        if (!phoneValid) { showQuoteError(inputs[2], "Please enter a valid phone number."); return; }
-        var body = "Name: " + (name || "Not provided")
-          + "%0AEmail: " + email + "%0APhone: " + phone
-          + "%0ALocation: " + (location || "Not selected")
-          + "%0AUnits: " + (units ? units.parentElement.innerText.trim() : "Not selected")
-          + "%0AService Level: " + (service ? service.parentElement.innerText.trim() : "Not selected")
-          + "%0AManagement Status: " + (status ? status.parentElement.innerText.trim() : "Not selected");
-        window.location.href = "mailto:info@javen.co.tz?subject=Custom%20Quote%20Request%20from%20"
-          + encodeURIComponent(name || "Website") + "&body=" + body;
-        var waMessage = "Hello JAVEN,%0A%0ANew Quote Request:%0AName: " + (name || "Not provided")
-          + "%0AEmail: " + email + "%0APhone: " + phone
-          + "%0ALocation: " + (location || "Not selected")
-          + "%0AUnits: " + (units ? units.parentElement.innerText.trim() : "Not selected")
-          + "%0AService: " + (service ? service.parentElement.innerText.trim() : "Not selected")
-          + "%0AStatus: " + (status ? status.parentElement.innerText.trim() : "Not selected");
+        document.querySelectorAll(".quote-error").forEach(function (el) {
+          el.remove();
+        });
+        document
+          .querySelectorAll(
+            ".contact-form input[type=email], .contact-form input[type=tel]",
+          )
+          .forEach(function (el) {
+            el.style.borderColor = "";
+          });
+        if (!email) {
+          showQuoteError(inputs[1], "Email address is required.");
+          return;
+        }
+        if (!emailValid) {
+          showQuoteError(inputs[1], "Please enter a valid email address.");
+          return;
+        }
+        if (!phone) {
+          showQuoteError(inputs[2], "Phone number is required.");
+          return;
+        }
+        if (!phoneValid) {
+          showQuoteError(inputs[2], "Please enter a valid phone number.");
+          return;
+        }
+        var body =
+          "Name: " +
+          (name || "Not provided") +
+          "%0AEmail: " +
+          email +
+          "%0APhone: " +
+          phone +
+          "%0ALocation: " +
+          (location || "Not selected") +
+          "%0AUnits: " +
+          (units ? units.parentElement.innerText.trim() : "Not selected") +
+          "%0AService Level: " +
+          (service ? service.parentElement.innerText.trim() : "Not selected") +
+          "%0AManagement Status: " +
+          (status ? status.parentElement.innerText.trim() : "Not selected");
+        window.location.href =
+          "mailto:vedgar@javen.co.tz?subject=Custom%20Quote%20Request%20from%20" +
+          encodeURIComponent(name || "Website") +
+          "&body=" +
+          body;
+        var waMessage =
+          "Hello JAVEN,%0A%0ANew Quote Request:%0AName: " +
+          (name || "Not provided") +
+          "%0AEmail: " +
+          email +
+          "%0APhone: " +
+          phone +
+          "%0ALocation: " +
+          (location || "Not selected") +
+          "%0AUnits: " +
+          (units ? units.parentElement.innerText.trim() : "Not selected") +
+          "%0AService: " +
+          (service ? service.parentElement.innerText.trim() : "Not selected") +
+          "%0AStatus: " +
+          (status ? status.parentElement.innerText.trim() : "Not selected");
         setTimeout(function () {
           window.open("https://wa.me/255655007492?text=" + waMessage, "_blank");
         }, 1000);
         document.getElementById("quoteBtn").style.display = "none";
-        document.querySelectorAll(".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]")
-          .forEach(function (el) { el.value = ""; });
+        document
+          .querySelectorAll(
+            ".contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel]",
+          )
+          .forEach(function (el) {
+            el.value = "";
+          });
         document.querySelector(".contact-form select").value = "";
-        document.querySelectorAll(".contact-form input[type=checkbox]").forEach(function (el) { el.checked = false; });
-        document.querySelectorAll(".contact-form input[type=radio]").forEach(function (el) { el.checked = false; });
+        document
+          .querySelectorAll(".contact-form input[type=checkbox]")
+          .forEach(function (el) {
+            el.checked = false;
+          });
+        document
+          .querySelectorAll(".contact-form input[type=radio]")
+          .forEach(function (el) {
+            el.checked = false;
+          });
         document.getElementById("quote-success").style.display = "block";
-        document.getElementById("quote-success").scrollIntoView({ behavior: "smooth", block: "center" });
+        document
+          .getElementById("quote-success")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
       }
-      function showQuoteError(field, msg) {
-        field.style.borderColor = "#f07863";
-        var err = document.createElement("div");
-        err.className = "quote-error";
-        err.style.cssText = "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
-        err.innerText = msg;
-        field.parentNode.appendChild(err);
-        field.scrollIntoView({ behavior: "smooth", block: "center" });
-        field.focus();
-      }
-
-      // RENTER INTAKE MODAL
-      var selectedRenter = 1;
+     var selectedRenter = 1;
       function openRenter() {
         document.getElementById("renterModal").style.display = "block";
         document.getElementById("renterOverlay").style.display = "block";
@@ -2246,196 +2153,50 @@
         document.body.style.overflow = "";
       }
       function selectRenter(n) {
-        [1, 2, 3].forEach(function (i) {
-          var opt = document.getElementById("rip-" + i);
-          var dot = document.getElementById("dot-" + i);
-          var icon = document.getElementById("icon-" + i);
+        [1,2,3].forEach(function(i) {
+          var opt = document.getElementById("rip-"+i);
+          var dot = document.getElementById("dot-"+i);
+          var icon = document.getElementById("icon-"+i);
           opt.style.border = "1.5px solid rgba(76,93,170,0.15)";
           opt.style.background = "white";
           dot.style.display = "none";
-          if (icon) {
-            icon.style.background = "#eceef8";
-            icon.querySelector("svg").style.stroke = "#4c5daa";
-          }
+          if (icon) { icon.style.background = "#eceef8"; icon.querySelector("svg").style.stroke = "#4c5daa"; }
         });
-        var sel = document.getElementById("rip-" + n);
+        var sel = document.getElementById("rip-"+n);
         sel.style.border = "1.5px solid #4c5daa";
         sel.style.background = "#eceef8";
-        document.getElementById("dot-" + n).style.display = "block";
-        var selIcon = document.getElementById("icon-" + n);
-        if (selIcon) {
-          selIcon.style.background = "#4c5daa";
-          selIcon.querySelector("svg").style.stroke = "white";
-        }
+        document.getElementById("dot-"+n).style.display = "block";
+        var selIcon = document.getElementById("icon-"+n);
+        if (selIcon) { selIcon.style.background = "#4c5daa"; selIcon.querySelector("svg").style.stroke = "white"; }
         selectedRenter = n;
       }
-      function continueRenter() {
+      function continueRenter() {         closeRenter();         if (selectedRenter === 1) { openRenterSearch(); }    
+      else { window.location.href = "https://pms-tenant.javen.co.tz"; }       }       var selectedPropType = "residential";       function openRenterSearch() 
+      {         document.getElementById("renterSearchPanel").style.right = "0";         document.getElementById("renterSearchOverlay").style.display = "block";         document.body.style.overflow = "hidden";       }  
+      function closeRenterSearch() {         document.getElementById("renterSearchPanel").style.right = "-560px";         document.getElementById("renterSearchOverlay").style.display = "none";         document.body.style.overflow = "";       }    
+      function selectPropType(type) {         selectedPropType = type;         var res = document.getElementById("pt-residential");         var com = document.getElementById("pt-commercial");         if (type === "residential") 
+      {           res.style.border = "1.5px solid #4c5daa"; res.style.background = "#eceef8"; res.querySelector("svg").style.stroke = "#4c5daa";           com.style.border = "1.5px solid rgba(76,93,170,0.15)"; com.style.background = "white"; com.querySelector("svg").style.stroke = "#7b80a8";   
+       document.getElementById("rs-space-options").innerHTML = '<div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Studio</div>
+         <div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">1 Bedroom</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">2 Bedrooms</div>
+         <div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">3 Bedrooms</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">4+ Bedrooms</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Villa / Townhouse</div>';         } else {           com.style.border = "1.5px solid #4c5daa"; com.style.background = "#eceef8"; com.querySelector("svg").style.stroke = "#4c5daa";           res.style.border = "1.5px solid rgba(76,93,170,0.15)"; res.style.background = "white"; res.querySelector("svg").style.stroke = "#7b80a8";           document.getElementById("rs-space-options").innerHTML = '<div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Small Office</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Large Office</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Retail Space</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Warehouse</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Showroom</div><div onclick="selectSpace(this)" style="border:1.5px solid rgba(76,93,170,0.15);background:white;border-radius:8px;padding:12px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;">Corporate Block</div>';         }       }       function selectSpace(el) {         document.querySelectorAll("#rs-space-options div").forEach(function(d) { d.style.border = "1.5px solid rgba(76,93,170,0.15)"; d.style.background = "white"; d.style.color = "#1e2140"; });         el.style.border = "1.5px solid #4c5daa"; el.style.background = "#eceef8"; el.style.color = "#4c5daa";       }       function submitRenterSearch() {         var fname = document.getElementById("rs-fname").value.trim();         var lname = document.getElementById("rs-lname").value.trim();         var phone = document.getElementById("rs-phone").value.trim();         var email = document.getElementById("rs-email").value.trim();         var location = document.getElementById("rs-location").value;         var budget = document.getElementById("rs-budget").value;         var date = document.getElementById("rs-date").value;         var space = "";         document.querySelectorAll("#rs-space-options div").forEach(function(d) { if (d.style.background === "rgb(236, 238, 248)") space = d.innerText; });         if (!email || !phone) { alert("Please fill in your email and phone number."); return; }         var body = "Name: " + fname + " " + lname + "%0APhone: " + phone + "%0AEmail: " + email + "%0AProperty Type: " + selectedPropType + "%0ASpace: " + (space||"Not selected") + "%0ALocation: " + (location||"Not selected") + "%0ABudget: " + (budget||"Not selected") + "%0AMove-in Date: " + (date||"Not selected");         window.location.href = "mailto:info@javen.co.tz?subject=Unit%20Search%20Inquiry%20from%20" + encodeURIComponent(fname + " " + lname) + "&body=" + body;         var waMsg = "Hello JAVEN,%0A%0AUnit Search Inquiry:%0AName: " + fname + " " + lname + "%0APhone: " + phone + "%0AType: " + selectedPropType + "%0ASpace: " + (space||"Not selected") + "%0ALocation: " + (location||"Not selected") + "%0ABudget: " + (budget||"Not selected") + "%0AMove-in: " + (date||"Not selected");         setTimeout(function() { window.open("https://wa.me/255655007492?text=" + waMsg, "_blank"); }, 1000);         document.getElementById("rs-success").style.display = "block";       } {         closeRenter();         if (selectedRenter === 1) { window.location.href = "#contact"; } 
+      else { window.location.href = "https://pms-tenant.javen.co.tz"; }       } {
         closeRenter();
-        if (selectedRenter === 1) {
-          openRenterSearch();
-        } else {
-          window.location.href = "https://pms-tenant.javen.co.tz";
-        }
+        if (selectedRenter === 1) { window.location.href = "#contact"; }
+        else if (selectedRenter === 2) { window.location.href = "#faq"; }
+        else if (selectedRenter === 3) { window.location.href = "https://pms-tenant.javen.co.tz"; }
       }
-
-      // RENTER SEARCH PANEL
-      var selectedPropType = "residential";
-      function openRenterSearch() {
-        document.getElementById("renterSearchPanel").style.right = "0";
-        document.getElementById("renterSearchOverlay").style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-      function closeRenterSearch() {
-        document.getElementById("renterSearchPanel").style.right = "-560px";
-        document.getElementById("renterSearchOverlay").style.display = "none";
-        document.body.style.overflow = "";
-      }
-      var resSpaces = ["Studio", "1 Bedroom", "2 Bedrooms", "3 Bedrooms", "4+ Bedrooms", "Villa / Townhouse"];
-      var comSpaces = ["Small Office", "Large Office", "Retail Space", "Warehouse", "Showroom", "Corporate Block"];
-      function buildSpaceOptions(spaces) {
-        var html = "";
-        var st = "border:1.5px solid rgba(76,93,170,0.15);background:white;"
-               + "border-radius:8px;padding:12px;text-align:center;"
-               + "cursor:pointer;font-size:13px;font-weight:600;color:#1e2140;";
-        for (var i = 0; i < spaces.length; i++) {
-          html += "<div onclick='selectSpace(this)' style='" + st + "'>" + spaces[i] + "</div>";
-        }
-        return html;
-      }
-      function selectPropType(type) {
-        selectedPropType = type;
-        var res = document.getElementById("pt-residential");
-        var com = document.getElementById("pt-commercial");
-        if (type === "residential") {
-          res.style.border = "1.5px solid #4c5daa";
-          res.style.background = "#eceef8";
-          res.querySelector("svg").style.stroke = "#4c5daa";
-          com.style.border = "1.5px solid rgba(76,93,170,0.15)";
-          com.style.background = "white";
-          com.querySelector("svg").style.stroke = "#7b80a8";
-          document.getElementById("rs-space-options").innerHTML = buildSpaceOptions(resSpaces);
-        } else {
-          com.style.border = "1.5px solid #4c5daa";
-          com.style.background = "#eceef8";
-          com.querySelector("svg").style.stroke = "#4c5daa";
-          res.style.border = "1.5px solid rgba(76,93,170,0.15)";
-          res.style.background = "white";
-          res.querySelector("svg").style.stroke = "#7b80a8";
-          document.getElementById("rs-space-options").innerHTML = buildSpaceOptions(comSpaces);
-        }
-      }
-      function selectSpace(el) {
-        document.querySelectorAll("#rs-space-options div").forEach(function (d) {
-          d.style.border = "1.5px solid rgba(76,93,170,0.15)";
-          d.style.background = "white";
-          d.style.color = "#1e2140";
-        });
-        el.style.border = "1.5px solid #4c5daa";
-        el.style.background = "#eceef8";
-        el.style.color = "#4c5daa";
-      }
-      function clearRenterErrors() {
-        document.querySelectorAll(".rs-error").forEach(function(el) { el.remove(); });
-        ["rs-fname","rs-lname","rs-phone","rs-email"].forEach(function(id) {
-          var el = document.getElementById(id);
-          if (el) el.style.borderColor = "rgba(76,93,170,0.12)";
-        });
-      }
-      function showRenterError(fieldId, msg) {
-        var field = document.getElementById(fieldId);
-        if (!field) return;
+      
+      function showQuoteError(field, msg) {
         field.style.borderColor = "#f07863";
-        field.style.outline = "none";
-        var existing = field.parentNode.querySelector(".rs-error");
-        if (existing) existing.remove();
         var err = document.createElement("div");
-        err.className = "rs-error";
-        err.style.cssText = "color:#f07863;font-size:11px;margin-top:5px;font-weight:600;display:flex;align-items:center;gap:4px;";
-        err.innerHTML = "<span style='font-size:13px;'>&#9888;</span> " + msg;
+        err.className = "quote-error";
+        err.style.cssText =
+          "color:#f07863;font-size:11px;margin-top:5px;font-weight:500;";
+        err.innerText = msg;
         field.parentNode.appendChild(err);
         field.scrollIntoView({ behavior: "smooth", block: "center" });
         field.focus();
       }
-      function submitRenterSearch() {
-        clearRenterErrors();
-        var fname = document.getElementById("rs-fname").value.trim();
-        var lname = document.getElementById("rs-lname").value.trim();
-        var phone = document.getElementById("rs-phone").value.trim();
-        var email = document.getElementById("rs-email").value.trim();
-        var location = document.getElementById("rs-location").value;
-        var budget = document.getElementById("rs-budget").value;
-        var date = document.getElementById("rs-date").value;
-        var space = "";
-        document.querySelectorAll("#rs-space-options div").forEach(function (d) {
-          if (d.style.background === "rgb(236, 238, 248)") space = d.innerText;
-        });
-        var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        var phoneValid = /^[\+]?[\d\s\-\(\)]{7,15}$/.test(phone);
-        var hasError = false;
-        if (!fname) {
-          showRenterError("rs-fname", "First name is required.");
-          hasError = true;
-        }
-        if (!lname) {
-          showRenterError("rs-lname", "Last name is required.");
-          hasError = true;
-        }
-        if (!phone) {
-          showRenterError("rs-phone", "Phone number is required.");
-          hasError = true;
-        } else if (!phoneValid) {
-          showRenterError("rs-phone", "Please enter a valid phone number.");
-          hasError = true;
-        }
-        if (!email) {
-          showRenterError("rs-email", "Email address is required.");
-          hasError = true;
-        } else if (!emailValid) {
-          showRenterError("rs-email", "Please enter a valid email address (e.g. name@example.com).");
-          hasError = true;
-        }
-        if (hasError) return;
-        var body = "Name: " + fname + " " + lname
-          + "%0APhone: " + phone + "%0AEmail: " + email
-          + "%0AProperty Type: " + selectedPropType
-          + "%0ASpace: " + (space || "Not selected")
-          + "%0ALocation: " + (location || "Not selected")
-          + "%0ABudget: " + (budget || "Not selected")
-          + "%0AMove-in Date: " + (date || "Not selected");
-        window.location.href = "mailto:info@javen.co.tz?subject=Unit%20Search%20Inquiry%20from%20"
-          + encodeURIComponent(fname + " " + lname) + "&body=" + body;
-        var waMsg = "Hello JAVEN,%0A%0AUnit Search Inquiry:"
-          + "%0AName: " + fname + " " + lname
-          + "%0APhone: " + phone
-          + "%0AType: " + selectedPropType
-          + "%0ASpace: " + (space || "Not selected")
-          + "%0ALocation: " + (location || "Not selected")
-          + "%0ABudget: " + (budget || "Not selected")
-          + "%0AMove-in: " + (date || "Not selected");
-        setTimeout(function () {
-          window.open("https://wa.me/255655007492?text=" + waMsg, "_blank");
-        }, 1000);
-        document.getElementById("rs-success").style.display = "block";
-      }
-
-      // COOKIE CONSENT
-      function acceptCookies() {
-        localStorage.setItem("javen_cookie_consent", "accepted");
-        document.getElementById("cookieBanner").style.display = "none";
-      }
-      function rejectCookies() {
-        localStorage.setItem("javen_cookie_consent", "rejected");
-        document.getElementById("cookieBanner").style.display = "none";
-      }
-      (function() {
-        var consent = localStorage.getItem("javen_cookie_consent");
-        if (!consent) {
-          setTimeout(function() {
-            document.getElementById("cookieBanner").style.display = "block";
-          }, 1500);
-        }
-      })();
-
     </script>
 
     <!-- HERO -->
@@ -2448,9 +2209,9 @@
           Peace of Mind.
         </h1>
         <p class="hero-sub">
-          We Combine Property management and smart technology to help owners
-          maximize rental income, reserve asset value and gain real time insite into
-          every property they own.
+          Property management and smart technology that help property owners
+          increase income, preserve asset value, and gain complete visibility
+          over their portfolios.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn-hero-owner">
@@ -2470,7 +2231,20 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="8" r="4"/>
           <path d="M6 20v-2a6 6 0 0 1 12 0v2"/>
-          </svg>
+          </svg> 
+            I Am a Renter 
+          </a>>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="8" r="4" />
+              <path d="M6 20v-2a6 6 0 0 1 12 0v2" />
+            </svg>
             I Am a Renter
           </a>
         </div>
@@ -2491,7 +2265,9 @@
       </div>
       <div class="hero-right">
         <div class="hero-img-placeholder">
-          <img src="hero-image.jpg" class="hero-img" alt="JAVEN Property Management" />
+          <video class="hero-video" autoplay muted loop playsinline>
+            <source src="hero-video.mp4" type="video/mp4" />
+          </video>
           <div class="hero-video-overlay"></div>
           <div class="hero-card-float">
             <p class="hero-card-title">Owner Dashboard Preview</p>
@@ -4351,7 +4127,7 @@
             </div>
             <div>
               <div class="contact-info-label">Email</div>
-              <div class="contact-info-val">info@javen.co.tz</div>
+              <div class="contact-info-val">javenlocations@javen.co.tz</div>
             </div>
           </div>
           <div class="contact-row">
@@ -5164,7 +4940,7 @@
                 >Contact Us</a
               >
             </li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms</a></li>
           </ul>
         </div>
@@ -5174,27 +4950,5 @@
         <span>Dar es Salaam, Tanzania.</span>
       </div>
     </footer>
-  
-    <!-- COOKIE CONSENT BANNER -->
-    <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;padding:20px 5vw;background:#1e2140;border-top:3px solid #4c5daa;box-shadow:0 -4px 32px rgba(0,0,0,0.25);font-family:'Montserrat',sans-serif;">
-      <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-        <div style="display:flex;align-items:flex-start;gap:16px;flex:1;min-width:280px;">
-          <div style="width:40px;height:40px;border-radius:10px;background:rgba(76,93,170,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">🍪</div>
-          <div>
-            <p style="font-size:14px;font-weight:700;color:white;margin-bottom:4px;">We use cookies</p>
-            <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;">We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies. Read our <a href="privacy-policy.html" style="color:#6872b6;text-decoration:underline;">Privacy Policy</a> to learn more.</p>
-          </div>
-        </div>
-        <div style="display:flex;gap:12px;align-items:center;flex-shrink:0;flex-wrap:wrap;">
-          <button onclick="rejectCookies()" style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='white';" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.6)';">
-            Reject All
-          </button>
-          <button onclick="acceptCookies()" style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:10px 24px;border-radius:8px;border:none;background:#4c5daa;color:white;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#6872b6';" onmouseout="this.style.background='#4c5daa';">
-            Accept All
-          </button>
-        </div>
-      </div>
-    </div>
-
-</body>
+  </body>
 </html>
