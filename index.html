@@ -347,6 +347,28 @@
       .mobile-menu a:hover {
         color: var(--teal);
       }
+      .mobile-menu .menu-section {
+        padding-top: 16px;
+      }
+      .mobile-menu .menu-section-title {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--teal);
+        margin-bottom: 12px;
+      }
+      .mobile-menu .submenu-link {
+        padding-left: 14px;
+        font-size: 14px;
+        color: var(--mid);
+        display: block;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 0;
+      }
+      .mobile-menu .submenu-link:hover {
+        color: var(--teal);
+      }
       .mobile-menu .mobile-btns {
         display: flex;
         flex-direction: column;
@@ -2098,13 +2120,26 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="our-story.html" onclick="closeMenu()">About Us</a>
-      <a href="#why" onclick="closeMenu()">Why Javen</a>
-      <a href="#pricing" onclick="closeMenu()">Pricing</a>
-      <a href="#dashboard" onclick="closeMenu()">Owner Portal</a>
-      <a href="#contact" onclick="closeMenu()">Get a Quote</a>
-      <a href="#faq" onclick="closeMenu()">Resources</a>
-      <a href="#faq" onclick="closeMenu()">Owner FAQs</a>
+      <div class="menu-section">
+        <div class="menu-section-title">Our Services</div>
+        <a href="our-services.html#pm" class="submenu-link" onclick="closeMenu()">Property Management</a>
+        <a href="our-services.html#rc" class="submenu-link" onclick="closeMenu()">Real Estate Advisory</a>
+        <a href="sustainability.html" class="submenu-link" onclick="closeMenu()">Sustainability</a>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-title">About Us</div>
+        <a href="our-story.html" class="submenu-link" onclick="closeMenu()">Born from Experience</a>
+        <a href="our-story.html#values" class="submenu-link" onclick="closeMenu()">Core Values</a>
+        <a href="our-story.html#mission" class="submenu-link" onclick="closeMenu()">Mission &amp; Vision</a>
+      </div>
+      <div class="menu-section">
+        <a href="#why" onclick="closeMenu()">Why Javen</a>
+        <a href="#pricing" onclick="closeMenu()">Pricing</a>
+        <a href="#dashboard" onclick="closeMenu()">Owner Portal</a>
+        <a href="#contact" onclick="closeMenu()">Get a Quote</a>
+        <a href="#faq" onclick="closeMenu()">Resources</a>
+        <a href="#faq" onclick="closeMenu()">Owner FAQs</a>
+      </div>
       <a
         href="#"
         onclick="
