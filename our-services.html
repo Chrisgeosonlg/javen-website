@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services — JAVEN Property Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --teal: #4c5daa; --teal-light: #6872b6; --teal-faint: #eceef8;
+        --amber: #f07863; --dark: #1e2140; --mid: #3d4270; --muted: #7b80a8;
+        --border: rgba(76,93,170,0.12); --white: #ffffff; --off: #f3f2e0;
+        --sans: "Montserrat", sans-serif;
+      }
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--sans); color: var(--dark); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+
+      /* NAV */
+      nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 5vw; height: 72px;
+        background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
+      nav ul li a {
+        font-size: 13px; font-weight: 400; color: var(--mid);
+        text-decoration: none; letter-spacing: 0.02em;
+        padding-bottom: 3px; border-bottom: 2px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      nav ul li a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+      .nav-cta-group { display: flex; gap: 12px; align-items: center; }
+      .btn-outline {
+        font-family: var(--sans); font-size: 13px; font-weight: 500;
+        padding: 9px 20px; border-radius: 6px; border: 1px solid var(--teal);
+        color: var(--teal); background: transparent; cursor: pointer;
+        text-decoration: none; transition: background 0.2s, color 0.2s;
+        display: inline-flex; align-items: center; gap: 7px;
+      }
+      .btn-outline:hover { background: var(--teal); color: white; }
+      .btn-solid {
+        font-family: var(--sans); font-size: 13px; font-weight: 500;
+        padding: 9px 20px; border-radius: 6px; border: 1px solid var(--amber);
+        color: white; background: var(--amber); cursor: pointer;
+        text-decoration: none; transition: background 0.2s;
+        display: inline-flex; align-items: center; gap: 7px;
+      }
+      .btn-solid:hover { background: #d4604e; }
+      .hamburger {
+        display: none; flex-direction: column; justify-content: center;
+        gap: 5px; background: none; border: none; cursor: pointer; padding: 8px;
+      }
+      .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: all 0.3s; }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-menu {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: white; z-index: 99; padding: 20px 6vw 32px;
+        border-bottom: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        flex-direction: column; gap: 4px;
+      }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a { font-size: 16px; font-weight: 500; color: var(--dark); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); }
+      .mobile-menu a:last-of-type { border-bottom: none; }
+      .mobile-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+      .mobile-menu .btn-outline, .mobile-menu .btn-solid { width: 100%; justify-content: center; padding: 14px; font-size: 14px; }
+
+      /* HERO */
+      .hero {
+        padding: 140px 8vw 0;
+        background: var(--off);
+        position: relative; overflow: hidden;
+        min-height: 480px;
+        display: flex; align-items: flex-end;
+      }
+      .hero::after {
+        content: ""; position: absolute; top: 0; right: 0;
+        width: 55%; height: 100%; background: var(--teal);
+        clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+        z-index: 0;
+      }
+      .hero-left { position: relative; z-index: 1; max-width: 480px; padding-bottom: 80px; }
+      .eyebrow {
+        font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+        text-transform: uppercase; color: var(--teal); margin-bottom: 20px;
+        display: flex; align-items: center; gap: 10px;
+      }
+      .eyebrow::before { content: ""; display: block; width: 24px; height: 1px; background: var(--teal); }
+      .hero h1 {
+        font-size: clamp(36px, 4.5vw, 56px); font-weight: 800;
+        line-height: 1.1; letter-spacing: -2px; color: var(--dark); margin-bottom: 24px;
+      }
+      .hero h1 em { font-style: normal; color: var(--teal); }
+      .hero p { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 420px; }
+      .hero-right {
+        position: absolute; right: 0; top: 0; width: 55%; height: 100%;
+        z-index: 1; display: flex; align-items: flex-end; justify-content: center;
+        padding-bottom: 60px; gap: 16px; flex-wrap: wrap; padding-right: 5vw; padding-left: 5vw;
+      }
+      .hero-stat {
+        background: rgba(255,255,255,0.12); backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2); border-radius: 14px;
+        padding: 20px 24px; text-align: center; min-width: 120px;
+      }
+      .hero-stat-num { font-size: 28px; font-weight: 800; color: white; letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
+      .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.65); font-weight: 500; }
+
+      /* SERVICE NAV TABS */
+      .service-tabs {
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        position: sticky; top: 72px; z-index: 90;
+      }
+      .service-tabs-inner {
+        display: flex; gap: 0; max-width: 1200px; margin: 0 auto;
+        padding: 0 8vw; overflow-x: auto;
+      }
+      .tab-link {
+        font-family: var(--sans); font-size: 13px; font-weight: 600;
+        color: var(--muted); text-decoration: none;
+        padding: 18px 24px; border-bottom: 2px solid transparent;
+        white-space: nowrap; transition: color 0.2s, border-color 0.2s;
+        display: flex; align-items: center; gap: 8px;
+      }
+      .tab-link:hover { color: var(--teal); border-bottom-color: var(--teal); }
+      .tab-link.active { color: var(--teal); border-bottom-color: var(--teal); }
+      .tab-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+      /* SERVICE SECTIONS */
+      .service-section {
+        padding: 100px 8vw;
+        border-bottom: 1px solid var(--border);
+      }
+      .service-section:nth-child(even) { background: var(--off); }
+      .service-section:nth-child(odd) { background: var(--white); }
+
+      .service-grid {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 80px; align-items: start;
+      }
+      .service-label {
+        font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+        text-transform: uppercase; color: var(--amber);
+        margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+      }
+      .service-label::before { content: ""; display: block; width: 20px; height: 1px; background: var(--amber); }
+      .service-section h2 {
+        font-size: clamp(24px, 2.5vw, 36px); font-weight: 800;
+        letter-spacing: -1px; color: var(--dark); margin-bottom: 12px; line-height: 1.2;
+      }
+      .service-section h2 em { font-style: normal; color: var(--teal); }
+      .service-tagline {
+        font-size: 15px; color: var(--muted); line-height: 1.8;
+        margin-bottom: 24px; font-style: italic; border-left: 3px solid var(--teal);
+        padding-left: 16px;
+      }
+      .service-section p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+
+      /* SERVICE LIST */
+      .service-list-title {
+        font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--dark); margin-bottom: 16px; margin-top: 28px;
+      }
+      .service-list {
+        display: flex; flex-direction: column; gap: 0;
+        border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      }
+      .service-list-item {
+        display: flex; align-items: center; gap: 14px;
+        padding: 14px 18px; background: white;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px; color: var(--dark); font-weight: 500;
+        transition: background 0.2s;
+      }
+      .service-list-item:last-child { border-bottom: none; }
+      .service-list-item:hover { background: var(--teal-faint); }
+      .service-list-item::before {
+        content: ""; display: block; width: 6px; height: 6px;
+        border-radius: 50%; background: var(--teal); flex-shrink: 0;
+      }
+
+      /* SERVICE VISUAL CARD */
+      .service-visual {
+        position: sticky; top: 140px;
+      }
+      .service-card {
+        border-radius: 20px; overflow: hidden;
+        box-shadow: 0 20px 60px rgba(76,93,170,0.15);
+      }
+      .service-card-header {
+        padding: 28px 28px 24px;
+        display: flex; align-items: center; gap: 16px;
+      }
+      .service-card-icon {
+        width: 52px; height: 52px; border-radius: 14px;
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      }
+      .service-card-icon svg { width: 24px; height: 24px; fill: none; stroke-width: 1.8; }
+      .service-card-title { font-size: 16px; font-weight: 800; color: white; letter-spacing: -0.3px; }
+      .service-card-sub { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+      .service-card-body { background: white; padding: 24px 28px; }
+      .service-card-stat {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 10px 0; border-bottom: 1px solid var(--border);
+        font-size: 13px;
+      }
+      .service-card-stat:last-child { border-bottom: none; }
+      .service-card-stat-label { color: var(--muted); font-weight: 500; }
+      .service-card-stat-value { font-weight: 700; color: var(--dark); }
+      .service-card-stat-value.green { color: #22c55e; }
+      .service-card-stat-value.teal { color: var(--teal); }
+
+      /* CTA */
+      .cta-section {
+        padding: 100px 8vw; background: var(--dark); text-align: center;
+      }
+      .cta-section h2 {
+        font-size: clamp(28px, 3.5vw, 48px); font-weight: 800;
+        letter-spacing: -1.5px; color: white; margin-bottom: 20px; line-height: 1.2;
+      }
+      .cta-section p { font-size: 17px; color: rgba(255,255,255,0.55); max-width: 540px; margin: 0 auto 40px; line-height: 1.8; }
+      .btn-cta-amber {
+        display: inline-flex; align-items: center; gap: 10px;
+        font-family: var(--sans); font-size: 15px; font-weight: 700;
+        padding: 16px 36px; border-radius: 8px;
+        background: var(--amber); color: white; border: none;
+        cursor: pointer; text-decoration: none;
+        transition: background 0.2s, transform 0.15s;
+      }
+      .btn-cta-amber:hover { background: #d4604e; transform: translateY(-1px); }
+
+      /* FOOTER */
+      footer { background: var(--dark); color: white; padding: 80px 8vw 40px; }
+      .footer-top {
+        display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-top: 16px; max-width: 260px; }
+      .footer-col-title { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+      .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+      .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+      .footer-col ul li a:hover { color: white; }
+      .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; font-size: 13px; color: rgba(255,255,255,0.35); }
+
+      #backToTop {
+        position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px;
+        border-radius: 50%; background: var(--teal); color: white; border: none;
+        cursor: pointer; font-size: 20px; display: none; align-items: center;
+        justify-content: center; box-shadow: 0 4px 20px rgba(76,93,170,0.4);
+        z-index: 999; transition: background 0.2s, transform 0.2s;
+      }
+      #backToTop:hover { background: #3a4a8a; transform: translateY(-2px); }
+
+      @media (max-width: 960px) {
+        .hamburger { display: flex; }
+        nav ul { display: none; }
+        .nav-cta-group .btn-outline, .nav-cta-group .btn-solid { display: none; }
+        .hero::after { display: none; }
+        .hero { flex-direction: column; min-height: auto; padding-bottom: 40px; }
+        .hero-right { position: relative; width: 100%; justify-content: flex-start; padding: 32px 0 0; }
+        .service-grid { grid-template-columns: 1fr; gap: 48px; }
+        .service-visual { position: relative; top: 0; }
+        .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+        .footer-brand { grid-column: 1/-1; }
+      }
+      @media (max-width: 600px) {
+        .footer-top { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" style="display:inline-flex;align-items:center;text-decoration:none;">
+        <img src="javen_Logo.png" alt="Javen" style="height:32px;width:auto;display:block;"/>
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" style="color:var(--teal);font-weight:600;border-bottom-color:var(--teal);">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="index.html#dashboard">Owner Portal</a></li>
+        <li><a href="index.html#faq">Resources</a></li>
+        <li><a href="index.html">Contact Us</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        <a href="https://pms-tenant.javen.co.tz" target="_blank" class="btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+          Owner Login
+        </a>
+        <a href="https://pms-tenant.javen.co.tz" target="_blank" class="btn-solid">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Tenant Login
+        </a>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#dashboard">Owner Portal</a>
+      <a href="index.html#faq">Resources</a>
+      <a href="index.html">Contact Us</a>
+      <div class="mobile-btns">
+        <a href="https://pms-tenant.javen.co.tz" target="_blank" class="btn-outline">Owner Login</a>
+        <a href="https://pms-tenant.javen.co.tz" target="_blank" class="btn-solid">Tenant Login</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <p class="eyebrow">What We Do</p>
+        <h1>Services Built for<br/><em>Serious</em> Property Owners.</h1>
+        <p>Four integrated service lines designed to protect your investment, grow your returns, and make ownership easier at every stage.</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stat">
+          <div class="hero-stat-num">320+</div>
+          <div class="hero-stat-label">Units Managed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">98%</div>
+          <div class="hero-stat-label">Occupancy Rate</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">Service Lines</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">12yr</div>
+          <div class="hero-stat-label">In Tanzania</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE TABS -->
+    <div class="service-tabs">
+      <div class="service-tabs-inner">
+        <a href="#pm" class="tab-link active">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Property Management
+        </a>
+        <a href="#rc" class="tab-link">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Real Estate Consultancy
+        </a>
+        <a href="#am" class="tab-link">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Asset Management
+        </a>
+        <a href="#ds" class="tab-link">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Digital Solutions
+        </a>
+      </div>
+    </div>
+
+    <!-- SERVICE 1: PROPERTY MANAGEMENT -->
+    <section class="service-section" id="pm">
+      <div class="service-grid">
+        <div>
+          <p class="service-label">Service 01</p>
+          <h2>Property<br/><em>Management</em></h2>
+          <p class="service-tagline">We Handle the Day-to-Day, So You Don't Have To.</p>
+          <p>Javen provides end-to-end property management services designed to make property ownership easier and more efficient. From finding and managing tenants to collecting rent, coordinating maintenance, conducting inspections, and providing regular reports — we take care of the everyday responsibilities of running your property.</p>
+
+          <p class="service-list-title">What's Included</p>
+          <div class="service-list">
+            <div class="service-list-item">Tenant placement and leasing</div>
+            <div class="service-list-item">Property marketing</div>
+            <div class="service-list-item">Rent collection and arrears follow-up</div>
+            <div class="service-list-item">Tenant communication and management</div>
+            <div class="service-list-item">Property inspections</div>
+            <div class="service-list-item">Maintenance and repairs coordination</div>
+            <div class="service-list-item">Lease administration</div>
+            <div class="service-list-item">Property expense tracking</div>
+            <div class="service-list-item">Monthly landlord reporting</div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-card">
+            <div class="service-card-header" style="background:var(--teal);">
+              <div class="service-card-icon" style="background:rgba(255,255,255,0.15);">
+                <svg viewBox="0 0 24 24" stroke="white"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <div class="service-card-title">Property Overview</div>
+                <div class="service-card-sub">Live portfolio snapshot</div>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Units Occupied</span>
+                <span class="service-card-stat-value green">12 / 12</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Rent Collected</span>
+                <span class="service-card-stat-value teal">TZS 4.2M</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Open Maintenance</span>
+                <span class="service-card-stat-value">2 tickets</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Next Inspection</span>
+                <span class="service-card-stat-value">Aug 14, 2026</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Lease Renewals Due</span>
+                <span class="service-card-stat-value" style="color:var(--amber);">3 this month</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 2: REAL ESTATE CONSULTANCY -->
+    <section class="service-section" id="rc">
+      <div class="service-grid">
+        <div>
+          <p class="service-label">Service 02</p>
+          <h2>Real Estate<br/><em>Consultancy</em></h2>
+          <p class="service-tagline">Making Better Property Decisions Starts with the Right Advice.</p>
+          <p>Our real estate consultancy services help property owners, investors, and developers make informed decisions about their properties and investments. Whether you are planning a new development, reviewing the performance of an existing property, setting rental prices, or looking for ways to improve your returns — Javen provides practical insights based on your goals and the market.</p>
+
+          <p class="service-list-title">What's Included</p>
+          <div class="service-list">
+            <div class="service-list-item">Rental market assessments</div>
+            <div class="service-list-item">Property performance reviews</div>
+            <div class="service-list-item">Rental pricing strategy</div>
+            <div class="service-list-item">Property investment advisory</div>
+            <div class="service-list-item">Development and operational planning</div>
+            <div class="service-list-item">Property positioning</div>
+            <div class="service-list-item">Recommendations to improve occupancy and returns</div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-card">
+            <div class="service-card-header" style="background:var(--dark);">
+              <div class="service-card-icon" style="background:rgba(255,255,255,0.1);">
+                <svg viewBox="0 0 24 24" stroke="white"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="service-card-title">Market Insight</div>
+                <div class="service-card-sub">Dar es Salaam — Q3 2026</div>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Avg. Rental Yield</span>
+                <span class="service-card-stat-value green">7.4%</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Market Occupancy</span>
+                <span class="service-card-stat-value teal">91%</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Recommended Rent (2BR)</span>
+                <span class="service-card-stat-value">TZS 1.8M/mo</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Price Trend (YoY)</span>
+                <span class="service-card-stat-value green">+6.2%</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Advisory Status</span>
+                <span class="service-card-stat-value teal">Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 3: ASSET MANAGEMENT -->
+    <section class="service-section" id="am">
+      <div class="service-grid">
+        <div>
+          <p class="service-label">Service 03</p>
+          <h2>Property Asset<br/><em>Management</em></h2>
+          <p class="service-tagline">Focused on the Long-Term Performance of Your Investment.</p>
+          <p>Property asset management goes beyond the daily running of a property. It focuses on improving the financial performance, long-term value, and overall returns of a property or property portfolio. Javen works with property owners to analyse performance, identify opportunities for improvement, manage costs, and develop strategies that help properties perform better over time.</p>
+
+          <p class="service-list-title">What's Included</p>
+          <div class="service-list">
+            <div class="service-list-item">Property and portfolio performance analysis</div>
+            <div class="service-list-item">Occupancy and rental income optimisation</div>
+            <div class="service-list-item">Operating cost reviews</div>
+            <div class="service-list-item">Property improvement strategies</div>
+            <div class="service-list-item">Long-term value enhancement</div>
+            <div class="service-list-item">Investment performance reporting</div>
+            <div class="service-list-item">Strategic recommendations for property owners</div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-card">
+            <div class="service-card-header" style="background:linear-gradient(135deg,#1e2140,#3d4270);">
+              <div class="service-card-icon" style="background:rgba(255,255,255,0.1);">
+                <svg viewBox="0 0 24 24" stroke="white"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div>
+                <div class="service-card-title">Portfolio Performance</div>
+                <div class="service-card-sub">Annual asset review</div>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Total Portfolio Value</span>
+                <span class="service-card-stat-value teal">TZS 4.8B</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Annual Net Income</span>
+                <span class="service-card-stat-value green">TZS 312M</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Operating Cost Ratio</span>
+                <span class="service-card-stat-value">22%</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Value Growth (YoY)</span>
+                <span class="service-card-stat-value green">+8.1%</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Strategy Review</span>
+                <span class="service-card-stat-value" style="color:var(--amber);">Due Q4 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 4: DIGITAL SOLUTIONS -->
+    <section class="service-section" id="ds">
+      <div class="service-grid">
+        <div>
+          <p class="service-label">Service 04</p>
+          <h2>Digital Property<br/><em>Solutions</em></h2>
+          <p class="service-tagline">Smarter Property Management Through Technology.</p>
+          <p>Javen uses technology to make property management simpler, more transparent, and easier to track. Through our digital property management solutions, property owners can gain better visibility into rent collection, tenants, maintenance, expenses, documents, and overall property performance.</p>
+          <p>As Javen OS continues to develop, our goal is to create one connected platform where property owners, managers, and tenants can manage property operations more efficiently.</p>
+
+          <p class="service-list-title">What's Included</p>
+          <div class="service-list">
+            <div class="service-list-item">Rent and payment tracking</div>
+            <div class="service-list-item">Tenant records</div>
+            <div class="service-list-item">Maintenance request management</div>
+            <div class="service-list-item">Property dashboards</div>
+            <div class="service-list-item">Digital document management</div>
+            <div class="service-list-item">Property performance reports</div>
+            <div class="service-list-item">Portfolio visibility</div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-card">
+            <div class="service-card-header" style="background:var(--teal-light);">
+              <div class="service-card-icon" style="background:rgba(255,255,255,0.15);">
+                <svg viewBox="0 0 24 24" stroke="white"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <div class="service-card-title">Javen OS Dashboard</div>
+                <div class="service-card-sub">Your property hub</div>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Documents Stored</span>
+                <span class="service-card-stat-value teal">48 files</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Maintenance Requests</span>
+                <span class="service-card-stat-value">2 open</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Last Report Generated</span>
+                <span class="service-card-stat-value">Jul 1, 2026</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Tenants on Platform</span>
+                <span class="service-card-stat-value green">12 active</span>
+              </div>
+              <div class="service-card-stat">
+                <span class="service-card-stat-label">Platform Status</span>
+                <span class="service-card-stat-value green">Live</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <p class="eyebrow" style="justify-content:center;color:rgba(255,255,255,0.5);margin-bottom:20px;">
+        <span style="width:24px;height:1px;background:rgba(255,255,255,0.3);display:inline-block;"></span>
+        Get Started
+      </p>
+      <h2>Ready to put your property<br/>in the right hands?</h2>
+      <p>Tell us about your property and we will build a custom proposal for the service level that fits your needs.</p>
+      <a href="index.html#contact" class="btn-cta-amber">
+        Get a Custom Quote
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </section>
+
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="javenLogo_offwhite.png" alt="Javen" style="height:32px;width:auto;display:block;margin-bottom:4px;"/>
+          <p>Professional property management that helps you earn more, reduce vacancies, and enjoy stress-free ownership.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Services</p>
+          <ul>
+            <li><a href="services.html#pm">Property Management</a></li>
+            <li><a href="services.html#rc">Real Estate Consultancy</a></li>
+            <li><a href="services.html#am">Asset Management</a></li>
+            <li><a href="services.html#ds">Digital Solutions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Owners</p>
+          <ul>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="index.html#dashboard">Owner Portal</a></li>
+            <li><a href="index.html#contact">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Help</p>
+          <ul>
+            <li><a href="index.html#faq">Resources</a></li>
+            <li><a href="index.html">Contact Us</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 JAVEN Property Management. All rights reserved.</span>
+        <span>Dar es Salaam, Tanzania.</span>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      hamburger.addEventListener("click", function() {
+        hamburger.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
+      });
+      window.addEventListener("scroll", function() {
+        document.getElementById("backToTop").style.display = window.scrollY > 400 ? "flex" : "none";
+        const tabs = document.querySelectorAll(".tab-link");
+        const sections = ["pm","rc","am","ds"];
+        sections.forEach(function(id, i) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom >= 150) {
+              tabs.forEach(function(t) { t.classList.remove("active"); });
+              tabs[i].classList.add("active");
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>
