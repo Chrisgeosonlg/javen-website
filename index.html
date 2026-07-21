@@ -71,11 +71,20 @@
         text-decoration: none;
         letter-spacing: 0.02em;
         padding-bottom: 3px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         border-bottom: 2px solid transparent;
         transition:
           color 0.2s,
           border-color 0.2s;
       }
+      /* Ensure SVG carets align with text */
+      nav ul li a svg {
+        display: block;
+        vertical-align: middle;
+      }
+      .nav-dropdown-trigger svg { transform: translateY(-1px); }
       nav ul li a:hover {
         color: var(--teal);
         border-bottom-color: var(--teal);
@@ -1111,6 +1120,20 @@
       }
 
       /* TABLET */
+      /* Show mobile hamburger earlier to avoid nav overlap on mid-size screens */
+      @media (max-width: 1100px) {
+        .hamburger {
+          display: flex;
+        }
+        nav ul {
+          display: none;
+        }
+        .nav-cta-group .btn-outline,
+        .nav-cta-group .btn-solid {
+          display: none;
+        }
+      }
+
       @media (max-width: 1024px) {
         nav ul {
           gap: 16px;
@@ -1270,6 +1293,12 @@
           padding-left: 5vw !important;
           padding-right: 5vw !important;
         }
+        /* Estate services: show icon + label only; reveal details on click */
+        .estate-item { transition: background 0.15s; cursor: pointer; }
+        .estate-detail { display: none; }
+        .estate-item.open .estate-detail { display: block; }
+        .estate-item .chev { transition: transform 0.18s; }
+        .estate-item.open .chev { transform: rotate(90deg); }
       }
     </style>
   </head>
@@ -2515,15 +2544,8 @@
       <div class="hero-left">
         <div class="geo-accent"></div>
         <p class="hero-eyebrow">PROPERTY MANAGEMENT REIMAGINED</p>
-        <h1 class="hero-title">
-          Maximizing <em>RETURNS</em>.<br />Protecting Investments.<br />Delivering
-          Peace of Mind.
-        </h1>
-        <p class="hero-sub">
-          We Combine Property management and smart technology to help owners
-          maximize rental income, reserve asset value and gain real time insite into
-          every property they own.
-        </p>
+        <h1 class="hero-title">Property managed smarter</h1>
+        <p class="hero-sub">We combine property management and smart technology to maximize rental income and visibility.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn-hero-owner">
             <svg
@@ -2587,6 +2609,15 @@
       </div>
     </section>
 
+    <script>
+      function toggleEstateItem(el) {
+        if (!el) return;
+        el.classList.toggle('open');
+        var d = el.querySelector('.estate-detail');
+        if (d) d.style.display = el.classList.contains('open') ? 'block' : 'none';
+      }
+    </script>
+
        <!-- WHY JAVEN -->
     <section class="why-section" id="why">
       <div class="section-header">
@@ -2604,12 +2635,7 @@
             </svg>
           </div>
           <h3 class="feature-title">Specialized Property Management</h3>
-          <p class="feature-desc">
-            Whether you own residential apartments, commercial buildings, or a
-            mixed portfolio, Javen provides professional management tailored to
-            your property's unique needs. We focus on maximizing occupancy,
-            protecting asset value, and delivering consistent returns.
-          </p>
+          <p class="feature-desc">Specialized property management → Tailored care for every portfolio</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -2622,12 +2648,7 @@
           <h3 class="feature-title">
             Transparent Pricing &amp; Financial Reporting
           </h3>
-          <p class="feature-desc">
-            No hidden fees. No unexpected charges. Our straightforward pricing
-            structure is designed around your portfolio, while detailed
-            financial reporting gives you complete visibility into income,
-            expenses, and property performance.
-          </p>
+          <p class="feature-desc">Transparent pricing → No hidden fees; clear financials</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -2636,12 +2657,7 @@
             </svg>
           </div>
           <h3 class="feature-title">Rigorous Tenant Screening</h3>
-          <p class="feature-desc">
-            Finding the right tenant is the foundation of successful property
-            management. Our thorough screening process helps reduce vacancy
-            periods, improve rent collection, and protect your investment from
-            unnecessary risk.
-          </p>
+          <p class="feature-desc">Rigorous tenant screening → Vetted tenants, fewer vacancies</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -2652,27 +2668,9 @@
             </svg>
           </div>
           <h3 class="feature-title">Proactive Maintenance Management</h3>
-          <p class="feature-desc">
-            We don't just react to problems—we work to prevent them. Through
-            regular inspections, preventive maintenance, and trusted service
-            providers, we help preserve your property's condition and avoid
-            costly repairs.
-          </p>
+          <p class="feature-desc">Proactive maintenance → Prevent issues, reduce repair costs</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-            </svg>
-          </div>
-          <h3 class="feature-title">Real-Time Owner Portal</h3>
-          <p class="feature-desc">
-            Access your property information anytime, anywhere. Track rental
-            income, maintenance requests, occupancy status, and financial
-            reports through a secure online dashboard designed for complete
-            transparency.
-          </p>
-        </div>
+        <!-- Real-Time Owner Portal card removed to avoid duplication -->
         <div class="feature-card">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24">
@@ -2683,11 +2681,7 @@
             </svg>
           </div>
           <h3 class="feature-title">Local Expertise. Professional Service.</h3>
-          <p class="feature-desc">
-            With deep knowledge of the Tanzania property market, Javen combines
-            local insight with modern management systems to deliver exceptional
-            service for property owners and tenants alike.
-          </p>
+          <p class="feature-desc">Local expertise → Tanzania market knowledge with professional service</p>
         </div>
       </div>
     </section>
@@ -2719,19 +2713,7 @@
         >
           Choose your operational tier.
         </h2>
-        <p
-          style="
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.55);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.75;
-          "
-        >
-          Whether you want a professional team to manage your property or simply
-          need a smarter way to manage it yourself, Javen has a solution
-          designed for you.
-        </p>
+        
       </div>
       <div
         style="
@@ -2899,18 +2881,7 @@
               </p>
             </div>
           </div>
-          <p
-            style="
-              font-size: 14px;
-              color: rgba(255, 255, 255, 0.55);
-              line-height: 1.75;
-              margin-bottom: 28px;
-            "
-          >
-            Our team manages the day-to-day operations of your property while
-            the Javen Operating System (JOS) provides complete transparency and
-            real-time visibility.
-          </p>
+          
           <div
             style="
               height: 1px;
@@ -3125,56 +3096,7 @@
                 </div>
               </div>
             </div>
-            <div
-              style="
-                display: flex;
-                align-items: center;
-                gap: 14px;
-                padding: 14px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-              "
-            >
-              <div
-                style="
-                  flex-shrink: 0;
-                  width: 40px;
-                  height: 40px;
-                  background: rgba(76, 93, 170, 0.25);
-                  border-radius: 10px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#6872b6"
-                  stroke-width="2"
-                >
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
-                </svg>
-              </div>
-              <div>
-                <div
-                  style="
-                    font-size: 14px;
-                    font-weight: 600;
-                    color: white;
-                    margin-bottom: 3px;
-                  "
-                >
-                  Real-time Owner Portal (24/7 access)
-                </div>
-                <div style="font-size: 12px; color: rgba(255, 255, 255, 0.45)">
-                  Complete visibility from any device, anywhere.
-                </div>
-              </div>
-            </div>
+            <!-- Real-time Owner Portal item removed from Tier A features to avoid duplication -->
             <div
               style="
                 display: flex;
@@ -4003,14 +3925,8 @@
             border: 1px solid var(--border);
           "
         >
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              padding: 24px 28px;
-              background: white;
-            "
+          <div class="estate-item" onclick="toggleEstateItem(this)"
+            style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;cursor:pointer;"
             onmouseover="this.style.background = '#f3f2e0'"
             onmouseout="this.style.background = 'white'"
           >
@@ -4035,27 +3951,15 @@
               >
                 Water Management
               </div>
-              <div
-                style="font-size: 13px; color: var(--muted); line-height: 1.6"
-              >
+              <div class="estate-detail" style="font-size:13px;color:var(--muted);line-height:1.6;display:none">
                 Continuous tracking and settlement of building-wide water
                 allocations to prevent unexpected utility disruptions.
               </div>
             </div>
-            <div
-              style="font-size: 20px; color: var(--teal-light); flex-shrink: 0"
-            >
-              ›
-            </div>
+            <div class="chev" style="font-size:20px;color:var(--teal-light);flex-shrink:0">›</div>
           </div>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              padding: 24px 28px;
-              background: white;
-            "
+          <div class="estate-item" onclick="toggleEstateItem(this)"
+            style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;cursor:pointer;"
             onmouseover="this.style.background = '#f3f2e0'"
             onmouseout="this.style.background = 'white'"
           >
@@ -4080,27 +3984,15 @@
               >
                 Common Area LUKU
               </div>
-              <div
-                style="font-size: 13px; color: var(--muted); line-height: 1.6"
-              >
+              <div class="estate-detail" style="font-size:13px;color:var(--muted);line-height:1.6;display:none">
                 Automated token purchasing and monitoring for building
                 corridors, exterior lighting, and shared facility spaces.
               </div>
             </div>
-            <div
-              style="font-size: 20px; color: var(--teal-light); flex-shrink: 0"
-            >
-              ›
-            </div>
+            <div class="chev" style="font-size:20px;color:var(--teal-light);flex-shrink:0">›</div>
           </div>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              padding: 24px 28px;
-              background: white;
-            "
+          <div class="estate-item" onclick="toggleEstateItem(this)"
+            style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;cursor:pointer;"
             onmouseover="this.style.background = '#f3f2e0'"
             onmouseout="this.style.background = 'white'"
           >
@@ -4125,27 +4017,15 @@
               >
                 Garbage Collection
               </div>
-              <div
-                style="font-size: 13px; color: var(--muted); line-height: 1.6"
-              >
+              <div class="estate-detail" style="font-size:13px;color:var(--muted);line-height:1.6;display:none">
                 Coordination with trusted local waste management authorities to
                 maintain premium sanitary standards.
               </div>
             </div>
-            <div
-              style="font-size: 20px; color: var(--teal-light); flex-shrink: 0"
-            >
-              ›
-            </div>
+            <div class="chev" style="font-size:20px;color:var(--teal-light);flex-shrink:0">›</div>
           </div>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              padding: 24px 28px;
-              background: white;
-            "
+          <div class="estate-item" onclick="toggleEstateItem(this)"
+            style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;cursor:pointer;"
             onmouseover="this.style.background = '#f3f2e0'"
             onmouseout="this.style.background = 'white'"
           >
@@ -4170,27 +4050,15 @@
               >
                 24/7 Property Security
               </div>
-              <div
-                style="font-size: 13px; color: var(--muted); line-height: 1.6"
-              >
+              <div class="estate-detail" style="font-size:13px;color:var(--muted);line-height:1.6;display:none">
                 Ongoing oversight of on-site security guards, gate access
                 control frameworks, and facility safety.
               </div>
             </div>
-            <div
-              style="font-size: 20px; color: var(--teal-light); flex-shrink: 0"
-            >
-              ›
-            </div>
+            <div class="chev" style="font-size:20px;color:var(--teal-light);flex-shrink:0">›</div>
           </div>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              padding: 24px 28px;
-              background: white;
-            "
+          <div class="estate-item" onclick="toggleEstateItem(this)"
+            style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;cursor:pointer;"
             onmouseover="this.style.background = '#f3f2e0'"
             onmouseout="this.style.background = 'white'"
           >
@@ -4215,27 +4083,15 @@
               >
                 Shared Landscaping
               </div>
-              <div
-                style="font-size: 13px; color: var(--muted); line-height: 1.6"
-              >
+              <div class="estate-detail" style="font-size:13px;color:var(--muted);line-height:1.6;display:none">
                 Scheduled upkeep of gardens, lawns, and green spaces to ensure
                 your property maintains an elite first impression.
               </div>
             </div>
-            <div
-              style="font-size: 20px; color: var(--teal-light); flex-shrink: 0"
-            >
-              ›
-            </div>
+            <div class="chev" style="font-size:20px;color:var(--teal-light);flex-shrink:0">›</div>
           </div>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              padding: 24px 28px;
-              background: white;
-            "
+          <div class="estate-item" onclick="toggleEstateItem(this)"
+            style="display:flex;align-items:center;gap:20px;padding:24px 28px;background:white;cursor:pointer;"
             onmouseover="this.style.background = '#f3f2e0'"
             onmouseout="this.style.background = 'white'"
           >
@@ -4260,18 +4116,12 @@
               >
                 Core Pest Control
               </div>
-              <div
-                style="font-size: 13px; color: var(--muted); line-height: 1.6"
-              >
+              <div class="estate-detail" style="font-size:13px;color:var(--muted);line-height:1.6;display:none">
                 Routine structural fumigation of common areas and building
                 perimeters to keep your asset completely pest-free.
               </div>
             </div>
-            <div
-              style="font-size: 20px; color: var(--teal-light); flex-shrink: 0"
-            >
-              ›
-            </div>
+            <div class="chev" style="font-size:20px;color:var(--teal-light);flex-shrink:0">›</div>
           </div>
         </div>
       </div>
@@ -4282,11 +4132,7 @@
       <div class="dashboard-text">
         <p class="section-eyebrow">Owner Portal</p>
         <h2 class="section-title">Complete Visibility. Total Control.</h2>
-        <p>
-          A powerful data dashboard gives every owner full visibility into
-          revenue, occupancy, maintenance requests, and tenant status — without
-          needing to pick up the phone.
-        </p>
+        <p>Live analytics for revenue, occupancy, and maintenance — available 24/7.</p>
         <a href="#contact" class="btn-hero-owner" style="margin-top: 40px"
           >Request a Demo</a
         >
